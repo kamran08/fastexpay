@@ -816,9 +816,12 @@ a{
     border: solid 1px #c4c4c4;
     color: #525252;
 }
+._1int:hover {
+    border:solid 1px #6647ff;
+}
 ._1int:focus {
-    box-shadow: 0px 0px 5px -1px #3177f159;
-    border: 1px solid #3177f140;
+    /* box-shadow: 0px 0px 5px -1px #3177f159; */
+    border: solid 1px #6647ff;
 }
 ._1textarea {
     width: 100%;
@@ -829,9 +832,12 @@ a{
     border: solid 1px #c4c4c4;
     color: #525252;
 }
+._1textarea:hover{
+    border:solid 1px #6647ff;
+}
 ._1textarea:focus{
-        box-shadow: 0px 0px 5px -1px #3177f159 !important;
-    border: 1px solid #3177f140 !important;
+    /* box-shadow: 0px 0px 5px -1px #3177f159; */
+    border: solid 1px #6647ff;
 }
 ._3label {
     color: #6f3088;
@@ -881,6 +887,66 @@ a{
     border-radius: 4px;
 }
 ._2int:focus{}
+._1select {
+    width: 100%;
+    font-size: 16px;
+    padding: 0 15px 0;
+    background: #fff;
+    border-radius: 5px;
+    transition: .3s all ease;
+    height: 40px;
+    border: solid 1px #c4c4c4;
+    color: #525252;
+}
+._1select:hover {
+    border:solid 1px #6647ff
+}
+._1select:focus {
+    /* box-shadow: 0px 0px 5px -1px #3177f159; */
+    border: solid 1px #6647ff;
+}
+
+._1date{
+    width: 100%;
+}
+._1date .ivu-input::-webkit-input-placeholder {
+    color: #777;
+}
+._1date .ivu-input:-ms-input-placeholder {
+    color: #777;
+}
+._1date .ivu-input::placeholder{
+    color: #777;
+}
+._1date .ivu-input-suffix i {
+    font-size: 21px;
+    line-height: 40px;
+    color: #808695;
+}
+._1date .ivu-input {
+    display: inline-block;
+    background-color: #fff;
+    background-image: none;
+    position: relative;
+    cursor: text;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 15px 0;
+    background: #fff;
+    border-radius: 5px;
+    transition: .3s all ease;
+    height: 40px;
+    border: solid 1px #c4c4c4;
+    color: #525252;
+}
+._1date .ivu-input:focus {
+    border-color: #6647ff;
+    outline: 0;
+    box-shadow: none;
+}
+._1date .ivu-input:hover {
+    border-color: #6647ff;
+}
 
 /* Radio */
 ._radio_default{}
@@ -936,7 +1002,11 @@ a{
     border-radius: 50%;
     background: #6647ff;
 }
-
+._1check{}
+._1check .ivu-checkbox-checked .ivu-checkbox-inner {
+    border-color: #332480;
+    background-color: #332480;
+}
 
 ._fixed{
     position: fixed;

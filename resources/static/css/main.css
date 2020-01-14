@@ -8,6 +8,7 @@
     7.Detail Procedure
     8.Contact us
     9.Payment
+    10.Booking modal
 
 
 
@@ -924,6 +925,80 @@
 }
 /*========== 9.Payment end ==========*/
 
+/*========== 10.Booking modal ==========*/
+._book_modal {
+    padding: 36px 60px;
+}
+._booking_title {
+    font-size: 24px;
+    color: #303030;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+._booking_text {
+    color: #737373;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 71px;
+}
+._book_modal ._booking_step {
+    margin-bottom: 39px;
+}
+._booking_step {
+    display: flex;
+    align-items: center;
+}
+._booking_step_text {
+    font-size: 18px;
+    font-weight: bold;
+}
+._booking_step_num {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    line-height: 17px;
+    flex: 0 0 auto;
+    margin-right: 15px;
+}
+._booking_form_label{
+    font-size: 18px;
+    color: #777777;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+._booking_form{}
+._booking_form_input {
+    margin-bottom: 25px;
+}
+._thank {
+    padding: 50px 90px;
+}
+._thank ._booking_text {
+    margin-bottom: 27px;
+    margin-top: 36px;
+}
+._thank_check {
+    height: 100px;
+    width: 100px;
+    background-image: linear-gradient(84deg, #332480 1%, #6647ff 123%);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    margin: 30px auto 0;
+    color: #fff;
+    justify-content: center;
+    font-size: 58px;
+}
+._booking_button{}
+/*========== 10.Booking modal end ==========*/
+
 
 /*Small Device*/
 @media only screen and (max-width: 767px){
@@ -1133,7 +1208,12 @@
 ._review_buttons{
     display: block;
 }
-
+._book_modal {
+    padding: 6px 0px;
+}
+._thank {
+    padding: 20px 0px;
+}
 }
 /*Small Device*/
 
@@ -1198,7 +1278,9 @@
 .status {
     flex: 0 0 152px;
 }
-
+._book_modal {
+    padding: 30px 30px;
+}
 
 }
 /*Medium Device*/
