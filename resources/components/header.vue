@@ -35,17 +35,23 @@
               <li>
                 <nuxt-link to="/contact">Contact Us</nuxt-link>
               </li>
-              <li>
+              <!-- <li>
+                <nuxt-link to="/login">Log In</nuxt-link>
+              </li> -->
+              <!-- <li v-if="!authInfo">
                 <nuxt-link to="/login">Log In</nuxt-link>
               </li>
-              <li>
+              <li v-else>
+                <nuxt-link to="/logout">Log out</nuxt-link>
+              </li> -->
+              <!-- <li>
                 <nuxt-link to="/registration">Sign Up</nuxt-link>
-              </li>
+              </li> -->
             </ul>
           </div>
 
           <div class="col-auto col-md-auto col-lg-auto _col_hidden">
-            <button class="_btn_gradient_default _btn_sm" @click="booking_modal = true" type="button">Book Appointment</button>
+            <button class="_btn_gradient_default _btn_sm" @click="booking_modal = true,isSubmit=false" type="button">Book Appointment</button>
           </div>
         </div>
       </div>
@@ -53,6 +59,7 @@
 
     <Modal v-model="booking_modal" :footer-hide="true" width="850">
       <div class="_book_modal">
+        <template v-if="!isSubmit">
           <h2 class="_booking_title">Request an Appointment</h2>
 
           <p class="_booking_text">Please fill out the form below and our scheduling coordinator will <br> contact you to confirm your appointment.</p>
@@ -68,40 +75,45 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">First Name</p>
 
-                            <input class="_1int" type="text" placeholder="type first name">
+                            <input class="_1int" v-model="from.firstName" type="text" placeholder="type first name">
                         </div>
+                        <p v-if="from.firstName=='' || from.firstName==null" class="Rectangle_coustom">Write Your First Name</p>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Last Name</p>
 
-                            <input class="_1int" type="text" placeholder="type last name">
+                            <input class="_1int" v-model="from.lastName" type="text" placeholder="type last name">
                         </div>
+                        <p v-if="from.lastName=='' || from.lastName== null" class="Rectangle_coustom">Write Your Last Name</p>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Date of Birth</p>
                             
-                            <DatePicker prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker>
+                            <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker>
                         </div>
+                         <p v-if="from.dob=='' || from.dob==null" class="Rectangle_coustom">Select Date of Birth</p>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Phone</p>
 
-                            <input class="_1int" type="text" placeholder="type phone number">
+                            <input class="_1int" v-model="from.phone" type="text" placeholder="type phone number">
                         </div>
+                        <p v-if="from.phone=='' || from.phone==null" class="Rectangle_coustom">write an phone</p>
                     </div>
 
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Email</p>
 
-                            <input class="_1int" type="text" placeholder="type email">
+                            <input class="_1int" type="email" v-model="from.email"  placeholder="type email">
                         </div>
+                         <p v-if="from.email=='' || from.email==null" class="Rectangle_coustom">Email Not Valid</p>
                     </div>
                 </div>
             </div>
@@ -119,19 +131,30 @@
                             <p class="_booking_form_label">Are you a new patient?</p>
 
                             <div class="_dis_flex">
-                                <div class="_mar_r10 _flex_auto">
+                              <RadioGroup v-model="from.isNew">
+                                <Radio label="Yes" >
+                                    <!-- <Icon type="logo-apple"></Icon> -->
+                                    <span>Yes</span>
+                                </Radio>
+                                <Radio label="No">
+                                    <!-- <Icon type="logo-android"></Icon> -->
+                                    <span>No</span>
+                                </Radio>
+                               
+                            </RadioGroup>
+                                <!-- <div class="_mar_r10 _flex_auto">
                                     <label class="_radio_default">Yes
-                                        <input type="radio" checked="checked" name="radio"> 
+                                        <input type="radio" checked="checked"  v-model="from.isNew" name="radio"> 
                                         <span class="radio_check"></span>
                                     </label>
                                 </div>
-
+                                {{from.isNew}}
                                 <div class="_mar_r10 _flex_auto">
                                     <label class="_radio_default">No
-                                        <input type="radio" checked="checked" name="radio"> 
+                                        <input type="radio" checked="checked" v-model="from.isNew" name="radio"> 
                                         <span class="radio_check"></span>
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -140,13 +163,11 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Services</p>
 
-                            <select class="_1select">
-                                <option>Choose Servirs</option>
-                                <option>Choose Servirs</option>
-                                <option>Choose Servirs</option>
-                                <option>Choose Servirs</option>
-                                <option>Choose Servirs</option>
+                            <select class="_1select" v-model="from.desiredServices">
+                                <option value="Dental" label="Dental">Dental</option>
+                                <option  value="Doctor" label="Doctor" >Doctor</option>
                             </select>
+                            <p v-if="from.desiredServices=='' || from.desiredServices==null" class="Rectangle_coustom">Select Desired Services</p>
                         </div>
                     </div>
 
@@ -154,41 +175,49 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Day</p>
                             
-                            <CheckboxGroup v-model="social">
-                                <Checkbox class="_1check" label="twitter">
-                                    <span>Twitter</span>
+                            <CheckboxGroup v-model="days">
+                                <Checkbox class="_1check" label="sat">
+                                    <span>Saturday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="facebook">
-                                    <span>Facebook</span>
+                                <Checkbox class="_1check" label="sun">
+                                    <span>Sunday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="github">
-                                    <span>Github</span>
+                                <Checkbox class="_1check" label="tue">
+                                    <span>Tuesday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="snapchat">
-                                    <span>Snapchat</span>
+                                <Checkbox class="_1check" label="wed">
+                                    <span>Wednesday</span>
+                                </Checkbox>
+                                <Checkbox class="_1check" label="thu">
+                                    <span>Thursday</span>
+                                </Checkbox>
+                                <Checkbox class="_1check" label="fri">
+                                    <span>Friday</span>
                                 </Checkbox>
                             </CheckboxGroup>
+                            <p v-if="days.length==0" class="Rectangle_coustom">Select Desired Day</p>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="_booking_form_input">
-                            <p class="_booking_form_label">Desired Day</p>
+                            <p class="_booking_form_label">Desired Time</p>
                             
-                            <CheckboxGroup v-model="social">
-                                <Checkbox class="_1check" label="twitter">
+                            <CheckboxGroup v-model="alltimes">
+                                <Checkbox class="_1check" label="8:00 AM to 10:00 AM">
                                     <span>8:00 AM to 10:00 AM</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="facebook">
+                                <Checkbox class="_1check" label="10:00AM to 12:00AM">
                                     <span>10:00AM to 12:00AM</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="github">
+                                <Checkbox class="_1check" label="1:00PM to 2:00PM">
                                     <span>1:00PM to 2:00PM</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="snapchat">
+                                <Checkbox class="_1check" label="2:00PM to 4:00 PM">
                                     <span>2:00PM to 4:00 PM</span>
                                 </Checkbox>
                             </CheckboxGroup>
+                            <p v-if="alltimes.length==0" class="Rectangle_coustom"> Select Desired Time</p>
                         </div>
                     </div>
 
@@ -196,16 +225,18 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Please describe the nature of your appointment</p>
 
-                            <textarea class="_1textarea" placeholder="" rows="6"></textarea>
+                            <textarea v-model="from.description" class="_1textarea" placeholder="" rows="6"></textarea>
                         </div>
+                         <p v-if="from.description=='' || from.description==null" class="Rectangle_coustom"> Write Some Descriptions</p>
                     </div>
 
-                    <div class="col-12 col-md-12 col-lg-12 _text_right">
+                    <div class="col-12 col-md-12 col-lg-12 _text_right" @click="storealldata">
                         <button class="_btn_gradient_default _mar_t10">Submit <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
-            
+        </template>
+        <template v-else>
             <!-- Thank you -->
             <div class="_thank">
                 <h2 class="_booking_title">Thank you</h2>
@@ -217,11 +248,13 @@
                     Coordinator will contact you as soon as possible to confirm your appointment.
                 </p>
 
-                <div class="_booking_button _text_center">
+                <div class="_booking_button _text_center"  @click="isSubmit=false">
                     <button class="_btn_gradient_default _mar_t10">Done</button>
                 </div>
             </div>
+          
             <!-- Thank you -->
+        </template>
       </div>
     </Modal>
   </div>
@@ -230,11 +263,99 @@
 export default {
   data() {
     return {
-      booking_modal: true
+      isSubmit:false,
+      booking_modal: false,
+      days: ["sat"],
+      alltimes: ["8:00 AM to 10:00 AM"],
+      from:{
+        firstName:' ',
+        lastName:' ',
+        dob:' ',
+        phone:' ',
+        email:' ',
+        isNew:'No',
+        desiredServices:' ',
+        // sat:false,
+        // sun:false,
+        // mon:false,
+        // tue:false,
+        // wed:false,
+        // thu:false,
+        // fri:false,
+        description:' '
+
+
+      },
+      social:""
     };
   },
   created() {
     console.log(this.$route.name);
+  },
+  methods:{
+     editStartTime(date){
+           this.from.dob=date
+      },
+    async storealldata(){
+      this.from.phone =this.from.phone.trim()
+      this.from.firstName =this.from.firstName.trim()
+      this.from.lastName =this.from.lastName.trim()
+      // this.from.dob = (this.from.dob==null)?'':'',
+      this.from.desiredServices =this.from.desiredServices.trim()
+      this.from.email = this.from.email.trim()
+      this.from.description =this.from.description.trim()
+      console.log(this.from)
+      if(this.days.length==0){
+        return
+        
+      }
+      if(this.from.firstName==''){
+        this.from.firstName = ''
+        return
+      }
+      if(this.from.lastName==''){
+
+        this.from.lastName = ''
+        return
+      }
+      if(this.from.dob=='' || this.from.dob==null){
+        this.from.dob = ''
+        return
+      }
+      if(this.from.phone==''){
+        this.i("hello")
+        this.from.phone=''
+        return
+      }
+      if(this.from.desiredServices=='' || this.from.desiredServices==null){
+        this.i("hello")
+        this.from.desiredServices = ''
+        return
+      }
+    
+      if(this.from.email==''){
+        this.from.email = ''
+        return
+      }
+      if(this.from.description=='' || this.from.description==null){
+        this.from.description = ''
+        return
+      }
+    
+      if(this.alltimes.length==0){
+        return
+
+      }
+      this.isSubmit = true
+      
+    }
   }
 };
 </script>
+<style >
+.Rectangle_coustom {
+  width: 237px;
+  height: 50px;
+  background-color: #efadad;
+}
+</style>

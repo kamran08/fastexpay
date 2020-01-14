@@ -15,24 +15,24 @@
 
           <div class="_team_main">
             <div class="container">
-              <div class="row align-items-center">
+              <div class="row align-items-center" v-if="singleMember">
                 <div class="col-12 col-md-4 col-lg-4">
-                  <img class="_team_img" src="/images/1.jpg" alt="" title="">
+                  <img class="_team_img" :src="singleMember.image" alt="" title="">
                 </div>
 
                 <div class="col-12 col-md-8 col-lg-8">
                   <div class="_team_main_details">
                     <h2 class="_1title">
-                      <span class="_1title_span">Our Team</span> <span class="_c_default">Dr. Shannaika Dao</span>
+                      <span class="_1title_span">Our Team</span> <span class="_c_default">{{singleMember.name}}</span>
                     </h2>
 
                     <p class="_1text">
-                      Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
+                      {{singleMember.description}}
                     </p>
 
-                    <p class="_1text">
+                    <!-- <p class="_1text">
                       Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
-                    </p>
+                    </p> -->
 
                      <button class="_btn_gradient_default" type="button">View More</button>
                   </div>
@@ -45,120 +45,15 @@
             <div class="container">
               <div class="row">
                 <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
+                <div class="col-12 col-md-3 col-lg-4" v-for="(item,index) in allmembers" :key="index">
                   <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
+                    <div class="_1card_pic" @click="asignSingleMemebr(index)">
+                      <img class="_1card_img" :src="item.image" alt="" title="">
                     </div>
 
                     <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card -->
-
-                <!-- Card -->
-                <div class="col-12 col-md-3 col-lg-4">
-                  <div class="_1card _mar_b30">
-                    <div class="_1card_pic">
-                      <img class="_1card_img" src="/images/pro.jpg" alt="" title="">
-                    </div>
-
-                    <div class="_1card_details">
-                      <p class="_1card_name _text_overflow">Dr. Victor Nyoullan</p>
-                      <p class="_1card_status _text_overflow">Dentish</p>
+                      <p class="_1card_name _text_overflow">{{item.name}}</p>
+                      <p class="_1card_status _text_overflow">{{item.designation}}</p>
                     </div>
                   </div>
                 </div>
@@ -190,3 +85,31 @@
       </div>
     </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+        allmembers:{},
+        singleMember:false
+    }
+  },
+  async created(){
+    const res =await this.callApi('get', '/getTeamMember')
+    if(res.status==200){
+      this.allmembers = res.data
+      if(this.allmembers ){
+        this.singleMember = this.allmembers[0]
+      }
+      
+    }
+
+  },
+  methods:{
+    asignSingleMemebr(index){
+      this.singleMember = this.allmembers[index]
+    }
+
+  }
+}
+</script>

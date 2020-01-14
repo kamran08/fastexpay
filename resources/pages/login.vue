@@ -27,7 +27,7 @@
                                         <div class="_1input_group">
                                         <p class="_1label">Email</p>
 
-                                        <input class="_1int" type="text" placeholder="type email address">
+                                        <input class="_1int" v-model="formData.email" type="text" placeholder="type email address">
                                         </div>
                                     </div>
 
@@ -35,7 +35,7 @@
                                         <div class="_1input_group">
                                         <p class="_1label">Password</p>
 
-                                        <input class="_1int" type="password" placeholder="type your password">
+                                        <input class="_1int" v-model="formData.password" type="password" placeholder="type your password">
                                         </div>
                                     </div>
 
@@ -44,7 +44,7 @@
                                         <div class="col-12 col-md col-lg">
                                             
                                         </div>
-                                        <div class="col-12 col-md-auto col-lg-auto">
+                                        <div class="col-12 col-md-auto col-lg-auto" @click="onSubmit">
                                             <button class="_btn_gradient_default _mar_t10">Log In <i class="fas fa-arrow-right"></i></button>
                                         </div>
                                         </div>
@@ -81,3 +81,56 @@
       </div>
     </div>
 </template>
+<script>
+
+export default {
+  data(){
+    return{
+        formData:{
+          email:'',
+          password:'',
+        }
+    }
+  },
+  created(){
+
+  },
+  methods:{
+        async onSubmit(){
+            if (this.formData.email=='' || this.formData.password=='') {
+                this.e('field can not be empty')
+                return
+            }
+            console.log(this.formData)
+            // return
+
+              const res = await this.callApi('post','/login',this.formData)
+              if(res.status===200){
+                  this.s("Login Successfully !")
+                  this.$store.dispatch('setAuthInfo',res.data)
+                  // this.$router.push('/')
+                  // console.log('login success')
+                  // this.$router.go(0);
+                  this.$router.push('/')
+                  // // window.location= '/'
+                  // console.log(this.authInfo)
+                  // if(this.authInfo.role==1){
+                  //     // this.$router.push('flanker/'+this.authInfo.id)
+                  //     // window.location= '/flanker/'+this.authInfo.id
+                  //     this.$router.push('/product_post')
+                  // }
+                  // else if(this.authInfo.role==2){
+                  //       // window.location ='/profile/'+this.authInfo.id
+                  //       this.$router.push('/')
+                  // }
+              }
+              else if(res.status==401){
+                  this.e(res.data.message)
+              }
+              else{
+                  this.swr();
+              }
+      }
+  }
+}
+</script>

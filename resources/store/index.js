@@ -76,17 +76,17 @@ export const mutations = {
 }
 
 export const actions = {
-  // async nuxtServerInit ({ commit }, { $axios }) {
-  //   try {
-  //     // get the initial data
-  //     let { data } = await $axios.get('app/initdata')
-  //     // update the state of the aiuth
-  //     commit('setAuthInfo', data.user)
-  //     // console.log(data)
-  //   } catch (e) {
-  //     console.log(e.response)
-  //   }
-  // },
+  async nuxtServerInit ({ commit }, { $axios }) {
+    try {
+      // get the initial data
+      let { data } = await $axios.get('app/initdata')
+      // update the state of the aiuth
+      commit('setAuthInfo', data)
+      // console.log(data)
+    } catch (e) {
+      console.log(e.response)
+    }
+  },
   setAuthInfo ({ commit }, data) {
     commit('setAuthInfo', data)
   },
