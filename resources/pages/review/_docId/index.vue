@@ -26,8 +26,8 @@
                       <p class="_1label">Full Name</p>
 
                       <input class="_1int" type="text" v-model="from.name" placeholder="full name">
-                    </div>
                     <p v-if="from.name==''" class="Rectangle_coustom">Write Your full name</p>
+                    </div>
                   </div>
 
                   <div class="col-12 col-md-6 col-lg-6">
@@ -35,8 +35,8 @@
                       <p class="_1label">Date of Visit</p>
                        <!-- <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker> -->
                       <input class="_1int" v-model="from.date" type="date" placeholder="Jhon Doe">
-                    </div>
                      <p v-if="from.date==''" class="Rectangle_coustom">Select Date of Visit</p>
+                    </div>
                   </div>
 
                   <div class="col-12 col-md-6 col-lg-6">
@@ -77,9 +77,9 @@
 
                         <p class="_upload_text">Upload your Picture</p>
                        </div>
+                      <p v-if="image==''" class="Rectangle_coustom">Upload your Picture</p>
                       </div>
 
-                      <p v-if="image==''" class="Rectangle_coustom">Upload your Picture</p>
                     </div>
                   </div>
 
@@ -323,9 +323,5 @@ export default {
 .boitol{
    color: #ff8c36 !important;
 }
-.Rectangle_coustom {
-  width: 237px;
-  height: 50px;
-  background-color: #efadad;
-}
+
 </style>

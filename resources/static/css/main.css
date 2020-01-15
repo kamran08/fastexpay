@@ -837,6 +837,26 @@
     padding: 31px 26px 0;
     top: 42px;
 }
+.Rectangle_coustom:before {
+    position: absolute;
+    content: '\f06a';
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 21px;
+}
+.Rectangle_coustom {
+    color: #ce3434;
+    background: #efadad;
+    position: relative;
+    padding: 11px 20px 11px 50px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 ._drop_modal_title {
     color: #303030;
     font-weight: bold;

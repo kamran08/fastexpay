@@ -76,8 +76,8 @@
                             <p class="_booking_form_label">First Name</p>
 
                             <input class="_1int" v-model="from.firstName" type="text" placeholder="type first name">
-                        </div>
                         <p v-if="from.firstName=='' || from.firstName==null" class="Rectangle_coustom">Write Your First Name</p>
+                        </div>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6">
@@ -85,8 +85,8 @@
                             <p class="_booking_form_label">Last Name</p>
 
                             <input class="_1int" v-model="from.lastName" type="text" placeholder="type last name">
+                           <p v-if="from.lastName=='' || from.lastName== null" class="Rectangle_coustom">Write Your Last Name</p>
                         </div>
-                        <p v-if="from.lastName=='' || from.lastName== null" class="Rectangle_coustom">Write Your Last Name</p>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6">
@@ -94,8 +94,8 @@
                             <p class="_booking_form_label">Date of Birth</p>
                             
                             <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker>
+                         <p v-if="from.dob==''" class="Rectangle_coustom">Select Date of Birth</p>
                         </div>
-                         <p v-if="from.dob=='' || from.dob==null" class="Rectangle_coustom">Select Date of Birth</p>
                     </div>
 
                     <div class="col-12 col-md-6 col-lg-6">
@@ -103,8 +103,8 @@
                             <p class="_booking_form_label">Phone</p>
 
                             <input class="_1int" v-model="from.phone" type="text" placeholder="type phone number">
-                        </div>
                         <p v-if="from.phone=='' || from.phone==null" class="Rectangle_coustom">write an phone</p>
+                        </div>
                     </div>
 
                     <div class="col-12 col-md-12 col-lg-12">
@@ -112,8 +112,8 @@
                             <p class="_booking_form_label">Email</p>
 
                             <input class="_1int" type="email" v-model="from.email"  placeholder="type email">
-                        </div>
                          <p v-if="from.email=='' || from.email==null" class="Rectangle_coustom">Email Not Valid</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -226,8 +226,8 @@
                             <p class="_booking_form_label">Please describe the nature of your appointment</p>
 
                             <textarea v-model="from.description" class="_1textarea" placeholder="" rows="6"></textarea>
-                        </div>
                          <p v-if="from.description=='' || from.description==null" class="Rectangle_coustom"> Write Some Descriptions</p>
+                        </div>
                     </div>
 
                     <div class="col-12 col-md-12 col-lg-12 _text_right" @click="storealldata">
@@ -352,10 +352,3 @@ export default {
   }
 };
 </script>
-<style >
-.Rectangle_coustom {
-  width: 237px;
-  height: 50px;
-  background-color: #efadad;
-}
-</style>

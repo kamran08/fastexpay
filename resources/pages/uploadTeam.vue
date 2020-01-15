@@ -27,16 +27,16 @@
                           <p class="_1label">Full Name</p>
 
                           <input class="_1int" v-model="from.name" type="text" placeholder="type first name">
+                        <p v-if="from.name==''" class="Rectangle_coustom">Write Your Full Name</p>
                         </div>
-                        <p v-if="from.name=='' || from.name==null" class="Rectangle_coustom">Write Your Full Name</p>
                       </div>
                       <div class="col-12 col-md-12 col-lg-12">
                         <div class="_1input_group">
                           <p class="_1label">Designation</p>
 
                           <input class="_1int" v-model="from.designation" type="text" placeholder="type designation">
+                        <p v-if="from.designation==''" class="Rectangle_coustom">Write designation</p>
                         </div>
-                        <p v-if="from.designation=='' || from.designation==null" class="Rectangle_coustom">Write designation</p>
                       </div>
 
                       <div class="col-12 col-md-6 col-lg-6">
@@ -44,8 +44,8 @@
                           <p class="_1label">Email</p>
 
                           <input class="_1int" v-model="from.email"  type="text" placeholder="type email address">
+                         <p v-if="from.email==''" class="Rectangle_coustom">Write email</p>
                         </div>
-                         <p v-if="from.email=='' || from.email==null" class="Rectangle_coustom">Write email</p>
                         
                       </div>
 
@@ -56,8 +56,8 @@
                           <p class="_1label">Description</p>
 
                           <textarea class="_1textarea" v-model="from.description" placeholder="type message" rows="5"></textarea>
-                        </div>
                         <p v-if="from.description=='' || from.description==null" class="Rectangle_coustom">Write description</p>
+                        </div>
                       </div>
                       <div class="col-12 col-md-12 col-lg-12">
                           
@@ -240,9 +240,5 @@ export default {
 }
 </script>
 <style >
-.Rectangle_coustom {
-  width: 237px;
-  height: 50px;
-  background-color: #efadad;
-}
+
 </style>
