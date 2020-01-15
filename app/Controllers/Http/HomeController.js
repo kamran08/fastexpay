@@ -1,6 +1,8 @@
 'use strict'
 const Helpers = use('Helpers')
 const Team =  use('App/Models/Team')
+const Review =  use('App/Models/Review')
+const Image =  use('App/Models/Image')
 class HomeController {
 
     async userRegister({ request, response, session, auth }) {
@@ -59,6 +61,7 @@ class HomeController {
         }
   
     }
+ 
     async getTeamMember({ request, response, auth, session }) {
         const data = request.all()
         let members =  await Team.all()
@@ -81,6 +84,53 @@ class HomeController {
                 }
             )
         }
+  
+    }
+    async getAllReviews({ request, response, auth, session }) {
+        // const data = request.all()
+        let reviews =  await Review.query().with('images').fetch()
+        if(reviews){
+        reviews = reviews.toJSON();
+            for(let i of reviews){
+            i.istrue = false
+            }
+        }
+        return reviews
+
+    }
+    async updateReviews({ request, response, auth, session }) {
+        const data = request.all()
+        let reviews =  await Review.query().where('id',data.id).update(data)
+        return reviews
+
+    }
+    async getSingleDoctor({params, request, response, auth, session }) {
+        // const data = request.all()
+        let team =  await Team.query().where('id',params.docId).fetch()
+        return team
+
+    }
+    async storeReviewData({ request, response, auth, session }) {
+
+        const data = request.all()
+        let images = data.additionalImages
+        delete data.additionalImages
+        let review =  await Review.create(data)
+
+
+
+        if(images.length){
+            for(let i in images){
+                let ob={
+                    reviewId:review.id,
+                    image:images[i],
+                }
+                let img =  await Image.create(ob)
+            }
+            
+        }
+        return review
+        
   
     }
 

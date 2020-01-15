@@ -360,7 +360,7 @@
             <div class="_team_main">
               <div class="container">
                 <div class="row align-items-center" v-if="singleMember">
-                  <div class="col-12 col-md-4 col-lg-4">
+                  <div class="col-12 col-md-4 col-lg-4" v-if="singleMember.image">
                     <img class="_team_img" :src="singleMember.image" alt="" title="">
                   </div>
 
@@ -396,7 +396,7 @@
                       </div>
 
                       <div class="_1card_details"> 
-                        <p class="_1card_name">{{item.name}}</p>
+                        <p class="_1card_name" v-if="item.name">{{item.name}}</p>
                         <p class="_1card_status">{{item.designation}}</p>
                       </div>
                     </div>
