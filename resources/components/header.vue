@@ -24,6 +24,9 @@
                 <nuxt-link to="/team">Our Team</nuxt-link>
               </li>
               <li>
+                <nuxt-link to="/uploadTeam">upload your Team member</nuxt-link>
+              </li>
+              <li>
                 <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
               </li>
               <li>
