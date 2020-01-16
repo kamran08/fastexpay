@@ -149,7 +149,7 @@
               </div>
 
               <div class="col-12 col-md-auto col-lg-auto">
-                <button class="_schedule_btn" type="button">
+                <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                   REQURST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
@@ -161,3 +161,24 @@
       </div>
     </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  async created(){
+ 
+
+  },
+  methods:{
+     setAppointMentModal(d){
+      // let d = !this.appointmentModal
+      this.$store.dispatch('setAppointmentModal',d)
+    },
+
+  }
+}
+</script>

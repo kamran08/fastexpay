@@ -144,7 +144,7 @@
               </div>
 
               <div class="col-12 col-md-auto col-lg-auto">
-                <button class="_schedule_btn" type="button">
+                <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                   REQURST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
@@ -176,6 +176,7 @@
 
 <script>
 export default {
+   middleware:['authenticated'],
   data(){
     return{
         editModal:false,
@@ -219,6 +220,9 @@ export default {
       this.editModal = false
     },
     async updateStatus(status){
+       if(!this.authInfo){
+             return this.e("You are not Authentic User!!")
+         }
         const res =await this.callApi('post', '/updateReviews', {'status':status, id:this.editData.id})
         if(res.status==200){
           this.allreviews[this.editIndex].status = status
@@ -230,7 +234,10 @@ export default {
         else{
           this.isFail = true
         }
-    }
+    },
+     setAppointMentModal(d){
+        this.$store.dispatch('setAppointmentModal',d)
+      },
 
   }
 }

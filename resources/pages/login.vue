@@ -69,7 +69,7 @@
               </div>
 
               <div class="col-12 col-md-auto col-lg-auto">
-                <button class="_schedule_btn" type="button">
+                <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                   REQURST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
@@ -84,6 +84,7 @@
 <script>
 
 export default {
+  middleware:['loginTrue'],
   data(){
     return{
         formData:{
@@ -130,7 +131,11 @@ export default {
               else{
                   this.swr();
               }
-      }
+      },
+       setAppointMentModal(d){
+        this.$store.dispatch('setAppointmentModal',d)
+      },
   }
 }
 </script>
+

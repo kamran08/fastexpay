@@ -180,7 +180,10 @@
 </template>
 
 <script>
+// import authenticated from '../middleware/authenticated.js';
 export default {
+  
+  middleware:['authenticated'],
     data(){
         return{
             uploadList:[],
@@ -197,12 +200,16 @@ export default {
     },
     created(){
 
+
     },
     methods:{
           deleteImage(){
       
                 this.from.image =''
             },
+        setAppointMentModal(d){
+            this.$store.dispatch('setAppointmentModal',d)
+          },
         async storeAlldata(){
 
               this.from.name = this.from.name.trim()
@@ -231,6 +238,9 @@ export default {
                 if(this.from.image.trim()==''){
                     this.image ='' 
                     return
+                }
+                if(!this.authInfo){
+                 return this.e("You are not Authentic User!!")
                 }
                 const res = await this.callApi('post', '/storeTeamData', this.from)
                 if(res.status===200){

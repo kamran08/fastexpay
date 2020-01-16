@@ -18,21 +18,21 @@
                 <nuxt-link to="/">Home</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/detailProcedure">Servies</nuxt-link>
+                <nuxt-link to="/detailProcedure">Services</nuxt-link>
               </li>
               <li>
                 <nuxt-link to="/team">Our Team</nuxt-link>
               </li>
-              <li>
-                <nuxt-link to="/uploadTeam">upload your Team member</nuxt-link>
+              <li v-if="authInfo">
+                <nuxt-link to="/uploadTeam" >upload your Team member</nuxt-link>
               </li>
               <li>
                 <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/payment">Pyments</nuxt-link>
+                <nuxt-link to="/payment">Payments</nuxt-link>
               </li>
-              <li>
+              <li v-if="authInfo">
                 <nuxt-link to="/manageReview">Patient Reviws</nuxt-link>
               </li>
               <li>
@@ -54,13 +54,13 @@
           </div>
 
           <div class="col-auto col-md-auto col-lg-auto _col_hidden">
-            <button class="_btn_gradient_default _btn_sm" @click="booking_modal = true,isSubmit=false" type="button">Book Appointment</button>
+            <button class="_btn_gradient_default _btn_sm" @click="setAppointMentModal(true),isSubmit=false" type="button">Book Appointment</button>
           </div>
         </div>
       </div>
     </nav>
 
-    <Modal v-model="booking_modal" :footer-hide="true" width="850">
+    <Modal v-model="getAppointmentModal" :mask-closable="false" :footer-hide="true" width="850" @on-cancel="setAppointMentModal(false)">
       <div class="_book_modal">
         <template v-if="!isSubmit">
           <h2 class="_booking_title">Request an Appointment</h2>
@@ -251,7 +251,7 @@
                     Coordinator will contact you as soon as possible to confirm your appointment.
                 </p>
 
-                <div class="_booking_button _text_center"  @click="isSubmit=false, booking_modal=false">
+                <div class="_booking_button _text_center"  @click="isSubmit=false, setAppointMentModal(false)">
                     <button class="_btn_gradient_default _mar_t10">Done</button>
                 </div>
             </div>
@@ -294,8 +294,13 @@ export default {
   },
   created() {
     console.log(this.$route.name);
+    console.log(this.appointmentModal,"modaloo");
   },
   methods:{
+    setAppointMentModal(d){
+      // let d = !this.appointmentModal
+      this.$store.dispatch('setAppointmentModal',d)
+    },
      editStartTime(date){
            this.from.dob=date
       },

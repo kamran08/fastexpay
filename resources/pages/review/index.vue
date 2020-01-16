@@ -212,19 +212,19 @@ export default {
     },
    async created(){
      
-       this.from.doctorId  = this.$route.params.docId
-       if(this.from.doctorId ){
-        const res = await this.callApi('get', `getSingleDoctor/${this.from.doctorId}`)
-        if(res.status==200){
-          this.doctor = res.data
-          if(this.doctor.length<1){
-            this.$router.push('/')
-          }
-        }
-        else{
-          this.router.push('/')
-        }
-      }
+    //    this.from.doctorId  = this.$route.params.docId
+    //    if(this.from.doctorId ){
+    //     const res = await this.callApi('get', `getSingleDoctor/${this.from.doctorId}`)
+    //     if(res.status==200){
+    //       this.doctor = res.data
+    //       if(this.doctor.length<1){
+    //         this.$router.push('/')
+    //       }
+    //     }
+    //     else{
+    //       this.router.push('/')
+    //     }
+    //   }
 
     },
     methods:{
@@ -319,6 +319,9 @@ export default {
           }
           console.log(this.uploadList);
         },
+     setAppointMentModal(d){
+        this.$store.dispatch('setAppointmentModal',d)
+      },
     }
 }
 </script>

@@ -14,7 +14,7 @@
 
                           <p class="_1banner_status">Our aim at Authentic Dental Studio is to help our patients maintain excellent oral and overall health so that they can enjoy the a productive and fun life</p>
 
-                          <button class="_1banner_btn" type="button">Book an Appointment Now</button>
+                          <button class="_1banner_btn" type="button" @click="setAppointMentModal(true)">Book an Appointment Now</button>
                         </div>
                       </div>
 
@@ -80,7 +80,7 @@
 
                           <p class="_1banner_status">Our aim at Authentic Dental Studio is to help our patients maintain excellent oral and overall health so that they can enjoy the a productive and fun life</p>
 
-                          <button class="_1banner_btn" type="button">Book an Appointment Now</button>
+                          <button class="_1banner_btn" type="button"  @click="setAppointMentModal(true)">Book an Appointment Now</button>
                         </div>
                       </div>
 
@@ -329,7 +329,7 @@
                 </div>
 
                 <div class="col-12 col-md-auto col-lg-auto">
-                  <button class="_schedule_btn" type="button">
+                  <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                     REQURST APPOINTMENT
                     <img src="/images/arrowRight.png" alt="" title="">
                   </button>
@@ -346,12 +346,12 @@
                 <div class="row align-items-center">
                   <div class="col-12 col-md col-lg">
                     <h2 class="_1title">
-                      <span class="_1title_span">Our Team</span>
+                      <span class="_1title_span" >Our Team</span>
                     </h2>
                   </div>
 
                   <div class="col-12 col-md-auto col-lg-auto">
-                    <button class="_btn_gradient_default" type="button">View More Team</button>
+                    <button class="_btn_gradient_default" type="button" @click="$router.push('/team')">View More Team</button>
                   </div>
                 </div>
               </div>
@@ -367,7 +367,7 @@
                   <div class="col-12 col-md-8 col-lg-8">
                     <div class="_team_main_details">
                       <h2 class="_1title">
-                        <span class="_1title_span">Our Team</span> <span class="_c_default">{{singleMember.name}}</span>
+                        <span class="_1title_span" >Our Team</span> <span class="_c_default">{{singleMember.name}}</span>
                       </h2>
 
                       <p class="_1text">
@@ -378,7 +378,7 @@
                         Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
                       </p> -->
 
-                       <button class="_btn_gradient_default" type="button">View More</button>
+                       <button class="_btn_gradient_default" type="button" @click="$router.push('/team')">View More</button>
                     </div>
                   </div>
                 </div>
@@ -566,7 +566,11 @@ export default {
   methods:{
     asignSingleMemebr(index){
       this.singleMember = this.allmembers[index]
-    }
+    },
+     setAppointMentModal(d){
+      // let d = !this.appointmentModal
+      this.$store.dispatch('setAppointmentModal',d)
+    },
 
   }
 }

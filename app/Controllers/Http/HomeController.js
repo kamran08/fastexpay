@@ -134,15 +134,17 @@ class HomeController {
   
     }
 
-    async logout ({auth, session}) {
-        // console.log('logout')
+    async logout ({auth, session, response}) {
+        console.log('logout')
         try {
           session.clear()
           await auth.logout()
-          return
+          return response.redirect('/')
         } catch (e) {
-          return false
+            return response.redirect('/')
+        //   return false
         }
+        return response.redirect('/')
       }
       async initdata({auth}){
           try {

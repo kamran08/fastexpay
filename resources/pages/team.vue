@@ -73,7 +73,7 @@
               </div>
 
               <div class="col-12 col-md-auto col-lg-auto">
-                <button class="_schedule_btn" type="button">
+                <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                   REQURST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
@@ -108,7 +108,10 @@ export default {
   methods:{
     asignSingleMemebr(index){
       this.singleMember = this.allmembers[index]
-    }
+    },
+     setAppointMentModal(d){
+        this.$store.dispatch('setAppointmentModal',d)
+      },
 
   }
 }

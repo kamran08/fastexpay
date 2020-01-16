@@ -24,6 +24,7 @@ Vue.mixin({
   },
   computed: {
     ...mapGetters({
+      getAppointmentModal: 'getAppointmentModal',
       authInfo: 'getAuthInfo',
       isLoggedIn: 'getIsLoggedIn',
       searchData: 'getSearchData',

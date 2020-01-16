@@ -9,10 +9,14 @@ export const state = () => ({
   div: '',
   str: '',
   place: '',
+  appointmentModal:false,
   
 })
 
 export const getters = {
+  getAppointmentModal (state) {
+    return state.appointmentModal
+  },
   getIsLoggedIn (state) {
     return !!state.authInfo
   },
@@ -48,6 +52,9 @@ export const getters = {
 export const mutations = {
   setAuthInfo (state, data) {
     state.authInfo = data
+  },
+  setAppointmentModal (state, data) {
+    state.appointmentModal = data
   },
   setShowNavber (state, data) {
     state.showNavber = data
@@ -92,5 +99,8 @@ export const actions = {
   },
   setShowNavber ({ commit }, data) {
     commit('setShowNavber', data)
+  },
+  setAppointmentModal ({ commit }, data) {
+    commit('setAppointmentModal', data)
   }
 }

@@ -41,35 +41,35 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-6">
-                  <a href="" class="_patientForms_card _mar_b20 _1box_shadow">
+                  <div class="_patientForms_card _mar_b20 _1box_shadow">
                     <p class="_patientForms_card_title">Patient Registration</p>
 
                     <img class="_patientForms_card_errow" src="/images/next.png" alt="" title="">
-                  </a>
+                  </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-6">
-                  <a href="" class="_patientForms_card _mar_b20 _1box_shadow">
+                  <div  class="_patientForms_card _mar_b20 _1box_shadow">
                     <p class="_patientForms_card_title">Health History Form</p>
 
                     <img class="_patientForms_card_errow" src="/images/next.png" alt="" title="">
-                  </a>
+                  </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-6">
-                  <a href="" class="_patientForms_card _mar_b20 _1box_shadow">
+                  <div  class="_patientForms_card _mar_b20 _1box_shadow">
                     <p class="_patientForms_card_title">Financial Policy Form</p>
 
                     <img class="_patientForms_card_errow" src="/images/next.png" alt="" title="">
-                  </a>
+                  </div>
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-6">
-                  <a href="" class="_patientForms_card _mar_b20 _1box_shadow">
+                  <div  class="_patientForms_card _mar_b20 _1box_shadow">
                     <p class="_patientForms_card_title">Notice of Privacy Policy</p>
 
                     <img class="_patientForms_card_errow" src="/images/next.png" alt="" title="">
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@
               </div>
 
               <div class="col-12 col-md-auto col-lg-auto">
-                <button class="_schedule_btn" type="button">
+                <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                   REQURST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
@@ -98,3 +98,24 @@
       </div>
     </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  async created(){
+ 
+
+  },
+  methods:{
+     setAppointMentModal(d){
+      // let d = !this.appointmentModal
+      this.$store.dispatch('setAppointmentModal',d)
+    },
+
+  }
+}
+</script>
