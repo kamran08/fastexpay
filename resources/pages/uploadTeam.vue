@@ -3,7 +3,7 @@
     <div class="_content">
         <!--======= Header ======-->
         <div class="_1header">
-          <h2 class="_1header_title">Contact Us</h2>
+          <h2 class="_1header_title">Upload Team</h2>
         </div>
         <!--======= Header end ======-->
 
@@ -22,7 +22,7 @@
                   
                   <div class="_review_card _1box_shadow _mar_t40">
                     <div class="row">
-                      <div class="col-12 col-md-12 col-lg-12">
+                      <div class="col-12 col-md-6 col-lg-6">
                         <div class="_1input_group">
                           <p class="_1label">Full Name</p>
 
@@ -30,7 +30,7 @@
                         <p v-if="from.name==''" class="Rectangle_coustom">Write Your Full Name</p>
                         </div>
                       </div>
-                      <div class="col-12 col-md-12 col-lg-12">
+                      <div class="col-12 col-md-6 col-lg-6">
                         <div class="_1input_group">
                           <p class="_1label">Designation</p>
 
@@ -39,7 +39,7 @@
                         </div>
                       </div>
 
-                      <div class="col-12 col-md-6 col-lg-6">
+                      <div class="col-12 col-md-12 col-lg-12">
                         <div class="_1input_group">
                           <p class="_1label">Email</p>
 
@@ -59,7 +59,52 @@
                         <p v-if="from.description=='' || from.description==null" class="Rectangle_coustom">Write description</p>
                         </div>
                       </div>
-                      <div class="col-12 col-md-12 col-lg-12">
+
+                      <div class="col-12 col-md-6 col-lg-6">
+                    <div class="_1input_group">
+                      <p class="_1label">Upload Image</p>
+                      <div class="_1upload">
+                       <div class="_image_upload_pic">
+                        <!-- Image -->
+                        <div class="_upload_image" v-if="from.image">
+                          <img class="_image_upload_img" :src="from.image" alt="" title="" >
+
+                           <p class="_1upload_edit" @click="from.image=false"><i class="fas fa-pen"></i></p>
+                        </div>
+                        <!-- Image -->
+
+                        <!-- Upload -->
+                        <div class="_1upload_upload" v-else>
+                          <Upload
+                          ref="upload"
+                          :show-upload-list="false"
+                          :on-success="handleSuccess"
+                          :format="['jpg','jpeg','png']"
+                          :max-size="2048"
+                          :on-format-error="handleFormatError"
+                          :on-exceeded-size="handleMaxSize"
+                          :before-upload="handleBeforeUpload"
+                          type="drag"
+                          action="/uploadImages"
+                          >
+                            <div>
+                              <div class="_1upload_main">
+                                <p class="_1upload_icon"><i class="fas fa-camera"></i></p>
+                              </div>
+                            </div>
+                          </Upload>
+                        </div>
+                        <!-- Upload -->
+
+                        <p class="_upload_text">Upload your Picture</p>
+                       </div>
+                        <p v-if="image=='' || image==null" class="Rectangle_coustom">Upload your Picture</p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                      <!-- <div class="col-12 col-md-12 col-lg-12">
                           
                           <div style="hight:20px;" v-if="from.image">
                               <img :src="from.image" alt="">
@@ -73,7 +118,7 @@
                           ref="upload"
                           :show-upload-list="false"
                           :on-success="handleSuccess"
-                          :format="['jpg','jpeg','png']"
+                          :format="['jpg','jpeg','png','webp']"
                           :max-size="2048"
                           :on-format-error="handleFormatError"
                           :on-exceeded-size="handleMaxSize"
@@ -89,7 +134,7 @@
                         </div>
 
                         <p v-if="image=='' || image==null" class="Rectangle_coustom">upload image</p>
-                      </div>
+                      </div> -->
 
                       <div class="col-12 col-md-12 col-lg-12">
                         <div class="row">
@@ -97,7 +142,7 @@
                             
                           </div>
                             <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
-                                <button class="_btn_gradient_default _mar_t10">Send</button>
+                                <button class="_btn_gradient_default _mar_t10">Submit</button>
                             </div>
                         </div>
                       </div>
@@ -105,14 +150,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          
-
-          <div class="container">
-            <div class="_cantact_sec_map _mar_t55">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" width="100%" frameborder="0" style="border:0"></iframe>
             </div>
           </div>
         </section>
@@ -167,6 +204,13 @@ export default {
                 this.from.image =''
             },
         async storeAlldata(){
+
+              this.from.name = this.from.name.trim()
+              this.from.designation = this.from.designation.trim()
+              this.from.email = this.from.email.trim()
+              this.from.description = this.from.description.trim()
+              this.image = this.from.image.trim()==''?'':' '
+
                 if(this.from.name.trim()==''){
                     this.from.name ='' 
                     return
@@ -190,6 +234,14 @@ export default {
                 }
                 const res = await this.callApi('post', '/storeTeamData', this.from)
                 if(res.status===200){
+                  this.from = {
+                    name:' ',
+                    email:' ',
+                    image:'',
+                    designation:' ',
+                    description:' ',
+                },
+                 this.image = ' '
                     this.isSuccess = true
                 }
         },

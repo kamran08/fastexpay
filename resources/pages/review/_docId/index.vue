@@ -77,7 +77,7 @@
 
                         <p class="_upload_text">Upload your Picture</p>
                        </div>
-                      <p v-if="image==''" class="Rectangle_coustom">Upload your Picture</p>
+                        <p v-if="image==''" class="Rectangle_coustom">Upload your Picture</p>
                       </div>
 
                     </div>
@@ -236,7 +236,10 @@ export default {
                 this.from.image =''
             },
         async storeAlldata(){
-            
+            this.from.name = this.from.name.trim()
+            this.from.date = this.from.date.trim()
+            this.from.description = this.from.description.trim()
+            this.image = this.from.image?' ':''
                 if(this.from.name.trim()==''){
                     this.from.name =''
                     return

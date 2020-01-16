@@ -308,6 +308,8 @@
     background-size: cover;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 ._schedule_title {
     font-size: 24px;
@@ -374,9 +376,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: auto;
-    min-width: 100%;
-    min-height: 100%;
-    max-height: 370px;
+    max-width: 100%;
+    max-height: 100%;
 }
 ._1card_details {
     padding: 20px 15px 15px;

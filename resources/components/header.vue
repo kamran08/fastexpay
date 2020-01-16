@@ -303,7 +303,7 @@ export default {
       this.from.phone =this.from.phone.trim()
       this.from.firstName =this.from.firstName.trim()
       this.from.lastName =this.from.lastName.trim()
-      // this.from.dob = (this.from.dob==null)?'':'',
+      this.from.dob = (this.from.dob.trim()=='')?'':this.from.dob,
       this.from.desiredServices =this.from.desiredServices.trim()
       this.from.email = this.from.email.trim()
       this.from.description =this.from.description.trim()
