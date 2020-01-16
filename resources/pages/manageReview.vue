@@ -59,7 +59,7 @@
                       <p class="review_date">{{item.date.substring(0, 10)}}</p>
                     </div>
 
-                    <p class="_1text">Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus. Sed sollicitudin ipsum quis nunc sollicitudin ultrices. </p>
+                    <p class="_1text">{{item.description}} </p>
                   </div>
 
                   <div class="status">

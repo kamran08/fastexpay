@@ -251,7 +251,7 @@
                     Coordinator will contact you as soon as possible to confirm your appointment.
                 </p>
 
-                <div class="_booking_button _text_center"  @click="isSubmit=false">
+                <div class="_booking_button _text_center"  @click="isSubmit=false, booking_modal=false">
                     <button class="_btn_gradient_default _mar_t10">Done</button>
                 </div>
             </div>
@@ -326,12 +326,12 @@ export default {
         return
       }
       if(this.from.phone==''){
-        this.i("hello")
+        // this.i("hello")
         this.from.phone=''
         return
       }
       if(this.from.desiredServices=='' || this.from.desiredServices==null){
-        this.i("hello")
+        // this.i("hello")
         this.from.desiredServices = ''
         return
       }
@@ -350,6 +350,26 @@ export default {
 
       }
       this.isSubmit = true
+      this.from={
+        firstName:' ',
+        lastName:' ',
+        dob:' ',
+        phone:' ',
+        email:' ',
+        isNew:'No',
+        desiredServices:' ',
+        // sat:false,
+        // sun:false,
+        // mon:false,
+        // tue:false,
+        // wed:false,
+        // thu:false,
+        // fri:false,
+        description:' '
+
+
+      },
+      this.social=""
       
     }
   }
