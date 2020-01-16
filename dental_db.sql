@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2020 at 04:15 PM
+-- Generation Time: Jan 16, 2020 at 02:15 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -77,8 +77,10 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `reviewId`, `image`, `created_at`, `updated_at`) VALUES
-(1, 1, '/uploads/1579091908269.png', '2020-01-15 18:38:34', '2020-01-15 18:38:34'),
-(2, 1, '/uploads/1579091910302.png', '2020-01-15 18:38:34', '2020-01-15 18:38:34');
+(3, 6, '/uploads/1579169755629.png', '2020-01-16 16:16:06', '2020-01-16 16:16:06'),
+(4, 6, '/uploads/1579169764678.png', '2020-01-16 16:16:06', '2020-01-16 16:16:06'),
+(5, 8, '/uploads/1579171060328.jpeg', '2020-01-16 16:38:13', '2020-01-16 16:38:13'),
+(6, 8, '/uploads/1579171089574.jpeg', '2020-01-16 16:38:13', '2020-01-16 16:38:13');
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,6 @@ INSERT INTO `images` (`id`, `reviewId`, `image`, `created_at`, `updated_at`) VAL
 
 CREATE TABLE `reviews` (
   `id` int(10) UNSIGNED NOT NULL,
-  `doctorId` int(10) UNSIGNED DEFAULT NULL,
   `name` varchar(191) DEFAULT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'Pending',
   `date` date DEFAULT NULL,
@@ -103,12 +104,10 @@ CREATE TABLE `reviews` (
 -- Dumping data for table `reviews`
 --
 
-INSERT INTO `reviews` (`id`, `doctorId`, `name`, `status`, `date`, `image`, `rate`, `description`, `created_at`, `updated_at`) VALUES
-(1, NULL, ' ssdfa', 'Published', '2020-01-10', '/uploads/1579091902253.png', 4, ' sfasdfadfs afd adfs asdf adf', '2020-01-15 18:38:34', '2020-01-15 20:28:31'),
-(2, NULL, 'kamran', 'Declined', '2020-01-16', '/uploads/1579091902253.png', 3, 'sdafa asdf asdf afda fdsfasd', NULL, '2020-01-15 20:26:26'),
-(3, NULL, 'kamran', 'Declined', '2020-01-16', '/uploads/1579091902253.png', 3, 'sdafa asdf asdf afda fdsfasd', NULL, NULL),
-(4, 1, ' dfgsfg', 'Pending', '2020-01-10', '/uploads/1579100841124.png', 4, ' dfg sfg', '2020-01-15 21:08:57', '2020-01-15 21:08:57'),
-(5, 1, ' dfgsfg', 'Pending', '2020-01-10', '/uploads/1579100841124.png', 4, ' dfg sfg', '2020-01-15 21:08:57', '2020-01-15 21:08:57');
+INSERT INTO `reviews` (`id`, `name`, `status`, `date`, `image`, `rate`, `description`, `created_at`, `updated_at`) VALUES
+(6, 'sa', 'Published', '2020-01-17', '/uploads/1579169685251.jpeg', 1, 'Dr.Valleru is a great Dentist….she knows I get easily nervous and has me at ease in no', '2020-01-16 16:16:06', '2020-01-16 19:02:46'),
+(7, 'Dil', 'Declined', '2020-12-31', '/uploads/1579171035562.jpeg', 3, 'kjkj kjkjk', '2020-01-16 16:37:27', '2020-01-16 17:22:28'),
+(8, 'ugh', 'Pending', '0000-00-00', '/uploads/1579171079063.jpeg', 3, 'jbjbjb jbjbjb', '2020-01-16 16:38:13', '2020-01-16 16:38:13');
 
 -- --------------------------------------------------------
 
@@ -134,8 +133,9 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `email`, `designation`, `image`, `description`, `address`, `phone`, `created_at`, `updated_at`) VALUES
-(1, ' sasdfasdf', ' dfasdfasdf', ' fasdfasfd', '/uploads/1579091902253.png', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', NULL, NULL, '2020-01-14 20:39:07', '2020-01-14 20:39:07'),
-(2, ' Dr. Shukanto pull', 'aim@gmail.com', 'Dentist', '/uploads/1579091902253.png', '\"Of some description\" is a frequently-encountered but vaguely-defined descriptor used to indicate the level of detail of an object or person without actually describing it. The phrase is used in literature of all sorts. Its use could be seen as an indication that the writer can\'t be bothered to provide a real description or that s/he would rather be meaningfully indefinite, perhaps in an attempt to make the object not described seem enigmatic.\n\nOften, \"of some description\" is used to (not) describe rather ordinary things, e.g.:\n\n\"I have a bowel obstruction of some description.\"\n\"The man left a business card of some description on the table as he departed.\"\n\"I awoke with an insect of some description burrowing into my neck.\"\n\nIt\'s kind of old-fashioned and generally, you don\'t see it all that much. Personally, I like to use it because it sounds silly and it says nothing, really, rather like \"as it were\". It\'s obscure enough that I couldn\'t find a single definition for it on any dictionary or phrase-origin websites. I\'d say it possesses a marked dubiousness of some description. ', NULL, NULL, '2020-01-14 21:07:33', '2020-01-14 21:07:33');
+(3, ' dr. nilima chokrobory', 'nilima@gmail.com', ' Denstist', '/uploads/1579166211151.jpeg', ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', NULL, NULL, '2020-01-16 15:16:55', '2020-01-16 15:16:55'),
+(4, 'dr. Lorem Ipsum', ' Lorem@gmail.com', ' Dentist', '/uploads/1579166338319.jpeg', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', NULL, NULL, '2020-01-16 15:19:01', '2020-01-16 15:19:01'),
+(5, 'Dil', 'kkkk', 'llllll', '/uploads/1579170692771.jpeg', 'mlkm', NULL, NULL, '2020-01-16 16:31:35', '2020-01-16 16:31:35');
 
 -- --------------------------------------------------------
 
@@ -221,19 +221,19 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

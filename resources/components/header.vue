@@ -293,8 +293,7 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.name);
-    console.log(this.appointmentModal,"modaloo");
+    // console.log(this.$route.name);
   },
   methods:{
     setAppointMentModal(d){

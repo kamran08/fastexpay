@@ -203,7 +203,6 @@ export default {
                 rate:0,
                 description:' ',
                 additionalImages:[],
-                doctorId:''
             },
             isSuccess:false,
             image:' ',
