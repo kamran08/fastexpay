@@ -15,7 +15,7 @@ module.exports = {
   ],
   
   axios: {
-      //  baseURL: 'https://goflank.com/'                             
+       baseURL: 'http://dental.kollol.me/'                             
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360

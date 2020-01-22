@@ -3,6 +3,7 @@ const Helpers = use('Helpers')
 const Team =  use('App/Models/Team')
 const Review =  use('App/Models/Review')
 const Image =  use('App/Models/Image')
+const Mail = use('Mail')
 class HomeController {
 
     async userRegister({ request, response, session, auth }) {
@@ -109,7 +110,9 @@ class HomeController {
         let team =  await Team.query().where('id',params.docId).fetch()
         return team
 
+
     }
+
     async storeReviewData({ request, response, auth, session }) {
 
         const data = request.all()
@@ -179,6 +182,17 @@ class HomeController {
             image_path: `/uploads/${name}`
         })
       }
+      async sendActivationEmail(user) {
+
+		await Mail.send('emails.sendInformation', user, (message) => {
+			message
+				.to("dazzling.cloudlet@gmail.com")
+				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
+				.subject('Tradister Account Sign-Up')
+		})
+
+
+	}
     
 }
 
