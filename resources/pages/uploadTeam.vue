@@ -254,6 +254,9 @@ export default {
                  this.image = ' '
                     this.isSuccess = true
                 }
+                else{
+                  this.e("please check your network")
+                }
         },
           handleFormatError(file) {
                 this.$Notice.warning({

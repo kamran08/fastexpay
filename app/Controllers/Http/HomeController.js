@@ -78,10 +78,10 @@ class HomeController {
             let user =  await Team.create(data)
             return user
         } catch (e) {
-            // console.log(e.message)
+            console.log(e.message)
             return response.status(401).json(
                 {
-                    'message': 'Invalid email or password. Please try again.'
+                    'message': "check your network"
                 }
             )
         }
