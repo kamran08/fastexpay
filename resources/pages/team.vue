@@ -55,6 +55,9 @@
                       <p class="_1card_name _text_overflow">{{item.name}}</p>
                       <p class="_1card_status _text_overflow">{{item.designation}}</p>
                     </div>
+                    <div class="_1card_details" style="display:flex; justify-content: center;" v-if="authInfo"> 
+                      <Button style="width: 130px;" @click="deleteMemeber(item.id,index)">delete</Button>
+                      </div>
                   </div>
                 </div>
                 <!-- Card -->
@@ -111,6 +114,25 @@ export default {
     },
      setAppointMentModal(d){
         this.$store.dispatch('setAppointmentModal',d)
+      },
+    async deleteMemeber(id,index){
+      const res = await this.callApi('post', 'deletesingleMember' , {'id':id})
+        if(res.status == 200){
+            // if(id == this.singleMember.id){
+            //     if(this.allmembers[index+1]){
+            //       this.singleMember = this.allmembers[index+1]
+            //     }
+            //     else if(this.allmembers[index-1]){
+            //       this.singleMember = this.allmembers[index-1]
+            //     }
+            // }
+            this.allmembers.splice(index,1)
+
+          
+        }
+        else{
+          this.e("please check your network")
+        }
       },
 
   }

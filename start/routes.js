@@ -16,6 +16,7 @@
 const Route = use('Route')
 Route.post('/login', 'HomeController.userLogin')
 Route.post('/storeTeamData', 'HomeController.storeTeamData')
+Route.post('/deletesingleMember', 'HomeController.deletesingleMember')
 Route.post('/storeReviewData', 'HomeController.storeReviewData')
 Route.get('/getAllReviews', 'HomeController.getAllReviews')
 Route.post('/updateReviews', 'HomeController.updateReviews')

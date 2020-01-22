@@ -87,6 +87,24 @@ class HomeController {
         }
   
     }
+    async deletesingleMember({ request, response, auth, session }) {
+
+        const data = request.all()
+        // console.log('login')
+        // return data
+        try {
+            let user =  await Team.query().where('id', data.id).delete();
+            return user
+        } catch (e) {
+            console.log(e.message)
+            return response.status(401).json(
+                {
+                    'message': "check your network"
+                }
+            )
+        }
+  
+    }
     async getAllReviews({ request, response, auth, session }) {
         // const data = request.all()
         let reviews =  await Review.query().with('images').fetch()
