@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2020 at 02:15 PM
+-- Generation Time: Jan 22, 2020 at 07:19 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -117,12 +117,12 @@ INSERT INTO `reviews` (`id`, `name`, `status`, `date`, `image`, `rate`, `descrip
 
 CREATE TABLE `teams` (
   `id` int(10) UNSIGNED NOT NULL,
+  `address` text NOT NULL,
   `name` varchar(191) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `designation` varchar(191) NOT NULL DEFAULT 'Dentish',
   `image` varchar(191) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `address` text DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
@@ -132,10 +132,10 @@ CREATE TABLE `teams` (
 -- Dumping data for table `teams`
 --
 
-INSERT INTO `teams` (`id`, `name`, `email`, `designation`, `image`, `description`, `address`, `phone`, `created_at`, `updated_at`) VALUES
-(3, ' dr. nilima chokrobory', 'nilima@gmail.com', ' Denstist', '/uploads/1579166211151.jpeg', ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', NULL, NULL, '2020-01-16 15:16:55', '2020-01-16 15:16:55'),
-(4, 'dr. Lorem Ipsum', ' Lorem@gmail.com', ' Dentist', '/uploads/1579166338319.jpeg', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', NULL, NULL, '2020-01-16 15:19:01', '2020-01-16 15:19:01'),
-(5, 'Dil', 'kkkk', 'llllll', '/uploads/1579170692771.jpeg', 'mlkm', NULL, NULL, '2020-01-16 16:31:35', '2020-01-16 16:31:35');
+INSERT INTO `teams` (`id`, `address`, `name`, `email`, `designation`, `image`, `description`, `phone`, `created_at`, `updated_at`) VALUES
+(3, '', ' dr. nilima chokrobory', 'nilima@gmail.com', ' Denstist', '/uploads/1579166211151.jpeg', ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', NULL, '2020-01-16 15:16:55', '2020-01-16 15:16:55'),
+(4, '', 'dr. Lorem Ipsum', ' Lorem@gmail.com', ' Dentist', '/uploads/1579166338319.jpeg', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', NULL, '2020-01-16 15:19:01', '2020-01-16 15:19:01'),
+(5, '', 'Dil', 'kkkk', 'llllll', '/uploads/1579170692771.jpeg', 'mlkm', NULL, '2020-01-16 16:31:35', '2020-01-16 16:31:35');
 
 -- --------------------------------------------------------
 
@@ -145,6 +145,8 @@ INSERT INTO `teams` (`id`, `name`, `email`, `designation`, `image`, `description
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
+  `student_id` varchar(191) DEFAULT NULL,
+  `batch` varchar(191) DEFAULT NULL,
   `image` varchar(191) DEFAULT NULL,
   `name` varchar(80) DEFAULT NULL,
   `email` varchar(254) NOT NULL,
@@ -157,8 +159,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `image`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, '/uploads/1579091902253.png', 'admin', 'admin@gmail.com', '$2y$10$ApX2NLCy2luNW9jRBskdu.ebUaSxSVkB2koLUDwOAdzLX5x4qpJAa', NULL, NULL);
+INSERT INTO `users` (`id`, `student_id`, `batch`, `image`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, '/uploads/1579091902253.png', 'admin', 'admin@gmail.com', '$2y$10$ApX2NLCy2luNW9jRBskdu.ebUaSxSVkB2koLUDwOAdzLX5x4qpJAa', NULL, NULL);
 
 --
 -- Indexes for dumped tables
