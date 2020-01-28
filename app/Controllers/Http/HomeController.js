@@ -204,7 +204,7 @@ class HomeController {
 
 		await Mail.send('emails.sendInformation', user, (message) => {
 			message
-				.to("dazzling.cloudlet@gmail.com")
+				.to("d1295413@urhen.com")
 				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
 				.subject('Tradister Account Sign-Up')
 		})
