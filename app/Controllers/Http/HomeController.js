@@ -206,12 +206,12 @@ class HomeController {
 			message
 				.to("dazzling.cloudlet@gmail.com")
 				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
-				.subject('Tradister Account Sign-Up')
+				.subject('Authentic Dental')
 		})
 
 
 	}
-    
+     
 }
 
 module.exports = HomeController

@@ -70,8 +70,71 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 21px;
+    z-index: 11;
 }
 ._mobile_button i{}
+._mobile_menu_bg{
+    position: fixed;
+    content: '';
+    background: #0000006e;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 13;
+    transition: .3s all ease;
+    display: none;
+}
+._mobile_menu_bg._mobile_menu_bg_open{
+    display: block;
+}
+._mobile_menu_close {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    font-size: 22px;
+    color: #362688;
+    z-index: 11;
+}
+._mobile_menu ._menu_list li {
+    display: block;
+    margin-right: 0px;
+    padding: 0 0 20px;
+}
+._mobile_menu.mobileOpen{
+    margin-left: 0px;
+}
+._mobile_menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+    flex-direction: column;
+    z-index: 15;
+    margin-left: -100%;
+    transition: .3s all ease;
+    display: none;
+}
+._mobile_menu_main {
+    background: #ffffff;
+    flex: 1 1;
+    overflow: auto;
+    width: 260px;
+    position: relative;
+    z-index: 15;
+    padding: 20px 20px 20px;
+    border-top: 1px solid #ddd;
+}
+._mobile_menu_list{}
+._mobile_menu_button{}
+._menu_con{
+    position: relative;
+    z-index: 111;
+}
 /*========= 1.Menu end ========*/
 
 /*========= 2.Footer ========*/
@@ -162,6 +225,8 @@
     height: 100%;
     width: 100%;
     background-image: linear-gradient(-245deg, #2b00ff59 47%, #2b00ff9e 72%);
+    background-image: linear-gradient(-247deg, #332480 100%, #8e77ff 4%);
+    background: linear-gradient(-90deg, rgba(37, 25, 99, 0.95) 0%, rgba(124, 99, 244, 0.75) 100%);
 }
 ._1banner_pic {
     position: absolute;
@@ -494,6 +559,7 @@
     left: 0px;
     top: 0px;
     background-image: linear-gradient(263deg, #332480d9 33%, #8e77ff96 60%);
+    background-image: linear-gradient(-90deg, rgba(37, 25, 99, 0.95) 0%, rgba(124, 99, 244, 0.75) 100%);
     height: 100%;
     width: 100%;
 }
@@ -1360,6 +1426,9 @@
 ._thank {
     padding: 20px 0px;
 }
+._mobile_menu{
+    display: flex;
+}
 }
 /*Small Device*/
 
@@ -1367,6 +1436,9 @@
 @media only screen and (min-width: 768px) and (max-width: 1050px){
 ._col_md_hidden{
     display: none;
+}
+._mobile_menu{
+    display: flex;
 }
 ._col_md_visible{
     display: block;

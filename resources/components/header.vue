@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav class="_menu">
-      <div class="container-fluid">
+      <div class="container-fluid _menu_con">
         <div class="row align-items-center">
-          <div class="_mobile_button _lg_hidden _col_visible _col_md_visible _c_default">
+          <div @click="mobileOpen = true" class="_mobile_button _lg_hidden _col_visible _col_md_visible _c_default">
             <i class="fas fa-grip-vertical"></i>
           </div>
           <div class="col col-md col-lg">
@@ -59,6 +59,47 @@
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div :class="(mobileOpen == true)? '_mobile_menu mobileOpen' : '_mobile_menu'">
+      <div class="_mobile_menu_main">
+        <ul class="_menu_list _mobile_menu_list">
+          <li :class="($route.name == 'index') ? `_menu_active `: ''">
+            <nuxt-link to="/">Home</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/detailProcedure">Services</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/team">Our Team</nuxt-link>
+          </li>
+          <li v-if="authInfo">
+            <nuxt-link to="/uploadTeam" >upload your Team member</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/payment">Payments</nuxt-link>
+          </li>
+          <li v-if="authInfo">
+            <nuxt-link to="/manageReview">Patient Reviws</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/contact">Contact Us</nuxt-link>
+          </li>
+        </ul>
+
+        <div class="_mobile_menu_button">
+          <button class="_btn_gradient_default _btn_sm" @click="setAppointMentModal(true),isSubmit=false" type="button">Book Appointment</button>
+        </div>
+
+        <p @click="mobileOpen = false" class="_mobile_menu_close"><Icon type="md-close" /></p>
+      </div>
+
+      <div @click="mobileOpen = false" :class="(mobileOpen == true)? '_mobile_menu_bg _mobile_menu_bg_open' : '_mobile_menu_bg'"></div>
+    </div>
+    <!-- Mobile Menu -->
 
     <Modal v-model="getAppointmentModal" :mask-closable="false" :footer-hide="true" width="850" @on-cancel="setAppointMentModal(false)">
       <div class="_book_modal">
@@ -178,27 +219,30 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Day</p>
                             
-                            <CheckboxGroup v-model="days">
-                                <Checkbox class="_1check" label="sat">
+                            <CheckboxGroup v-model="from.days">
+                                <Checkbox class="_1check" label="Saturday">
                                     <span>Saturday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="sun">
+                                <Checkbox class="_1check" label="Sunday">
                                     <span>Sunday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="tue">
+                                <Checkbox class="_1check" label="Monday">
+                                    <span>Monday</span>
+                                </Checkbox>
+                                <Checkbox class="_1check" label="Tuesday">
                                     <span>Tuesday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="wed">
+                                <Checkbox class="_1check" label="Wednesday">
                                     <span>Wednesday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="thu">
+                                <Checkbox class="_1check" label="Thursday">
                                     <span>Thursday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="fri">
+                                <Checkbox class="_1check" label="Friday">
                                     <span>Friday</span>
                                 </Checkbox>
                             </CheckboxGroup>
-                            <p v-if="days.length==0" class="Rectangle_coustom">Select Desired Day</p>
+                            <p v-if="from.days.length==0" class="Rectangle_coustom">Select Desired Day</p>
                         </div>
                     </div>
 
@@ -206,7 +250,7 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Time</p>
                             
-                            <CheckboxGroup v-model="alltimes">
+                            <CheckboxGroup v-model="from.alltimes">
                                 <Checkbox class="_1check" label="8:00 AM to 10:00 AM">
                                     <span>8:00 AM to 10:00 AM</span>
                                 </Checkbox>
@@ -220,7 +264,7 @@
                                     <span>2:00PM to 4:00 PM</span>
                                 </Checkbox>
                             </CheckboxGroup>
-                            <p v-if="alltimes.length==0" class="Rectangle_coustom"> Select Desired Time</p>
+                            <p v-if="from.alltimes.length==0" class="Rectangle_coustom"> Select Desired Time</p>
                         </div>
                     </div>
 
@@ -266,9 +310,10 @@
 export default {
   data() {
     return {
+      mobileOpen:false,
       isSubmit:false,
       booking_modal: false,
-      days: ["sat"],
+      days: ["Saturday"],
       alltimes: ["8:00 AM to 10:00 AM"],
       from:{
         firstName:' ',
@@ -278,13 +323,8 @@ export default {
         email:' ',
         isNew:'No',
         desiredServices:' ',
-        // sat:false,
-        // sun:false,
-        // mon:false,
-        // tue:false,
-        // wed:false,
-        // thu:false,
-        // fri:false,
+        days:["Saturday"],
+        alltimes:["8:00 AM to 10:00 AM"],
         description:' '
 
 
@@ -311,8 +351,8 @@ export default {
       this.from.desiredServices =this.from.desiredServices.trim()
       this.from.email = this.from.email.trim()
       this.from.description =this.from.description.trim()
-      console.log(this.from)
-      if(this.days.length==0){
+      // console.log(this.from)
+      if(this.from.days.length==0){
         return
         
       }
@@ -349,10 +389,14 @@ export default {
         return
       }
     
-      if(this.alltimes.length==0){
+      if(this.from.alltimes.length==0){
         return
 
       }
+      // this.from.days = this.days
+      // this.from.alltimes = this.alltimes
+      console.log(this.from)
+      // const res = await this.callApi('post', 'app/sendMail')
       this.isSubmit = true
       this.from={
         firstName:' ',
@@ -362,13 +406,8 @@ export default {
         email:' ',
         isNew:'No',
         desiredServices:' ',
-        // sat:false,
-        // sun:false,
-        // mon:false,
-        // tue:false,
-        // wed:false,
-        // thu:false,
-        // fri:false,
+        days:[],
+        alltimes:[],
         description:' '
 
 
