@@ -98,14 +98,19 @@ export default {
     }
   },
   async created(){
+    this.$vs.loading({
+                color: "#6647ff"
+    });
     const res =await this.callApi('get', '/getTeamMember')
     if(res.status==200){
       this.allmembers = res.data
       if(this.allmembers ){
         this.singleMember = this.allmembers[0]
       }
+        this.$vs.loading.close();
       
     }
+      this.$vs.loading.close();
 
   },
   methods:{

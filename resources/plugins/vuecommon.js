@@ -4,7 +4,10 @@ import Vue from 'vue'
 
 // Vue.use(Chartkick.use(Chart))
 import Clipboard from 'v-clipboard'
+import Vuesax from 'vuesax'
+import 'vuesax/dist/vuesax.css'
 Vue.use(Clipboard)
+Vue.use(Vuesax, {})
 import {mapGetters} from 'vuex'
 
 Vue.mixin({

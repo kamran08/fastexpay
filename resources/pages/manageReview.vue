@@ -191,11 +191,15 @@ export default {
     }
   },
   async created(){
+    this.$vs.loading({
+      color: "#6647ff"
+    });
     const res =await this.callApi('get', '/getAllReviews')
     if(res.status==200){
       this.allreviews = res.data
-     
+      this.$vs.loading.close();
     }
+    this.$vs.loading.close();
 
   },
   methods:{

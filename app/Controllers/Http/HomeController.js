@@ -200,11 +200,26 @@ class HomeController {
             image_path: `/uploads/${name}`
         })
       }
-      async sendActivationEmail(user) {
-
+      async sendApointmentInfo({ request }) {
+          let user = request.all();
+          console.log(user)
+        //   office@authenticdentalstudio.com
 		await Mail.send('emails.sendInformation', user, (message) => {
 			message
-				.to("d1295413@urhen.com")
+				.to("ahmedkamran265@gmail.com")
+				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
+				.subject('Authentic Dental')
+		})
+
+
+	}
+      async sendContractInfo({ request }) {
+          let user = request.all();
+          console.log(user)
+        //   office@authenticdentalstudio.com
+		await Mail.send('emails.sendContractInfo', user, (message) => {
+			message
+				.to("ahmedkamran265@gmail.com")
 				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
 				.subject('Authentic Dental')
 		})

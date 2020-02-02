@@ -27,7 +27,8 @@ Route.get('app/initdata', 'HomeController.initdata')
 Route.get('/logout', 'HomeController.logout')
 Route.post('/register', 'HomeController.userRegister')
 Route.post('/uploadImages', 'HomeController.uploadImages')
-Route.get('app/sendMail', 'HomeController.sendActivationEmail')
+Route.post('app/sendMail', 'HomeController.sendApointmentInfo')
+Route.post('app/sendContactMail', 'HomeController.sendContractInfo')
 Route.any('*', 'NuxtController.render')
 
 

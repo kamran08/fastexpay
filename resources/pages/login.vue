@@ -102,13 +102,14 @@ export default {
                 this.e('field can not be empty')
                 return
             }
-            console.log(this.formData)
-            // return
-
+             this.$vs.loading({
+                color: "#6647ff"
+              });
               const res = await this.callApi('post','/login',this.formData)
               if(res.status===200){
                   this.s("Login Successfully !")
                   this.$store.dispatch('setAuthInfo',res.data)
+                  this.$vs.loading.close();
                   // this.$router.push('/')
                   // console.log('login success')
                   // this.$router.go(0);

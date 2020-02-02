@@ -242,6 +242,9 @@ export default {
                 if(!this.authInfo){
                  return this.e("You are not Authentic User!!")
                 }
+              this.$vs.loading({
+                color: "#6647ff"
+              });
                 const res = await this.callApi('post', '/storeTeamData', this.from)
                 if(res.status===200){
                   this.from = {
@@ -252,9 +255,11 @@ export default {
                     description:' ',
                 },
                  this.image = ' '
+                    this.$vs.loading.close();
                     this.isSuccess = true
                 }
                 else{
+                     this.$vs.loading.close();
                   this.e("please check your network")
                 }
         },

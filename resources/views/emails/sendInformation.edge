@@ -1,4 +1,90 @@
-<h2> Hello {{user.firstName}} {{user.lastName}}<h2>
+<template>
+    <div class="_content">
+        <table style="width:100%; padding:30px; border:0px; cellspacing:0; cellpadding:0px; font-family: sans-serif;">
+            <tr>
+                <td style="width:100%">
+                    <table style="width:100%">
+                        <tr>
+                            <td style="font-weight: bold; color: #333; font-size: 29px; padding: 0 17px 30px;">Request an Appointment</td>
+                        </tr>
+                    </table>
 
-<p>You have been made an admin of {{ name }}</p>
+                    <table style="width:100%">
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px; font-weight: bold; font-size: 18px; color: #333;">First Name</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 16px; color: #777;">: {{firstName}} </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px; font-weight: bold; font-size: 18px; color: #333;">Last Name</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 16px; color: #777;">: {{lastName}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px; font-weight: bold; font-size: 18px; color: #333;">Date of Birth</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 16px; color: #777;">: {{dob}}</td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px 20px; font-weight: bold; font-size: 18px; color: #333;">Phone</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 16px; color: #777;">: {{phone}}</td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px 20px; font-weight: bold; font-size: 18px; color: #333;">Email</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 14px; color: #777;">: {{email}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px 20px; font-weight: bold; font-size: 18px; color: #333;">Patient Type</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 14px; color: #777;">: : {{(isNew=="Yes")?"New":"Old"}}</td>
+                        </tr>
+                      
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px 20px; font-weight: bold; font-size: 18px; color: #333;">Service Type</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 14px; color: #777;">: : {{desiredServices}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 175px; padding: 0 17px 20px 20px; font-weight: bold; font-size: 18px; color: #333;">Descriptions</td>
+
+                            <td style="padding: 0 17px 20px; font-size: 14px; color: #777;">: : {{description}}</td>
+                        </tr>
+                    </table>
+
+                    <table style="margin-top:30px;">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="font-weight: bold; color: #333; font-size: 22px; padding: 0 17px 30px;">Selectede Days :</td>
+                                </tr>
+                            </table>
+                        <tr>
+                            @each(day in days)
+                            <td style="width: 175px; padding: 0 17px 20px; font-weight: bold; font-size: 16px; color: #333;white-space: nowrap;">{{day}}</td>
+                             @endeach
+                        </tr>
+                    </table>
+                    <table style="margin-top:30px;">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="font-weight: bold; color: #333; font-size: 22px; padding: 0 17px 30px;">Selectede Times :</td>
+                                </tr>
+                            </table>
+                        <tr>
+                             @each(item in alltimes)
+                            <td style="width: 175px; padding: 0 17px 20px; font-weight: bold; font-size: 16px; color: #333;white-space: nowrap;">{{item}}</td>
+                             @endeach
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</template>
+
+
+
 

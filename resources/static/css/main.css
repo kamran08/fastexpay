@@ -484,15 +484,72 @@
     overflow: hidden;
     flex: 1 1;
 }
+._cantact_sec_mail:hover ._cantact_sec_num._cantact_sec_mail_text {
+    overflow: visible;
+    box-shadow: 0px 0px 4px 1px #ddd;
+    padding: 10px 15px;
+    width: auto;
+    left: -15px;
+    top: 0px;
+    background: #fff;
+    z-index: 1;
+}
+._cantact_sec_mail {
+    height: 19px;
+    position: relative;
+    margin-top: 4px;
+}
+.nonn  ._cantact_sec_num {
+    font-size: 14px !important;
+    color: #8d8d8d !important;
+}
+._cantact_sec_mail:hover ._cantact_sec_num._cantact_sec_mail_text {
+    overflow: visible;
+    box-shadow: 0px 0px 4px 1px #ddd;
+    padding: 10px 15px;
+    width: auto;
+    left: -15px;
+    top: 0px;
+    background: #fff;
+    z-index: 1;
+}
+._cantact_sec_mail {
+    height: 19px;
+    position: relative;
+    margin-top: 4px;
+}
+.nonn:hover ._cantact_card_details{
+    overflow: visible;
+}
+.nonn:hover{
+    overflow: visible;
+}
+._cantact_sec_num._cantact_sec_mail_text {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0;
+    transition: .3s all ease;
+    position: absolute;
+    overflow: hidden;
+    padding: 10px 15px;
+    width: auto;
+    left: -15px;
+    top: -9px !important;
+    background: no-repeat;
+    z-index: 1;
+    width: 100%;
+}
 ._cantact_card_title {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
     line-height: 22px;
     margin: 4px 0 0;
 }
 ._cantact_card_value {
-    font-size: 16px;
+    font-size: 14px;
     color: #8d8d8d;
     margin: 6px 0 0;
 }
@@ -513,15 +570,23 @@
 }
 ._cantact_sec_form{}
 ._cantact_sec_group{}
+._cantact_sec_group input:focus, ._cantact_sec_group textarea:focus {
+    outline: none !important;
+    border: none !important;
+    border-bottom: 2px solid #c4c4c4 !important;
+    box-shadow: none;
+}
 ._cantact_sec_group input, ._cantact_sec_group textarea {
-    font-size: 17px;
+    font-size: 15px;
     border: none;
     border-bottom: 2px solid #c4c4c4;
     width: 100%;
     padding: 15px 0;
     font-weight: 600;
+    box-shadow: none;
+    border-radius: 0px;
+    font-family: 'Source Sans Pro', sans-serif !important;
 }
-
 ._cantact_sec_title {
     font-size: 18px;
     color: #656565;
@@ -529,7 +594,7 @@
     margin: 0 0 12px;
 }
 ._cantact_sec_num {
-    font-size: 14px;
+    font-size: 13px;
     color: #656565;
     margin-top: 4px;
 }
@@ -562,6 +627,8 @@
     background-image: linear-gradient(-90deg, rgba(37, 25, 99, 0.95) 0%, rgba(124, 99, 244, 0.75) 100%);
     height: 100%;
     width: 100%;
+    background: linear-gradient(-90deg, rgb(51, 36, 128) 0%, rgb(142, 119, 255) 100%);
+    opacity: .8;
 }
 ._1header_title {
     color: #fff;

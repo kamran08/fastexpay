@@ -18,13 +18,13 @@
                 <nuxt-link to="/">Home</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/detailProcedure">Services</nuxt-link>
+                <nuxt-link to="/services">Services</nuxt-link>
               </li>
               <li>
                 <nuxt-link to="/team">Our Team</nuxt-link>
               </li>
               <li v-if="authInfo">
-                <nuxt-link to="/uploadTeam" >upload your Team member</nuxt-link>
+                <nuxt-link to="/uploadTeam" >Upload your Team member</nuxt-link>
               </li>
               <li>
                 <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
@@ -156,7 +156,7 @@
                             <p class="_booking_form_label">Email</p>
 
                             <input class="_1int" type="email" v-model="from.email"  placeholder="type email">
-                         <p v-if="from.email=='' || from.email==null" class="Rectangle_coustom">Email Not Valid</p>
+                           <p v-if="from.email=='' || from.email==null" class="Rectangle_coustom">Email Not Valid</p>
                         </div>
                     </div>
                 </div>
@@ -344,6 +344,7 @@ export default {
            this.from.dob=date
       },
     async storealldata(){
+      
       this.from.phone =this.from.phone.trim()
       this.from.firstName =this.from.firstName.trim()
       this.from.lastName =this.from.lastName.trim()
@@ -396,7 +397,11 @@ export default {
       // this.from.days = this.days
       // this.from.alltimes = this.alltimes
       console.log(this.from)
-      // const res = await this.callApi('post', 'app/sendMail')
+      this.$vs.loading({
+      color: '#6647ff'  
+      })
+      const res = await this.callApi('post', 'app/sendMail', this.from)
+      if (res.status == 200 || res.status ==204) {
       this.isSubmit = true
       this.from={
         firstName:' ',
@@ -412,7 +417,13 @@ export default {
 
 
       },
+       this.$vs.loading.close()
       this.social=""
+      }
+      else{
+        this.$vs.loading.close()
+      }
+
       
     }
   }

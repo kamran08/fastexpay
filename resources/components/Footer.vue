@@ -26,7 +26,7 @@
             </div>
 
             <div class="col-7 col-md col-lg">
-              <p class="_footer_title">Trading Hours</p>
+              <p class="_footer_title">Opening Hours</p>
 
               <div class="_footer_main">
                 <div class="_footer_icon _c_default"><i class="fas fa-clock"></i></div>
@@ -104,7 +104,7 @@
                 <div class="_footer_icon _c_default"><i class="fas fa-envelope"></i></div>
 
                 <div class="_footer_main_details">
-                  <p class="_footer_main_day">Office@authentic.dental</p>
+                  <p class="_footer_main_day">office@authenticdentalstudio.com</p>
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@
 
           <div class="_footer_bottom">
             <p class="_footer_bottom_text">
-              © 2019 by Authentic Dental Studio. All Right Reserved
+              © 2020 by Authentic Dental Studio. All Right Reserved
             </p>
           </div>
         </div>
