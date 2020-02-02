@@ -673,10 +673,51 @@
     content: '';
     left: 0px;
     top: 0px;
-    height: 423px;
+    height: 466px;
     width: 100%;
     z-index: -1;
     background-color: #f8f8f8;
+}
+._ser_listss._pages_before:before {
+    height: 488px;
+}
+._ser_card i{
+    font-size: 34px;
+    color: #333;
+}
+._ser_listss {
+    padding-bottom: 85px;
+}
+._ser_listss ._ser_card:hover ._ser_card_img{
+    display: none;
+}
+._ser_listss ._ser_card:hover ._ser_card_img2{
+    display: block !important;
+}
+._ser_listss ._ser_card:hover i{
+    color: #fff;
+}
+._ser_card_img2{
+    display: none;
+}
+._ser_listss ._ser_card:hover ._ser_card_title{
+    color: #fff;
+}
+._ser_listss ._ser_card:hover{
+    background: #6647ff;
+}
+._ser_listss ._ser_card {
+    cursor: pointer;
+    transition: .3s all ease;
+}
+._ser_listss ._ser_section_cards {
+    margin-top: -25px;
+    position: relative;
+    z-index: 1;
+    padding-top: 0;
+}
+._pages_main ._text_left{
+    text-align: left !important;
 }
 ._pages_before{
     position: relative;
