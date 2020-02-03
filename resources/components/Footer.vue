@@ -61,22 +61,22 @@
 
               <ul class="_footer_menu">
                 <li>
-                  <a href="">Home</a>
+                  <nuxt-link to="/">Home</nuxt-link>
                 </li>
                 <li>
-                  <a href="">Procedures</a>
+                  <nuxt-link to="/services">Services</nuxt-link>
                 </li>
                 <li>
-                  <a href="">Patient Forms</a>
+                  <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
                 </li>
                 <li>
-                  <a href="">Payments</a>
+                  <nuxt-link to="/payment">Payments</nuxt-link>
                 </li>
                 <li>
-                  <a href="">Patient Reviews</a>
+                  <nuxt-link to="/manageReview">Patient Reviews</nuxt-link>
                 </li>
                 <li>
-                  <a href="">Contact</a>
+                  <nuxt-link to="/contact">Contact</nuxt-link>
                 </li>
               </ul>
             </div>

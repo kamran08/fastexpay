@@ -44,7 +44,11 @@
                       class="_1banner_status"
                     >Our aim at Authentic Dental Studio is to help our patients maintain excellent oral and overall health so that they can enjoy the a productive and fun life</p>
 
-                    <button class="_1banner_btn" type="button">Book an Appointment Now</button>
+                    <button
+                      class="_1banner_btn"
+                      type="button"
+                      @click="setAppointMentModal(true)"
+                    >Book an Appointment Now</button>
                   </div>
                 </div>
 
@@ -77,11 +81,11 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>-->
           <!-- Items -->
 
           <!-- Items -->
-         <div class="_1banner_items">
+          <div class="_1banner_items">
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-4 col-lg-4">
@@ -105,7 +109,7 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
           <!-- Items -->
         </div>
 
@@ -167,15 +171,18 @@
             <div class="row">
               <!-- Item -->
               <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/tooth.png" alt title />
-                  </div>
+                <nuxt-link to="/hygiene">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img class="_ser_card_img" src="/images/tooth.png" alt title />
+                    </div>
 
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Hygiene</h4>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Hygiene</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
                   </div>
-                </div>
+                </nuxt-link>
               </div>
               <!-- Item -->
 
@@ -493,7 +500,9 @@
                   <div class="_cantact_card_details">
                     <p class="_cantact_card_title">Appointment Booking</p>
                     <div class="_cantact_sec_mail">
-                      <p class="_cantact_sec_num _cantact_sec_mail_text">Email: office@authenticdentalstudio.com</p>
+                      <p
+                        class="_cantact_sec_num _cantact_sec_mail_text"
+                      >Email: office@authenticdentalstudio.com</p>
                     </div>
                     <!-- <p class="_cantact_card_value">office@authenticdentalstudio.com</p> -->
                   </div>
@@ -512,22 +521,38 @@
 
                   <div class="_cantact_sec_form">
                     <div class="_cantact_sec_group _mar_b30">
-                      <Input class="_1iview" type="text" v-model="from.name" @on-change="assingData" placeholder="Full Name*" />
-                       <p v-if="error.name==''"  class="Rectangle_coustom">Type your name</p>
+                      <Input
+                        class="_1iview"
+                        type="text"
+                        v-model="from.name"
+                        @on-change="assingData"
+                        placeholder="Full Name*"
+                      />
+                      <p v-if="error.name==''" class="Rectangle_coustom">Type your name</p>
                     </div>
                     <div class="_cantact_sec_group _mar_b30">
-                      <Input v-model="from.email" @on-change="assingData" type="text" placeholder="Email*" />
+                      <Input
+                        v-model="from.email"
+                        @on-change="assingData"
+                        type="text"
+                        placeholder="Email*"
+                      />
                       <p v-if="error.email==''" class="Rectangle_coustom">Type your email address</p>
                     </div>
 
                     <div class="_cantact_sec_group _mar_b30">
-                      <Input v-model="from.phone" @on-change="assingData" type="text" placeholder="Phone Number" />
+                      <Input
+                        v-model="from.phone"
+                        @on-change="assingData"
+                        type="text"
+                        placeholder="Phone Number"
+                      />
                       <p v-if="error.phone==''" class="Rectangle_coustom">Type Your phone number</p>
                     </div>
                     <!-- <div class="_cantact_sec_group _mar_b30">
                       <Input type="textarea" v-model="from.message" @on-change="assingData"  placeholder="Message" />
                       <p v-if="error.message==''" class="Rectangle_coustom">Write Your Message</p>
-                    </div> -->
+                    </div>-->
 
                     <div class="row">
                       <div class="col-12 col-md col-lg"></div>
@@ -573,7 +598,9 @@
                     <p class="_cantact_sec_num">Tel: (530) 222-4900</p>
                     <p class="_cantact_sec_num">Fax: (530) 222-0575</p>
                     <div class="_cantact_sec_mail">
-                      <p class="_cantact_sec_num _cantact_sec_mail_text">Email: office@authenticdentalstudio.com</p>
+                      <p
+                        class="_cantact_sec_num _cantact_sec_mail_text"
+                      >Email: office@authenticdentalstudio.com</p>
                     </div>
                   </div>
 
@@ -615,7 +642,7 @@
 export default {
   data() {
     return {
-       isSubmit: false,
+      isSubmit: false,
       from: {
         name: "",
         email: "",
@@ -660,12 +687,12 @@ export default {
       // let d = !this.appointmentModal
       this.$store.dispatch("setAppointmentModal", d);
     },
-     async storealldata() {
+    async storealldata() {
       this.from.name = this.from.name.trim();
       this.from.email = this.from.email.trim();
       this.from.phone = this.from.phone.trim();
       this.from.message = this.from.message.trim();
-      
+
       if (this.from.name == "") {
         this.from.name = "";
         this.error.name = "";
@@ -691,20 +718,20 @@ export default {
         color: "#6647ff"
       });
       const res = await this.callApi("post", "app/sendContactMail", this.from);
-      if (res.status == 200 || res.status ==204) {
+      if (res.status == 200 || res.status == 204) {
         this.isSubmit = true;
         this.from = {
-          name:"",
-          email:"",
-          phone:"",
-          message:""
-        }
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        };
         this.error = {
           name: " ",
           email: " ",
           phone: " ",
           message: " "
-        }
+        };
         this.$vs.loading.close();
       }
     }

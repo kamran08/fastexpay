@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2020 at 07:19 AM
+-- Generation Time: Feb 03, 2020 at 11:27 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -133,9 +133,7 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `address`, `name`, `email`, `designation`, `image`, `description`, `phone`, `created_at`, `updated_at`) VALUES
-(3, '', ' dr. nilima chokrobory', 'nilima@gmail.com', ' Denstist', '/uploads/1579166211151.jpeg', ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', NULL, '2020-01-16 15:16:55', '2020-01-16 15:16:55'),
-(4, '', 'dr. Lorem Ipsum', ' Lorem@gmail.com', ' Dentist', '/uploads/1579166338319.jpeg', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', NULL, '2020-01-16 15:19:01', '2020-01-16 15:19:01'),
-(5, '', 'Dil', 'kkkk', 'llllll', '/uploads/1579170692771.jpeg', 'mlkm', NULL, '2020-01-16 16:31:35', '2020-01-16 16:31:35');
+(3, '', ' dr. nilima chokrobory', 'nilima@gmail.com', ' Denstist', '/uploads/1579166211151.jpeg', ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', NULL, '2020-01-16 15:16:55', '2020-01-16 15:16:55');
 
 -- --------------------------------------------------------
 
@@ -235,7 +233,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

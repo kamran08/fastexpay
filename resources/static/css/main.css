@@ -1611,3 +1611,17 @@
 
 }
 /*Medium Device*/
+
+
+/* updated by Pranto */
+
+._new_pages_bg {
+    background: url(/images/periodental.png);
+    height: 330px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 41px;
+}
