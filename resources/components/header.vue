@@ -307,6 +307,7 @@
   </div>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -334,6 +335,12 @@ export default {
   },
   created() {
     // console.log(this.$route.name);
+  },
+
+  computed: {
+     ...mapGetters({
+      getAppointmentModal: 'getAppointmentModal'
+     })
   },
   methods:{
     setAppointMentModal(d){
