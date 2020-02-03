@@ -99,7 +99,7 @@ export default {
   },
   async created(){
     this.$vs.loading({
-                color: "#6647ff"
+         color: "#6647ff"
     });
     const res =await this.callApi('get', '/getTeamMember')
     if(res.status==200){

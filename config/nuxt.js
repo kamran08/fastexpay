@@ -15,7 +15,7 @@ module.exports = {
   ],
   
   axios: {
-       baseURL: 'http://dental.kollol.me'                             
+       baseURL: 'http://dental.kollol.me'                       
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360

@@ -202,10 +202,10 @@ class HomeController {
       }
       async sendApointmentInfo({ request }) {
           let user = request.all();
-          console.log(user)
         //   office@authenticdentalstudio.com
 		await Mail.send('emails.sendInformation', user, (message) => {
-			message
+            message
+            // office@authenticdentalstudio.com
 				.to("office@authenticdentalstudio.com")
 				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
 				.subject('Authentic Dental')
@@ -215,7 +215,6 @@ class HomeController {
 	}
       async sendContractInfo({ request }) {
           let user = request.all();
-          console.log(user)
         //   office@authenticdentalstudio.com
 		await Mail.send('emails.sendContractInfo', user, (message) => {
 			message

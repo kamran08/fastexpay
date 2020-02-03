@@ -33,7 +33,7 @@
           <!-- Items -->
 
           <!-- Items -->
-          <div class="_1banner_items">
+          <!-- <div class="_1banner_items">
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-4 col-lg-4">
@@ -53,11 +53,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Items -->
 
           <!-- Items -->
-          <div class="_1banner_items">
+          <!-- <div class="_1banner_items">
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-4 col-lg-4">
@@ -77,11 +77,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Items -->
 
           <!-- Items -->
-          <div class="_1banner_items">
+          <!-- <div class="_1banner_items">
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-4 col-lg-4">
@@ -105,7 +105,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Items -->
         </div>
 
@@ -525,7 +525,7 @@
                       <p v-if="error.phone==''" class="Rectangle_coustom">Type Your phone number</p>
                     </div>
                     <div class="_cantact_sec_group _mar_b30">
-                      <Input type="textarea" v-model="from.message" @on-change="assingData" rows="1" placeholder="Message" />
+                      <Input type="textarea" v-model="from.message" @on-change="assingData"  placeholder="Message" />
                       <p v-if="error.message==''" class="Rectangle_coustom">Write Your Message</p>
                     </div>
 

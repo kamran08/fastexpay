@@ -1349,6 +1349,7 @@
     height: auto;
     padding-bottom: 168px;
 }
+._1banner .owl-carousel {display: block;}
 ._ser_section ._1title {
     width: 85%;
     margin: 0 auto;
