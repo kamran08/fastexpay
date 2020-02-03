@@ -3,7 +3,7 @@
     <div class="_content">
       <!--======= Banner section ======-->
       <section class="_1banner">
-        <div class="owl-carousel owl-theme _1banner_slider">
+        <div class="owl-carousel owl-theme _1banner_slider" style="display:block;">
           <!-- Items -->
           <div class="_1banner_items">
             <div class="container">
