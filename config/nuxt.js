@@ -15,7 +15,7 @@ module.exports = {
   ],
   
   axios: {
-      // baseURL: 'http://dental.kollol.me'                       
+      baseURL: 'http://dental.kollol.me'                       
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
@@ -57,7 +57,7 @@ module.exports = {
       { rel: 'stylesheet', href: '/css/owl.carousel.min.css' },
       { rel: 'stylesheet', href: '/css/owl.theme.default.min.css' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.8.2/css/all.css' },
-      { rel: 'stylesheet', href: '/css/https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,300i,400,400i,600,600i,700,700i,900&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,300i,400,400i,600,600i,700,700i,900&display=swap' },
       { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
       { rel: 'stylesheet', href: '/css/common.css' },
       { rel: 'stylesheet', href: '/css/main.css' }

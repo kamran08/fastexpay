@@ -8,7 +8,7 @@
         <!--======= Header end ======-->
 
         <!--======= Form section ======-->
-        <section class="_pages _pages_before _ser_listss">
+        <section class="_pages _1ser_main">
           <div class="_1banner_call">
             <a class="_1banner_call_a" href=""><i class="fas fa-phone"></i> (530) 222-4900</a>
           </div>
@@ -22,10 +22,16 @@
                 <div class="col-12 col-md-7 col-lg-7 _patientForms_header_left">
 
                   <h2 class="_1title _text_left">
-                    <span class="_1title_span">If a patient cannot clean his teeth, no dentist can clean them for him.</span>
+                    <span class="_1title_span">Services we Provided</span>
                   </h2>
 
-                  <p class="_1text _text_left">Our team will make you feel right at home when you come in for your check-up. Our team will walk you through each step of your evaluation to make sure you are given every opportunity to ask questions. They will take care of any anxious feelings you may experience, and provide you with the most comfortable care imaginable. You will be asked to share any concerns or changes you may have noticed, such as tooth discoloration, bad breath, sensitivity to hot and cold, or bleeding during brushing or flossing.  The team will then complete a wellness check to make sure they have a comprehensive understanding of your wellness. To do that they will complete:</p>
+                  <p class="_1text _text_left">Dr. Dao and her team invite you to our practice where you and your family can be taken care of.  We provide a wide array of services that can
+                  help you have optimal health and the kind of smile that shines with a higher level of brilliance.</p>
+
+                  <p class="_1text _text_left">If you need a service custom-tailored to suit your needs, feel 
+                  free to ask! Our team is flexible and will work to facilitate your requests!</p>
+
+                  <p class="_1text _text_left">Some of our services we provide include:</p>
                 </div>
               </div>
             </div>
@@ -52,81 +58,114 @@
                           </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/composite">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth2.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Composite &amp; Amalgam Fillings</h4></div>
-                            </div>
+                                     <Icon type="ios-arrow-forward" />
+                               </div>
+                               </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/fullPartial">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth3.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Full &amp; Partial Dentures</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/porcelainCrowns">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth4.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Porcelain Crowns &amp; Bridges</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/extractions">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/dentalCare.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Extractions</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/restoration">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/impant.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Restoration of Implants</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/digital">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/xRay.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Digital X-Rays</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/perodonta">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth5.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Periodontal Disease &amp; Treatments</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/teeth">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth6.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Teeth Whitening</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/porcelain">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/drill.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Porcelain Veneers</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/oralSurgery">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/smiling.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Oral Surgery</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/sealants">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/mouthwash.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
                                     <h4 class="_ser_card_title">Sealants &amp; Fluoride</h4></div>
+                                     <Icon type="ios-arrow-forward" />
                             </div>
+                            </nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -145,7 +184,7 @@
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
                   REQURST APPOINTMENT
-                  <img src="assets/img/arrowRight.png" alt="" title="">
+                  <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>
             </div>

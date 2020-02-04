@@ -46,6 +46,7 @@
     color: #565656;
     margin-right: 20px;
     font-weight: 600;
+    position: relative;
 }
 ._menu_list li a {
     font-size: 14px;
@@ -135,6 +136,56 @@
     position: relative;
     z-index: 111;
 }
+._1menu_drop {
+    position: absolute;
+    background: #fff;
+    width: 233px;
+    right: -20px;
+    top: 40px;
+    border: 1px solid #d2cfcf;
+    z-index: 11;
+}
+._1menu_drop_main::before {
+    position: absolute;
+    content: '';
+    border-bottom: 10px solid #d2cfcf;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    right: 41px;
+    top: -9px;
+    z-index: -1;
+}
+._1menu_drop_main::after {
+    position: absolute;
+    content: '';
+    border-bottom: 10px solid white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    right: 41px;
+    top: -8px;
+    z-index: 0;
+}
+._1menu_drop_main {
+    position: relative;
+    background: #fff;
+    padding: 9px 20px;
+}
+._1menu_drop_title {
+    font-size: 14px;
+    color: #565656;
+    font-weight: 600;
+    cursor: pointer;
+}
+._1menu_drop_title i {
+    font-size: 20px;
+    margin-left: 3px;
+}
+._1drop_list{}
+._1drop_list li {
+    display: block;
+    padding: 8px 0;
+}
+._1drop_list li a{}
 /*========= 1.Menu end ========*/
 
 /*========= 2.Footer ========*/
@@ -273,10 +324,12 @@
     padding: 13px 0 33px;
 }
 ._1banner_btn:hover {
-    color: #ec7c27;
+    background: #ec7c27;
+    color: #fff;
 }
 ._1banner_btn:active {
-    color: #c56014;
+    color:#fff;
+    background: #c56014;
 }
 ._1banner_btn {
     border: none;
@@ -342,6 +395,12 @@
 ._ser_section_cards {
     padding-top: 45px;
 }
+._ser_card:hover  i {
+    color: #fff;
+}
+._ser_card:hover ._ser_card_title {
+    color: #fff;
+}
 ._ser_card {
     align-items: center;
     height: 95px;
@@ -351,6 +410,7 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    transition: .3s all ease;
 }
 ._ser_card_img {
     width: auto;
@@ -361,6 +421,7 @@
     font-size: 20px;
     color: #333;
     font-weight: bold;
+    transition: .3s all ease;
 }
 ._ser_card_pic {
     flex: 0 0 55px;
@@ -627,8 +688,8 @@
     background-image: linear-gradient(-90deg, rgba(37, 25, 99, 0.95) 0%, rgba(124, 99, 244, 0.75) 100%);
     height: 100%;
     width: 100%;
-    background: linear-gradient(-90deg, rgb(51, 36, 128) 0%, rgb(142, 119, 255) 100%);
-    opacity: .8;
+    /* background: linear-gradient(-90deg, rgb(51, 36, 128) 0%, rgb(142, 119, 255) 100%); */
+    /* opacity: .08; */
 }
 ._1header_title {
     color: #fff;
@@ -684,9 +745,11 @@
 ._ser_card i{
     font-size: 34px;
     color: #333;
+    transition: .3s all ease;
 }
 ._ser_listss {
-    padding-bottom: 85px;
+    padding-bottom: 104px;
+    background: #fff;
 }
 ._ser_listss ._ser_card:hover ._ser_card_img{
     display: none;
@@ -706,15 +769,34 @@
 ._ser_listss ._ser_card:hover{
     background: #6647ff;
 }
+._ser_section ._ser_card:hover{
+    background: #6647ff;
+}
 ._ser_listss ._ser_card {
     cursor: pointer;
     transition: .3s all ease;
 }
+._1ser_main ._pages_main ._2title {
+    text-align: left !important;
+    margin-bottom: 30px;
+}
+._1ser_main ._pages_main ._1text {
+    font-size: 14px;
+    text-align: left;
+    color: #4e4e4e;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
 ._ser_listss ._ser_section_cards {
-    margin-top: -25px;
     position: relative;
     z-index: 1;
     padding-top: 0;
+}
+._1ser_main._pages {
+    background: #f8f8f8;
+    margin-bottom: -48px;
+    padding-bottom: 124px;
+    padding-top: 72px;
 }
 ._pages_main ._text_left{
     text-align: left !important;
@@ -1062,6 +1144,74 @@
     margin-top: 15px;
     display: none;
 }
+._1ser_details {
+    position: relative;
+    background-image: url(/images/dots2.png);
+    background-repeat: no-repeat;
+    background-position: top 43px right;
+    background-size: 600px auto;
+    padding: 49px 0 70px;
+}
+._1ser_details ._1banner_call {
+    background: #6647ff;
+    box-shadow: 0 10px 30px 0 rgba(110, 110, 110, 0.45);
+}
+._1ser_details ._1banner_call_a {
+    color: #fff;
+}
+._1ser_details_main{
+}
+._1ser_details_pic{
+    margin-bottom: 50px;
+}
+._1ser_details_img{}
+._1ser_details .back {
+    margin-bottom: 40px;
+}
+._1ser_details_title {
+    color: #4e4e4e;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 33px;
+    padding-top: 29px;
+}
+._1ser_details_text {
+    font-size: 16px;
+    line-height: 32px;
+    color: #4e4e4e;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+._kjsbd{
+    padding-left: 40px;
+}
+._1ser_details_list {
+    padding: 0 0 45px 32px;
+}
+._ser_section_cards a{
+    display: block;
+}
+._1ser_details_list li {
+    color: #4e4e4e;
+    font-size: 16px;
+    line-height: 40px;
+    font-weight: 600;
+    position: relative;
+    list-style: none;
+    padding-left: 25px;
+    text-align: justify;
+}
+._1ser_details_list li::before {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border: solid 3px #6647ff;
+    border-radius: 100%;
+    top: 15px;
+    left: 0;
+}
 /*========== 5.Reviews end =========*/
 
 /*========== 6.Patients Form =========*/
@@ -1317,6 +1467,68 @@
     font-size: 58px;
 }
 ._booking_button{}
+._1rev_pre{
+    font-size: 14px;
+    color: #959595;
+}
+._1rev_name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+._1rating{}
+._1rating li{}
+._1rating li i{}
+._1rating li._1rating_active{}
+._1rev_main {
+    padding: 33px 35px 32px;
+}
+._1rev_top {
+    display: flex;
+    align-items: center;
+}
+._1rev_pic{
+    flex: 0 0 auto;
+}
+._1rev_img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin-right: 14px;
+}
+._1rev_details {
+    flex: 1 1;
+    overflow: hidden;
+}
+._1ser_main._pages._1rev_alls {
+    margin-bottom: -113px;
+    padding-bottom: 154px;
+}
+._noter{
+    font-weight: bold;
+    color: #959595;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 200px;
+}
+._1rev_name{}
+._1rev_pre2 {
+    font-size: 14px;
+    color: #959595;
+    padding: 4px 0 0;
+}
+._1rev_rating {
+    flex: 0 0 auto;
+}
+._1rev_status{}
+._1rev_status_text {
+    font-size: 16px;
+    line-height: 32px;
+    color: #9a9a9a;
+    text-align: justify;
+    margin-top: 32px;
+}
 /*========== 10.Booking modal end ==========*/
 
 
@@ -1334,6 +1546,19 @@
 }
 ._menu {
     padding: 20.5px 40px;
+}
+._kjsbd{
+    padding-left: 15px;
+}
+._ser_section_cards a{
+    display: block;
+    height: 100%;
+}
+._ser_card i {
+    flex: 0 0 100%;
+    display: block;
+    text-align: center;
+    margin-top: 27px;
 }
 ._1header_pic{
     display: none;
@@ -1356,10 +1581,28 @@
 }
 ._ser_card_title {
     text-align: center;
+    font-size: 15px;
 }
 ._ser_section_cards{
     padding-left: 5px;
     padding-right: 5px;
+}
+._1ser_details ._1banner_call {
+    display: none;
+}
+._1ser_details {
+    background-size: 200px auto;
+    padding: 20px 0 30px;
+}
+._1ser_details .back {
+    margin-bottom: 20px;
+}
+._1ser_details_title {
+    margin-bottom: 18px;
+    padding-top: 10px;
+}
+._1ser_details_text {
+    margin-bottom: 20px;
 }
 ._ser_section_cards .col-6 {
     margin-bottom: 20px;
@@ -1565,6 +1808,9 @@
 ._pages {
     padding: 40px 0 35px;
 }
+._ser_card_title {
+    font-size: 15px;
+}
 ._footer_logo {
     height: 17px;
 }
@@ -1624,4 +1870,13 @@
     width: 100%;
     border-radius: 12px;
     margin-top: 41px;
+}
+
+@media (min-width: 1200px){
+.container {
+    max-width: 1165px;
+}
+
+
+
 }

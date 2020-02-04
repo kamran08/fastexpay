@@ -163,183 +163,137 @@
       <!--======= Service section ======-->
       <section class="_ser_section">
         <div class="container">
+          
           <h2 class="_1title _1title_center">
             <span class="_1title_span">Our Services</span>
           </h2>
 
           <div class="_ser_section_cards">
-            <div class="row">
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <nuxt-link to="/hygiene">
-                  <div class="_ser_card _1box_shadow _mar_b30">
-                    <div class="_ser_card_pic">
-                      <img class="_ser_card_img" src="/images/tooth.png" alt title />
+             <div class="row">
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/hygiene">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic">
+                                  <img src="/images/tooth.png" alt="" title="" class="_ser_card_img">
+                                  <img src="/images/tooth.png" alt="" title="" class="_ser_card_img _ser_card_img2">
+                                </div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Hygiene</h4></div>
+                                <Icon type="ios-arrow-forward" />
+                            </div>
+                          </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/composite">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/tooth2.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Composite &amp; Amalgam Fillings</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                               </div>
+                               </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/fullPartial">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/tooth3.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Full &amp; Partial Dentures</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/porcelainCrowns">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/tooth4.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Porcelain Crowns &amp; Bridges</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/extractions">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/dentalCare.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Extractions</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/restoration">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/impant.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Restoration of Implants</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/digital">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/xRay.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Digital X-Rays</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/perodonta">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/tooth5.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Periodontal Disease &amp; Treatments</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/teeth">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/tooth6.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Teeth Whitening</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/porcelain">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/drill.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Porcelain Veneers</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/oralSurgery">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/smiling.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Oral Surgery</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4">
+                          <nuxt-link to="/sealants">
+                            <div class="_ser_card _1box_shadow _mar_b30">
+                                <div class="_ser_card_pic"><img src="/images/mouthwash.png" alt="" title="" class="_ser_card_img"></div>
+                                <div class="_flex_space">
+                                    <h4 class="_ser_card_title">Sealants &amp; Fluoride</h4></div>
+                                     <Icon type="ios-arrow-forward" />
+                            </div>
+                            </nuxt-link>
+                        </div>
                     </div>
-
-                    <div class="_flex_space">
-                      <h4 class="_ser_card_title">Hygiene</h4>
-                    </div>
-                    <Icon type="ios-arrow-forward" />
-                  </div>
-                </nuxt-link>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/tooth2.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Composite & Amalgam Fillings</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/tooth3.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Full & Partial Dentures</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/tooth4.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Porcelain Crowns & Bridges</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/dentalCare.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Extractions</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/impant.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Restoration of Implants</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/xRay.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Digital X-Rays</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/tooth5.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Periodontal Disease & Treatments</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/tooth6.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Teeth Whitening</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/drill.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Porcelain Veneers</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/smiling.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Oral Surgery</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-
-              <!-- Item -->
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_ser_card _1box_shadow _mar_b30">
-                  <div class="_ser_card_pic">
-                    <img class="_ser_card_img" src="/images/mouthwash.png" alt title />
-                  </div>
-
-                  <div class="_flex_space">
-                    <h4 class="_ser_card_title">Sealants & Fluoride</h4>
-                  </div>
-                </div>
-              </div>
-              <!-- Item -->
-            </div>
           </div>
         </div>
       </section>

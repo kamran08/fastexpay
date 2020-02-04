@@ -17,39 +17,49 @@
               <li :class="($route.name == 'index') ? `_menu_active `: ''">
                 <nuxt-link to="/">Home</nuxt-link>
               </li>
-              <li>
+              <li  :class="($route.name == 'services') ? `_menu_active `: ''">
                 <nuxt-link to="/services">Services</nuxt-link>
               </li>
-              <li>
+              <li :class="($route.name == 'team') ? `_menu_active `: ''">
                 <nuxt-link to="/team">Our Team</nuxt-link>
               </li>
-              <li v-if="authInfo">
+              <!-- <li v-if="authInfo" :class="($route.name == 'uploadTeam') ? `_menu_active `: ''">
                 <nuxt-link to="/uploadTeam" >Upload your Team member</nuxt-link>
-              </li>
-              <li>
+              </li> -->
+              <li :class="($route.name == 'patientsForms') ? `_menu_active `: ''">
                 <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
               </li>
-              <li>
+              <li :class="($route.name == 'payment') ? `_menu_active `: ''">
                 <nuxt-link to="/payment">Payments</nuxt-link>
-              </li>
-              <li v-if="authInfo">
+              </li >
+              <!-- <li v-if="authInfo" :class="($route.name == 'manageReview') ? `_menu_active `: ''">
                 <nuxt-link to="/manageReview">Patient Reviws</nuxt-link>
-              </li>
-              <li>
+              </li> -->
+              <li :class="($route.name == 'contact') ? `_menu_active `: ''">
                 <nuxt-link to="/contact">Contact Us</nuxt-link>
               </li>
-              <!-- <li>
-                <nuxt-link to="/login">Log In</nuxt-link>
-              </li> -->
-              <!-- <li v-if="!authInfo">
-                <nuxt-link to="/login">Log In</nuxt-link>
+
+              <li>
+                <p class="_1menu_drop_title" @click="dropOpen =!dropOpen">More <Icon type="ios-arrow-down" /></p>
+
+                <div class="_1menu_drop" v-if="dropOpen">
+                  <div class="_1menu_drop_main">
+                    <ul class="_1drop_list">
+                      <li v-if="authInfo" :class="($route.name == 'uploadTeam') ? `_menu_active `: ''">
+                        <nuxt-link to="/uploadTeam" >Upload your Team member</nuxt-link>
+                      </li>
+
+                      <!-- <li :class="($route.name == 'patientsForms') ? `_menu_active `: ''">
+                        <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
+                      </li> -->
+
+                      <li v-if="authInfo" :class="($route.name == 'manageReview') ? `_menu_active `: ''">
+                        <nuxt-link to="/manageReview">Manage Reviews</nuxt-link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </li>
-              <li v-else>
-                <nuxt-link to="/logout">Log out</nuxt-link>
-              </li> -->
-              <!-- <li>
-                <nuxt-link to="/registration">Sign Up</nuxt-link>
-              </li> -->
             </ul>
           </div>
 
@@ -67,25 +77,25 @@
           <li :class="($route.name == 'index') ? `_menu_active `: ''">
             <nuxt-link to="/">Home</nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/detailProcedure">Services</nuxt-link>
+          <li  :class="($route.name == 'services') ? `_menu_active `: ''">
+            <nuxt-link to="/services">Services</nuxt-link>
           </li>
-          <li>
+          <li :class="($route.name == 'team') ? `_menu_active `: ''">
             <nuxt-link to="/team">Our Team</nuxt-link>
           </li>
-          <li v-if="authInfo">
+          <li v-if="authInfo" :class="($route.name == 'uploadTeam') ? `_menu_active `: ''">
             <nuxt-link to="/uploadTeam" >Upload your Team member</nuxt-link>
           </li>
-          <li>
+          <li :class="($route.name == 'patientsForms') ? `_menu_active `: ''">
             <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
           </li>
-          <li>
+          <li :class="($route.name == 'payment') ? `_menu_active `: ''">
             <nuxt-link to="/payment">Payments</nuxt-link>
+          </li >
+          <li v-if="authInfo" :class="($route.name == 'manageReview') ? `_menu_active `: ''">
+            <nuxt-link to="/manageReview">Manage Reviews</nuxt-link>
           </li>
-          <li v-if="authInfo">
-            <nuxt-link to="/manageReview">Patient Reviws</nuxt-link>
-          </li>
-          <li>
+          <li :class="($route.name == 'contact') ? `_menu_active `: ''">
             <nuxt-link to="/contact">Contact Us</nuxt-link>
           </li>
         </ul>
@@ -311,6 +321,7 @@ import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
+      dropOpen:false,
       mobileOpen:false,
       isSubmit:false,
       booking_modal: false,

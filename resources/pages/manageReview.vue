@@ -3,7 +3,7 @@
         <div class="_content">
         <!--======= Header ======-->
         <div class="_1header">
-          <h2 class="_1header_title">Our Team</h2>
+          <h2 class="_1header_title">Manage Review</h2>
         </div>
         <!--======= Header end ======-->
 

@@ -127,11 +127,14 @@ export default {
                   // }
               }
               else if(res.status==401){
+                this.$vs.loading.close();
                   this.e(res.data.message)
               }
               else{
+                this.$vs.loading.close();
                   this.swr();
               }
+              this.$vs.loading.close();
       },
        setAppointMentModal(d){
         this.$store.dispatch('setAppointmentModal',d)
