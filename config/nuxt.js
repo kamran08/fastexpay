@@ -15,7 +15,7 @@ module.exports = {
   ],
   
   axios: {
-      baseURL: 'http://dental.kollol.me'                       
+      // baseURL: 'http://dental.kollol.me'                       
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
@@ -32,7 +32,7 @@ module.exports = {
     '~plugins/ivuew',
   ],
   head: {
-    title: 'Authentic dantal',
+    title: 'Authentic Dental Studio',
     meta: [
       {
         charset: 'utf-8'
