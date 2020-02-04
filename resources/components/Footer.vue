@@ -3,7 +3,7 @@
     <footer class="_footer">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-12 col-md-4 col-lg-4">
+            <div class="col-12 col-md-12 col-lg-4">
               <nuxt-link to="/">
                 <img class="_footer_logo" src="/images/logo.png" alt="" title="">
               </nuxt-link>

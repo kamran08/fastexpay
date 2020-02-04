@@ -41,6 +41,20 @@ jQuery(document).ready(function($) {
       autoplay:false,
       autoplayTimeout:5000
   });
+  $('.owl-carousel, ._new_owl_cat_section').owlCarousel({
+      items: 2,
+      lazyLoad: true,
+      lazyLoadEager: 1,
+      loop: true,
+      margin: 10,
+      nav: false,
+      dots: false,
+      autoHeight: true,
+      autoplay:false,
+      autoplayTimeout:5000,
+      stagePadding: 50
+
+  });
 });
 
 

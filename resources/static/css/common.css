@@ -686,21 +686,28 @@ a{
 ._btn_gradient_default img {
     width: 14px;
 }
-._btn_gradient_default i{
-    padding-left: 10px;
+._btn_gradient_default i {
+    padding-left: 7px;
+    font-size: 25px;
+    margin-right: -5px;
+    font-weight: bold;
 }
 ._btn_gradient_default {
     height: 42px;
     background-image: linear-gradient(84deg, #332480 1%, #6647ff 123%);
     color: #fff;
-    font-size: 13px;
+    font-size: 14px;
     border: none;
     border-radius: 30px;
-    padding: 0 33px 0;
+    padding: 0 25px 0;
     display: inline-flex;
     justify-content: center;
     line-height: 42px;
     align-items: center;
+    font-weight: bold;
+}
+._btn_padd30{
+    padding: 0px 35px !important;
 }
 ._btn_gradient_default._btn_sm {
     line-height: 33px;

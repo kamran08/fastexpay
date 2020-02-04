@@ -8,7 +8,7 @@
         <!--======= Header end ======-->
 
         <!--======= Form section ======-->
-        <section class="_pages">
+        <section class="_pages _pages_before">
           <div class="_1banner_call">
             <a class="_1banner_call_a" href=""><i class="fas fa-phone"></i> (530) 222-4900</a>
           </div>
@@ -142,7 +142,7 @@
                             
                           </div>
                             <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
-                                <button class="_btn_gradient_default _mar_t10">Submit</button>
+                                <button class="_btn_gradient_default _mar_t10 _btn_padd30">Submit</button>
                             </div>
                         </div>
                       </div>

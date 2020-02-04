@@ -25,7 +25,7 @@
                     <span class="_1title_span">Services we Provided</span>
                   </h2>
 
-                  <p class="_1text _text_left">Dr. Dao and her team invite you to our practice where you and your family can be taken care of.  We provide a wide array of services that can
+                  <p class="_1text _text_left _mar_t20">Dr. Dao and her team invite you to our practice where you and your family can be taken care of.  We provide a wide array of services that can
                   help you have optimal health and the kind of smile that shines with a higher level of brilliance.</p>
 
                   <p class="_1text _text_left">If you need a service custom-tailored to suit your needs, feel 
@@ -118,7 +118,7 @@
                             </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/perodonta">
+                          <nuxt-link to="/perodontal">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth5.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
@@ -183,7 +183,7 @@
 
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                  REQURST APPOINTMENT
+                  REQUEST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>

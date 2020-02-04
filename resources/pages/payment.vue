@@ -26,14 +26,15 @@
                   <p class="_1text">We offer the following additional services to help take the stress out of dentistry and invest in yourself:</p>
                 </div>
                 <div class="col-12 col-md-5 col-lg-5">
-                  <div class="_patientForms_header_pic">
+                  <img src="/images/payment.png" alt="" title="">
+                  <!-- <div class="_patientForms_header_pic">
                     <div class="_patientForms_header_imgOne">
-                      <img class="" src="assets/img/pros.png" alt="" title="">
+                      <img class="" src="/images/pros.png" alt="" title="">
                     </div>
                     <div class="_patientForms_header_imgTwo">
-                      <img class="" src="assets/img/1.jpg" alt="" title="">
+                      <img class="" src="/images/1.jpg" alt="" title="">
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
@@ -68,7 +69,7 @@
           <div class="_pay_card_all">
             <div class="container">
               <div class="row">
-                <div class="col-12 col-md-3 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                   <div class="_pay_card _1box_shadow">
                     <ul class="_pay_card_list">
                       <li>Aetna</li>
@@ -80,7 +81,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-3 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                   <div class="_pay_card _1box_shadow">
                     <ul class="_pay_card_list">
                       <li>Blue Shield of California
@@ -92,7 +93,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-3 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                   <div class="_pay_card _1box_shadow">
                     <ul class="_pay_card_list">
                       <li>Delta Dental Premier
@@ -104,7 +105,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-3 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                   <div class="_pay_card _1box_shadow">
                     <ul class="_pay_card_list">
                       <li>MetLife
@@ -132,19 +133,19 @@
               <div class="_payment_system_main">
                 <ul class="_payment_system_pic">
                   <li>
-                    <img src="assets/img/visa.png" alt="" title="">
+                    <img src="/images/visa.png" alt="" title="">
                   </li>
                   <li>
-                    <img src="assets/img/masterCard.png" alt="" title="">
+                    <img src="/images/masterCard.png" alt="" title="">
                   </li>
                   <li>
-                    <img src="assets/img/american.png" alt="" title="">
+                    <img src="/images/american.png" alt="" title="">
                   </li>
                   <li>
-                    <img src="assets/img/discover.png" alt="" title="">
+                    <img src="/images/discover.png" alt="" title="">
                   </li>
                   <li>
-                    <img src="assets/img/careCredit.png" alt="" title="">
+                    <img src="/images/careCredit.png" alt="" title="">
                   </li>
                 </ul>
               </div>
@@ -163,8 +164,8 @@
 
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                  REQURST APPOINTMENT
-                  <img src="assets/img/arrowRight.png" alt="" title="">
+                  REQUEST APPOINTMENT
+                  <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>
             </div>

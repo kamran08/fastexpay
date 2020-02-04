@@ -67,7 +67,7 @@
 }
 ._mobile_button {
     position: absolute;
-    left: 19px;
+    left: 0px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 21px;
@@ -196,6 +196,7 @@
 ._footer ._1text {
     color: #7b7b7b;
     margin: 43px 0 34px;
+    text-align: justify;
 }
 ._footer_logo {
     width: auto;
@@ -265,7 +266,7 @@
 /*========== 3.Index =========*/
 ._1banner {
     position: relative;
-    height: 562px;
+    height: 600px;
     overflow: hidden;
 }
 ._1banner_pic:before {
@@ -290,7 +291,7 @@
 ._1banner_img{}
 ._1banner_call {
     position: absolute;
-    top: 25px;
+    top: 28px;
     right: 0;
     z-index: 11;
     background: #fff;
@@ -340,12 +341,12 @@
     border-radius: 7px;
 }
 ._1banner_main {
-    margin-top: 30%;
+    margin-top: 130px;
 }
 .owl-theme .owl-nav.disabled+.owl-dots {
     margin-top: 10px;
     position: absolute;
-    bottom: 259px;
+    bottom: 230px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -390,7 +391,7 @@
 ._ser_section {
     background: #f8f8f8;
     padding-top: 65px;
-    padding-bottom: 63px;
+    padding-bottom: 80px;
 }
 ._ser_section_cards {
     padding-top: 45px;
@@ -495,6 +496,24 @@
     height: 350px;
     overflow: hidden;
     position: relative;
+}
+._1card:hover ._1card_delete {
+    opacity: 1;
+    transform: scale(1);
+}
+._1card_delete {
+    position: absolute;
+    bottom: 9px;
+    right: 20px;
+    opacity: 0;
+    transform: scale(.4);
+    transition: .3s all ease;
+}
+._1card_delete_btn {
+    border: none;
+    background: transparent;
+    font-size: 31px;
+    color: #c90606;
 }
 ._1card_img {
     position: absolute;
@@ -637,8 +656,20 @@
     border-bottom: 2px solid #c4c4c4 !important;
     box-shadow: none;
 }
+._cantact_sec_group input::-webkit-input-placeholder,  ._cantact_sec_group textarea::-webkit-input-placeholder{ 
+    color: #656565;
+}
+._cantact_sec_group input::-moz-placeholder, ._cantact_sec_group textarea::-moz-placeholder{ 
+    color: #656565;
+}
+._cantact_sec_group input:-ms-input-placeholder, ._cantact_sec_group textarea:-ms-input-placeholder{
+    color: #656565;
+}
+._cantact_sec_group input:-moz-placeholder, ._cantact_sec_group textarea:-moz-placeholder{
+    color: #656565;
+}
 ._cantact_sec_group input, ._cantact_sec_group textarea {
-    font-size: 15px;
+    font-size: 18px;
     border: none;
     border-bottom: 2px solid #c4c4c4;
     width: 100%;
@@ -647,6 +678,7 @@
     box-shadow: none;
     border-radius: 0px;
     font-family: 'Source Sans Pro', sans-serif !important;
+    height: 57px;
 }
 ._cantact_sec_title {
     font-size: 18px;
@@ -661,6 +693,7 @@
 }
 ._cantact_sec_map iframe{
     height: 360px;
+    width: 100%;
 }
 ._cantact_sec_map {
     margin-top: 39px;
@@ -668,6 +701,16 @@
 /*========== 3.Index end =========*/
 
 /*========== 4.Team =========*/
+._2patientForms_pic {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+._2patientForms_pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 ._1header {
     position: relative;
     height: 155px;
@@ -723,18 +766,27 @@
 ._pages ._1banner_call_a:hover {
     color: #fff;
 }
+._pages._2patientForms_main_all {
+    padding-top: 0px;
+}
 ._pages {
     position: relative;
     background: #fff;
-    padding: 43px 0 85px;
+    padding: 61px 0 100px;
     z-index: 1;
+}
+._2patientForms_main {
+    background: #f8f8f8;
+    margin-bottom: -46px;
+    padding-bottom: 21px;
+    padding-top: 63px;
 }
 ._pages_before:before {
     position: absolute;
     content: '';
     left: 0px;
     top: 0px;
-    height: 466px;
+    height: 458px;
     width: 100%;
     z-index: -1;
     background-color: #f8f8f8;
@@ -804,11 +856,12 @@
 ._pages_before{
     position: relative;
 }
+
 ._pages_main{}
 ._pages_main ._1text {
     font-size: 16px;
     text-align: center;
-    color: #737373;
+    color: #4e4e4e;
     line-height: 31px;
 }
 ._review_card {
@@ -1233,7 +1286,7 @@
 }
 ._pages_main._patientForms_top ._1text {
     color: #4e4e4e;
-    text-align: left;
+    text-align: justify;
     margin: 51px 0 102px;
 }
 ._patientForms_header_imgOne {
@@ -1257,6 +1310,7 @@
     flex: 1 1;
     overflow: hidden;
     padding: 0 24px 0 0;
+    line-height: initial;
 }
 ._patientForms_card_errow {
     width: 8px;
@@ -1555,10 +1609,10 @@
     height: 100%;
 }
 ._ser_card i {
-    flex: 0 0 100%;
+    flex: 0 0 auto;
     display: block;
     text-align: center;
-    margin-top: 27px;
+    margin-top: 0;
 }
 ._1header_pic{
     display: none;
@@ -1581,7 +1635,6 @@
 }
 ._ser_card_title {
     text-align: center;
-    font-size: 15px;
 }
 ._ser_section_cards{
     padding-left: 5px;
@@ -1610,9 +1663,13 @@
 }
 ._ser_card {
     height: 100%;
-    padding: 29px 20px 6px;
-    display: inherit;
-    flex-wrap: inherit;
+    padding: 25px 20px 17px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 ._ser_card_img {
     margin: 0 auto 12px;
@@ -1652,9 +1709,10 @@
     bottom: -54px;
 }
 ._team_main {
-    background-position: top 100px left;
+    background-position: top 50px left;
     margin-bottom: 0;
     padding-bottom: 28px;
+    background-size: 60% auto;
 }
 ._team_main_details {
     text-align: center;
@@ -1725,7 +1783,7 @@
     transform: inherit;
 }
 ._patientForms_card {
-    padding: 0 18px 0 22px;
+    padding: 0 46px 0 41px;
     line-height: 38px;
 }
 ._pages_main._patientForms_top ._1text {
@@ -1781,6 +1839,87 @@
 ._mobile_menu{
     display: flex;
 }
+.ivu-modal-content {
+    border-radius: 17px !important;
+}
+.ivu-modal-body {
+    padding: 40px 20px !important;
+}
+._booking_title {
+    width: 86%;
+    margin: 0 auto 20px;
+}
+._booking_text {
+    width: 88%;
+    margin: 0 auto 31px;
+}
+._book_modal ._booking_step {
+    margin-bottom: 17px;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 20px;
+}
+._booking_form {
+    margin-bottom: 12px;
+}
+._team ._1banner_call {
+    display: none;
+}
+._team {
+    padding: 30px 0 42px;
+}
+._1card_delete {
+    bottom: 5px;
+    right: 10px;
+    opacity: 1;
+    transform: scale(1);
+}
+._1banner_call {
+    display: none;
+}
+._1banner ._1banner_call {
+    display: flex;
+}
+._2patientForms_main {
+    margin-bottom: -46px;
+    padding-bottom: 88px;
+    padding-top: 63px;
+    background-image: url(/images/dots2.png) !important;
+    background-position: bottom 111px center !important;
+}
+._pay_card {
+    height: auto;
+    margin-bottom: 20px;
+}
+._insurance ._1title_span:before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+._payment_system ._1title_span:before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+._payment_system ._1title {
+    text-align: center;
+}
+._insurance ._1title {
+    text-align: center;
+}
+._review_card ._btn_gradient_default {
+    width: 100%;
+}
+._review_card ._review_buttons ._btn_gradient_default {
+    width: auto;
+}
+._1ser_main ._patientForms_header_left {
+    margin-top: 33px;
+}
+._1ser_main._pages {
+    padding-bottom: 67px;
+    padding-top: 30px;
+}
+._ser_listss {
+    padding-bottom: 38px;
+}
 }
 /*Small Device*/
 
@@ -1812,10 +1951,19 @@
     font-size: 15px;
 }
 ._footer_logo {
-    height: 17px;
+    height: 34px;
+    margin: 0 auto;
 }
 ._menu {
     padding: 20.5px 40px;
+}
+._footer ._1text {
+    margin: 33px 0 30px;
+    text-align: center;
+}
+._footer_social {
+    text-align: center;
+    margin-bottom: 48px;
 }
 ._mobile_button {
     position: inherit;
@@ -1826,6 +1974,7 @@
 }
 ._1card_pic {
     height: 150px;
+    position: relative;
 }
 ._cantact_card {
     margin: 10px 0;
@@ -1854,7 +2003,43 @@
 ._book_modal {
     padding: 30px 30px;
 }
-
+._1banner_items .row{
+    align-items: flex-end;
+}
+.owl-theme .owl-nav.disabled+.owl-dots {
+    bottom: -75px !important;
+}
+._team_main {
+    background-size: 200px auto;
+    background-position: top left;
+    margin-bottom: 0;
+}
+._1card_delete {
+    bottom: 5px;
+    right: 10px;
+    opacity: 1;
+    transform: scale(1);
+}
+._1banner_call {
+    display: none;
+}
+._1banner ._1banner_call {
+    display: flex;
+}
+._mobile_menu {
+    padding-top: 73px;
+}
+._mobile_menu_button {
+    display: none;
+}
+._patientForms_top {
+    background-size: 237px auto;
+    background-position: right top 16px;
+}
+._pay_card {
+    height: 266px;
+    margin-top: 30px;
+}
 }
 /*Medium Device*/
 
@@ -1879,4 +2064,38 @@
 
 
 
+}
+
+._new_owl_cat_section ._cat_card {
+    margin-top: 0;
+}
+
+._new_owl_cat_section ._cat_card_img {
+    width: 114px !important;
+    margin: 0 auto 33px;
+}
+
+@media only screen and (max-width: 767px) {
+    ._mobile_cat_section {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    ._desktop_cat_section {
+        display: none;
+    }
+}
+
+._new_owl_cat_section {
+    height: 290px;
+    top: -90px;
+}
+
+._new_owl_cat_section .owl-stage-outer {
+    height: 100% !important;
+}
+
+._new_owl_cat_section .owl-dots {
+    display: none;
 }

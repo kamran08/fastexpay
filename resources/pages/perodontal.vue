@@ -14,7 +14,7 @@
             </div>
 
             <div class="container">
-                <nuxt-link to="/services" class="back _c_default"><i class="fas fa-chevron-left"></i> Back to Service</nuxt-link>
+                <nuxt-link to="/services" class="back _c_default"><i class="fas fa-chevron-left"></i> Back to Services</nuxt-link>
 
                 <div class="_1ser_details_pic">
                     <img class="_1ser_details_img" src="/images/periodental.png" alt="" title="">
@@ -90,7 +90,7 @@
                 <h2 class="_1ser_details_title">5. Risk Factors that increase the risk of periodontal disease</h2>
 
                 <p class="_1ser_details_text">
-                    Poor Oral Health Habits
+                    Poor Oral Health Habits<br>
                     Preventing dental disease starts at home with good oral hygiene and a 
                     balanced diet. Prevention also includes regular dental visits which include exams, cleanings, and x-rays.
                      A combination of excellent home care and professional dental care will ensure and preserve the natural 
@@ -125,7 +125,7 @@
 
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                  REQURST APPOINTMENT
+                  REQUEST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>
@@ -136,3 +136,25 @@
       </div>
     </div>
 </template>
+
+
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  async created(){
+ 
+
+  },
+  methods:{
+     setAppointMentModal(d){
+      // let d = !this.appointmentModal
+      this.$store.dispatch('setAppointmentModal',d)
+    },
+
+  }
+}
+</script>

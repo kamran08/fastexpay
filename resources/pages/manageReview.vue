@@ -145,7 +145,7 @@
 
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                  REQURST APPOINTMENT
+                  REQUEST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>

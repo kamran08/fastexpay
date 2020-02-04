@@ -8,7 +8,7 @@
       <!--======= Header end ======-->
 
       <!--======= Form section ======-->
-      <section class="_pages">
+      <section class="_pages _pages_before">
         <div class="_1banner_call">
           <a class="_1banner_call_a" href>
             <i class="fas fa-phone"></i> (530) 222-4900
@@ -67,7 +67,7 @@
                           <div class="col-12 col-md col-lg"></div>
                           <div class="col-12 col-md-auto col-lg-auto">
                             <button
-                              class="_btn_gradient_default _mar_t10"
+                              class="_btn_gradient_default _mar_t10 _btn_padd30"
                               @click="storealldata"
                             >Send</button>
                           </div>
@@ -185,7 +185,7 @@
 
             <div class="col-12 col-md-auto col-lg-auto">
               <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                REQURST APPOINTMENT
+                REQUEST APPOINTMENT
                 <img src="/images/arrowRight.png" alt title />
               </button>
             </div>

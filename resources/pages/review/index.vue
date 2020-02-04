@@ -109,12 +109,10 @@
                   <div class="col-12 col-md-12 col-lg-12">
                     <div class="row">
                       <div class="col-12 col-md col-lg">
-                        <ul class="_add_image">
-                          <!-- v-if="additionalImages.length" v-for="(item,index) in additionalImages" :key="index" -->
+                        <!-- <ul class="_add_image">
                           <li v-if="from.additionalImages.length" v-for="(item,index) in from.additionalImages" :key="index">
                             <img class="_add_image_img" :src="item" alt="" title="">
                             <div class="_add_image_icon">
-                              <!-- <p class="_add_image_edit"><i class="fas fa-pen"></i></p> -->
                               <p class="_add_image_delete"><i class="fas fa-trash-alt"></i></p>
                             </div>
                           </li>
@@ -138,7 +136,7 @@
                               </div>
                             </Upload>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
                         <button class="_btn_gradient_default _mar_t10">Submit</button>

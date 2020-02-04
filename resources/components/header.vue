@@ -35,11 +35,14 @@
               <!-- <li v-if="authInfo" :class="($route.name == 'manageReview') ? `_menu_active `: ''">
                 <nuxt-link to="/manageReview">Patient Reviws</nuxt-link>
               </li> -->
+              <li :class="($route.name == 'patientsReviews') ? `_menu_active `: ''">
+                <nuxt-link to="/patientsReviews">Patient Review</nuxt-link>
+              </li>
               <li :class="($route.name == 'contact') ? `_menu_active `: ''">
                 <nuxt-link to="/contact">Contact Us</nuxt-link>
               </li>
 
-              <li>
+              <li v-if="authInfo">
                 <p class="_1menu_drop_title" @click="dropOpen =!dropOpen">More <Icon type="ios-arrow-down" /></p>
 
                 <div class="_1menu_drop" v-if="dropOpen">
@@ -130,7 +133,7 @@
                             <p class="_booking_form_label">First Name</p>
 
                             <input class="_1int" v-model="from.firstName" type="text" placeholder="type first name">
-                        <p v-if="from.firstName=='' || from.firstName==null" class="Rectangle_coustom">Write Your First Name</p>
+                            <p v-if="from.firstName=='' || from.firstName==null" class="Rectangle_coustom">Write Your First Name</p>
                         </div>
                     </div>
 
@@ -288,7 +291,7 @@
                     </div>
 
                     <div class="col-12 col-md-12 col-lg-12 _text_right" @click="storealldata">
-                        <button class="_btn_gradient_default _mar_t10">Submit <i class="fas fa-arrow-right"></i></button>
+                        <button class="_btn_gradient_default _mar_t10">Submit <Icon type="ios-arrow-round-forward" /></button>
                     </div>
                 </div>
             </div>

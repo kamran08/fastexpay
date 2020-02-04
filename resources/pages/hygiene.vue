@@ -17,7 +17,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-7 col-lg-7 _patientForms_header_left">
-                  <nuxt-link to="/services" class="back _c_default"><i class="fas fa-chevron-left"></i> Back to Service</nuxt-link>
+                  <nuxt-link to="/services" class="back _c_default"><i class="fas fa-chevron-left"></i> Back to Services</nuxt-link>
 
                   <h2 class="_1title">
                     <span class="_1title_span">If a patient cannot clean his teeth, no dentist can clean them for him.</span>
@@ -80,7 +80,7 @@
 
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                  REQURST APPOINTMENT
+                  REQUEST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>

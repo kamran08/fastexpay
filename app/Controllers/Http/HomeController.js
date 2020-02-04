@@ -117,6 +117,18 @@ class HomeController {
         return reviews
 
     }
+    async getAllPublishReviews({ request, response, auth, session }) {
+        // const data = request.all()
+        let reviews =  await Review.query().where('status','Published').orderBy('id','desc').with('images').fetch()
+        if(reviews){
+        reviews = reviews.toJSON();
+            for(let i of reviews){
+            i.istrue = false
+            }
+        }
+        return reviews
+
+    }
     async updateReviews({ request, response, auth, session }) {
         const data = request.all()
         let reviews =  await Review.query().where('id',data.id).update(data)

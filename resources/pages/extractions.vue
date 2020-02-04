@@ -3,7 +3,7 @@
         <div class="_content">
         <!--======= Header ======-->
         <div class="_1header">
-          <h2 class="_1header_title">Teeth Whitening</h2>
+          <h2 class="_1header_title">Extractions</h2>
         </div>
         <!--======= Header end ======-->
 
@@ -14,7 +14,7 @@
             </div>
 
             <div class="container">
-                <nuxt-link to="/services" class="back _c_default"><i class="fas fa-chevron-left"></i> Back to Service</nuxt-link>
+                <nuxt-link to="/services" class="back _c_default"><i class="fas fa-chevron-left"></i> Back to Services</nuxt-link>
 
                 <div class="row">
                     <div class="col-12 col-md-7 col-lg-7 _mar_b40">
@@ -65,7 +65,7 @@
 
               <div class="col-12 col-md-auto col-lg-auto">
                 <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                  REQURST APPOINTMENT
+                  REQUEST APPOINTMENT
                   <img src="/images/arrowRight.png" alt="" title="">
                 </button>
               </div>
@@ -76,3 +76,25 @@
       </div>
     </div>
 </template>
+
+
+<script>
+export default {
+  data(){
+    return{
+      
+    }
+  },
+  async created(){
+ 
+
+  },
+  methods:{
+     setAppointMentModal(d){
+      // let d = !this.appointmentModal
+      this.$store.dispatch('setAppointmentModal',d)
+    },
+
+  }
+}
+</script>

@@ -8,7 +8,7 @@
           <div class="_1banner_items">
             <div class="container">
               <div class="row">
-                <div class="col-12 col-md-4 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="_1banner_main">
                     <p class="_1banner_title">Confidence Starts With A Beautiful smile</p>
 
@@ -24,7 +24,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-8 col-lg-8 _1header_pic">
+                <div class="col-12 col-md-6 col-lg-8 _1header_pic">
                   <img class="_1header_slider_img" src="/images/bitmap.png" alt title />
                 </div>
               </div>
@@ -36,7 +36,7 @@
           <div class="_1banner_items">
             <div class="container">
               <div class="row">
-                <div class="col-12 col-md-4 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="_1banner_main">
                     <p class="_1banner_title">Confidence Starts With A Beautiful smile</p>
 
@@ -52,7 +52,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-8 col-lg-8 _1header_pic">
+                <div class="col-12 col-md-6 col-lg-8 _1header_pic">
                   <img class="_1header_slider_img" src="/images/bitmap.png" alt title />
                 </div>
               </div>
@@ -88,7 +88,7 @@
           <div class="_1banner_items">
             <div class="container">
               <div class="row">
-                <div class="col-12 col-md-4 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                   <div class="_1banner_main">
                     <p class="_1banner_title">Confidence Starts With A Beautiful smile</p>
 
@@ -104,7 +104,7 @@
                   </div>
                 </div>
 
-                <div class="col-12 col-md-8 col-lg-8 _1header_pic">
+                <div class="col-12 col-md-6 col-lg-8 _1header_pic">
                   <img class="_1header_slider_img" src="/images/bitmap.png" alt title />
                 </div>
               </div>
@@ -126,7 +126,41 @@
       <!--======= Banner section end ======-->
 
       <!--======= Category section ======-->
-      <section class="_cat_section">
+      <section class="_cat_section _desktop_cat_section">
+        <div class="container">
+          <div class="row">
+            <!-- Items -->
+            <div class="owl-carousel owl-theme _new_owl_cat_section">
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="_cat_card _1box_shadow">
+                  <img class="_cat_card_img" src="/images/general-dentist@3x.png" alt title />
+                  <h2 class="_cat_card_title">GENERAL DENTISTRY</h2>
+                </div>
+              </div>
+              <!-- Items -->
+
+              <!-- Items -->
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="_cat_card _1box_shadow">
+                  <img class="_cat_card_img" src="/images/cosmetic.png" alt title />
+                  <h2 class="_cat_card_title">COSMETIC DENTISTRY</h2>
+                </div>
+              </div>
+              <!-- Items -->
+
+              <!-- Items -->
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="_cat_card _1box_shadow">
+                  <img class="_cat_card_img" src="/images/emergency.png" alt title />
+                  <h2 class="_cat_card_title">EMERGENCY DENTISTRY</h2>
+                </div>
+              </div>
+            </div>
+            <!-- Items -->
+          </div>
+        </div>
+      </section>
+      <section class="_cat_section _mobile_cat_section">
         <div class="container">
           <div class="row">
             <!-- Items -->
@@ -244,7 +278,7 @@
                             </nuxt-link>
                         </div>
                         <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/perodonta">
+                          <nuxt-link to="/perodontal">
                             <div class="_ser_card _1box_shadow _mar_b30">
                                 <div class="_ser_card_pic"><img src="/images/tooth5.png" alt="" title="" class="_ser_card_img"></div>
                                 <div class="_flex_space">
@@ -309,7 +343,7 @@
 
             <div class="col-12 col-md-auto col-lg-auto">
               <button class="_schedule_btn" type="button" @click="setAppointMentModal(true)">
-                REQURST APPOINTMENT
+                REQUEST APPOINTMENT
                 <img src="/images/arrowRight.png" alt title />
               </button>
             </div>
@@ -334,7 +368,7 @@
                   class="_btn_gradient_default"
                   type="button"
                   @click="$router.push('/team')"
-                >View More Team</button>
+                >View More Team <Icon type="ios-arrow-round-forward" /></button>
               </div>
             </div>
           </div>
@@ -354,17 +388,25 @@
                     <span class="_c_default">{{singleMember.name}}</span>
                   </h2>
 
-                  <p class="_1text">{{singleMember.description}}</p>
+                       <p
+                    class="_1text"
+                    v-if="!isAll && singleMember.description.length>400">
+                    {{singleMember.description.substring(0, 400)}}
+                  </p>
+                  <p class="_1text" v-else>{{singleMember.description}}</p>
 
                   <!-- <p class="_1text">
                         Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
                   </p>-->
 
-                  <button
+                 <button
                     class="_btn_gradient_default"
                     type="button"
-                    @click="$router.push('/team')"
-                  >View More</button>
+                    @click="isAll=!isAll"
+                  >
+                    {{(!isAll)?"View More":"View Less"}}
+                    <Icon type="ios-arrow-round-forward" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -375,7 +417,7 @@
           <div class="container">
             <div class="row">
               <!-- Card -->
-              <div class="col-6 col-md-3 col-lg-4" v-for="(item,index) in allmembers" :key="index">
+              <div class="col-6 col-md-4 col-lg-4" v-for="(item,index) in allmembers" :key="index">
                 <div class="_1card _mar_b30">
                   <div class="_1card_pic" @click="asignSingleMemebr(index)">
                     <img class="_1card_img" :src="item.image" alt title />
@@ -391,7 +433,7 @@
 
               <!-- Button -->
               <div class="_text_center more_team col-12 col-md-12">
-                <button class="_btn_gradient_default" type="button">View More Team</button>
+                <button class="_btn_gradient_default" type="button">View More Team <Icon type="ios-arrow-round-forward" /></button>
               </div>
               <!-- Button -->
             </div>
@@ -511,7 +553,7 @@
                     <div class="row">
                       <div class="col-12 col-md col-lg"></div>
                       <div class="col-12 col-md-auto col-lg-auto">
-                        <button class="_btn_gradient_default" @click="storealldata">Send</button>
+                        <button class="_btn_gradient_default _btn_padd30" @click="storealldata">Send</button>
                       </div>
                     </div>
                   </div>
@@ -596,6 +638,7 @@
 export default {
   data() {
     return {
+      isAll: false,
       isSubmit: false,
       from: {
         name: "",
