@@ -75,7 +75,7 @@
 
                         <div class="_drop_modal_buttons">
                           <button class="_btn _btn_decline2" @click="updateStatus('Declined')">Decline</button>
-                          <button class="_btn_gradient_default"  @click="updateStatus('Published')" ><i class="fas fa-arrow-right"></i> Publish</button>
+                          <button class="_btn_gradient_default"  @click="updateStatus('Published')" ><Icon type="ios-checkmark" /> Publish</button>
                         </div>
                       </div>
                     </div>

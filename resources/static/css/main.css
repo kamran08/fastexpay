@@ -2099,3 +2099,7 @@
 ._new_owl_cat_section .owl-dots {
     display: none;
 }
+
+.ivu-modal-content {
+    border-radius: 17px !important;
+}

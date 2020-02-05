@@ -221,6 +221,7 @@
                             <p class="_booking_form_label">Desired Services</p>
 
                             <select class="_1select" v-model="from.desiredServices">
+                                <option selected="true" disabled="disabled">Choose Services</option>
                                 <option value="Dental" label="Dental">Dental</option>
                                 <option  value="Doctor" label="Doctor" >Doctor</option>
                             </select>

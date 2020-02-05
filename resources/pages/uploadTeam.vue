@@ -17,7 +17,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 _patientForms_header_left">
-                  <p class="_1text">We are waiting to hear from you. Please fill the form below and one of our staff will get back to you as soon as possible. <br> Thank you for your trust.</p>
+                  <p class="_1text">Thank you for write review for Authentic Dental Studio. Your review will be show in Patient Review</p>
 
                   
                   <div class="_review_card _1box_shadow _mar_t40">

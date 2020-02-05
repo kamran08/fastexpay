@@ -45,7 +45,7 @@
                                             
                                         </div>
                                         <div class="col-12 col-md-auto col-lg-auto" @click="onSubmit">
-                                            <button class="_btn_gradient_default _mar_t10">Log In <i class="fas fa-arrow-right"></i></button>
+                                            <button class="_btn_gradient_default _mar_t10">Log In <Icon type="ios-arrow-round-forward" /></button>
                                         </div>
                                         </div>
                                     </div>

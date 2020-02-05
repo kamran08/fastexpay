@@ -384,7 +384,7 @@
               <div class="col-12 col-md-8 col-lg-8">
                 <div class="_team_main_details">
                   <h2 class="_1title">
-                    <span class="_1title_span">Our Team</span>
+                    <span class="_1title_span">About</span>
                     <span class="_c_default">{{singleMember.name}}</span>
                   </h2>
 
