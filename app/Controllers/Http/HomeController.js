@@ -218,9 +218,10 @@ class HomeController {
 		await Mail.send('emails.sendInformation', user, (message) => {
             message
             // office@authenticdentalstudio.com
+            // no-reply@authenticdentalstudio.com
 				.to("ferdousdilruba02@gmail.com")
-				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
-				.subject('Authentic Dental')
+				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
+				.subject('Authentic Dental Studio')
 		})
 
 
@@ -228,11 +229,12 @@ class HomeController {
       async sendContractInfo({ request }) {
           let user = request.all();
         //   office@authenticdentalstudio.com
+        //   no-reply@authenticdentalstudio.com
 		await Mail.send('emails.sendContractInfo', user, (message) => {
 			message
 				.to("ferdousdilruba02@gmail.com")
-				.from('no-reply@authentic.dental', 'no reply @ Authentic Dental')
-				.subject('Authentic Dental')
+				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
+				.subject('Authentic Dental Studio')
 		})
 
 
