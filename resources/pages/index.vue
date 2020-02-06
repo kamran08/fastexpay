@@ -521,7 +521,7 @@
                         class="_1iview"
                         type="text"
                         v-model="from.name"
-                        @on-change="assingData"
+                        @on-change="assingData(1)"
                         placeholder="Full Name*"
                       />
                       <p v-if="error.name==''" class="Rectangle_coustom">Type your name</p>
@@ -529,7 +529,7 @@
                     <div class="_cantact_sec_group _mar_b30">
                       <Input
                         v-model="from.email"
-                        @on-change="assingData"
+                        @on-change="assingData(2)"
                         type="text"
                         placeholder="Email*"
                       />
@@ -539,16 +539,16 @@
                     <div class="_cantact_sec_group _mar_b30">
                       <Input
                         v-model="from.phone"
-                        @on-change="assingData"
+                        @on-change="assingData(3)"
                         type="text"
                         placeholder="Phone Number"
                       />
                       <p v-if="error.phone==''" class="Rectangle_coustom">Type Your phone number</p>
                     </div>
-                    <!-- <div class="_cantact_sec_group _mar_b30">
-                      <Input type="textarea" v-model="from.message" @on-change="assingData"  placeholder="Message" />
+                    <div class="_cantact_sec_group _mar_b30">
+                      <Input type="textarea" v-model="from.message" @on-change="assingData(4)"  placeholder="Message" />
                       <p v-if="error.message==''" class="Rectangle_coustom">Write Your Message</p>
-                    </div>-->
+                    </div>
 
                     <div class="row">
                       <div class="col-12 col-md col-lg"></div>
@@ -653,7 +653,9 @@ export default {
         message: " "
       },
       allmembers: {},
-      singleMember: false
+      singleMember: false,
+      reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+
     };
   },
   async created() {
@@ -674,17 +676,31 @@ export default {
     asignSingleMemebr(index) {
       this.singleMember = this.allmembers[index];
     },
-    assingData() {
-      this.error.name = this.from.name.trim();
-      this.error.email = this.from.email.trim();
-      this.error.phone = this.from.phone.trim();
-      this.error.message = this.from.message.trim();
+    assingData(l) {
+      if(l==1){
+        this.error.name = this.from.name.trim();
+      }
+      if(l==2){
+        if (this.reg.test(this.from.email)){
+          this.error.email =this.from.email
+        }
+        else{
+          this.error.email =''
+        }
+      }
+      if(l==3){
+        this.error.phone = this.from.phone.trim();
+      }
+      if(l==4){
+        this.error.message = this.from.message.trim();
+      }
     },
     setAppointMentModal(d) {
       // let d = !this.appointmentModal
       this.$store.dispatch("setAppointmentModal", d);
     },
     async storealldata() {
+      
       this.from.name = this.from.name.trim();
       this.from.email = this.from.email.trim();
       this.from.phone = this.from.phone.trim();
@@ -695,21 +711,26 @@ export default {
         this.error.name = "";
         return;
       }
-      if (this.from.email == "") {
-        this.error.email = "";
-        this.from.email = "";
-        return;
-      }
+     
+      
       if (this.from.phone == "") {
         this.error.phone = "";
         this.from.phone = "";
         return;
       }
+      
       if (this.from.message == "") {
         this.from.message = "";
         this.error.message = "";
         return;
       }
+      if (this.reg.test(this.from.email)){
+          this.error.email =this.from.email
+        }
+        else{
+          this.error.email =''
+          return 
+        }
 
       this.$vs.loading({
         color: "#6647ff"

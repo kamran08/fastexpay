@@ -25,19 +25,26 @@
                     <div class="_1input_group">
                       <p class="_1label">Full Name</p>
 
-                      <input class="_1int" type="text" v-model="from.name" placeholder="full name">
-                    <p v-if="from.name==''" class="Rectangle_coustom">Write Your full name</p>
+                      <input @keyup="assingData(1)" class="_1int" type="text" v-model="from.name" placeholder="full name">
+                        <p v-if="error.name==''" class="Rectangle_coustom">Write Your full name</p>
                     </div>
-                  </div>
-
-                  <div class="col-12 col-md-6 col-lg-6">
+                  </div> 
+                  <!-- <div class="col-12 col-md-6 col-lg-6">
                     <div class="_1input_group">
                       <p class="_1label">Date of Visit</p>
-                       <!-- <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker> -->
-                      <input class="_1int" v-model="from.date" type="date" placeholder="Jhon Doe">
-                     <p v-if="from.date==''" class="Rectangle_coustom">Select Date of Visit</p>
+                      <input @keyup="assingData(2)" class="_1int" v-model="from.date" type="date" placeholder="Jhon Doe">
+                     <p v-if="error.date==''" class="Rectangle_coustom">Select Date of Visit</p>
                     </div>
-                  </div>
+                  </div> -->
+
+                  <div class="col-12 col-md-6 col-lg-6">
+                        <div class="_booking_form_input">
+                            <p class="_booking_form_label">Date of Visit</p>
+                            
+                            <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker>
+                            <p v-if="error.date==''" class="Rectangle_coustom">Select Date of Visit</p>
+                        </div>
+                    </div>
 
                   <div class="col-12 col-md-6 col-lg-6">
                     <div class="_1input_group">
@@ -94,6 +101,7 @@
                         <li :class="(from.rate>3)?'boitol':''" @click="from.rate=4"><i class="fas fa-star"></i></li>
                         <li :class="(from.rate>4)?'boitol':''" @click="from.rate=5"><i class="fas fa-star"></i></li>
                       </ul>
+                    <p v-if="error.rate==''" class="Rectangle_coustom">Please leave your review</p>
                     </div>
                   </div>
 
@@ -101,9 +109,9 @@
                     <div class="_1input_group">
                       <p class="_1label">Please leave your review below</p>
 
-                      <textarea v-model="from.description" class="_1textarea" placeholder="Write Review" rows="5"></textarea>
+                      <textarea @keyup="assingData(3)" v-model="from.description" class="_1textarea" placeholder="Write Review" rows="5"></textarea>
                     </div>
-                    <p v-if="from.description==''" class="Rectangle_coustom">Please leave your review</p>
+                    <p v-if="error.description==''" class="Rectangle_coustom">Please leave your review</p>
                   </div>
 
                   <div class="col-12 col-md-12 col-lg-12">
@@ -138,8 +146,8 @@
                           </li>
                         </ul> -->
                       </div>
-                      <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
-                        <button class="_btn_gradient_default _mar_t10">Submit</button>
+                      <div class="col-12 col-md-auto col-lg-auto" >
+                        <button class="_btn_gradient_default _mar_t10" @click="storeAlldata">Submit</button>
                       </div>
                     </div>
                   </div>
@@ -194,17 +202,24 @@ export default {
         return{
             uploadList:[],
             from:{
-                name:' ',
-                date:' ',
+                name:'',
+                date:'',
                 status:'Pending',
                 image:false,
                 rate:0,
+                description:'',
+            },
+            error:{
+                name:' ',
+                date:' ',
+                image:false,
+                rate:' ',
                 description:' ',
-                additionalImages:[],
             },
             isSuccess:false,
             image:' ',
-            doctor:{}
+            doctor:{},
+            social:""
         }
     },
    async created(){
@@ -225,48 +240,71 @@ export default {
 
     },
     methods:{
-         editStartTime(date){
-              this.from.dob=date
-          },
+       assingData(l) {
+          if(l==1){
+            this.error.name = this.from.name.trim();
+          }
+         
+          if(l==3){
+            this.error.description = this.from.description.trim();
+          }
+         
+        },
+          editStartTime(date){
+              this.from.date=date
+              this.error.date  = date
+         },
           deleteImage(){
-      
-                this.from.image =''
+              this.from.image =''
             },
         async storeAlldata(){
+          
             this.from.name = this.from.name.trim()
             this.from.date = this.from.date.trim()
             this.from.description = this.from.description.trim()
             this.image = this.from.image?' ':''
                 if(this.from.name.trim()==''){
-                    this.from.name =''
+                    this.error.name =''
                     return
                 }
                 
-                if(this.from.date.trim()==''){
-                    this.from.date ='' 
+                if(this.from.date=='' || this.from.date==null){
+                    this.from.date = ''
+                    this.error.date = ''
+                    return
+                  }
+                 if(this.from.rate==0 || this.from.rate==null){
+                    this.error.rate ='' 
                     return
                 }
              
                 if(this.from.description.trim()==''){
-                    this.from.description ='' 
+                    this.error.description ='' 
                     return
                 }
                 if(this.from.image==false){
                     this.image ='' 
                     return
                 }
+               
                 const res = await this.callApi('post', '/storeReviewData', this.from)
                 if(res.status===200){
                     this.isSuccess = true
                     this.from = {
-                       name:' ',
-                        date:' ',
+                        name:'',
+                        date:'',
                         status:'Pending',
                         image:false,
                         rate:0,
-                        description:' ',
-                        additionalImages:[]
+                        description:'',
                     }
+                     this.error={
+                        name:' ',
+                        date:' ',
+                        image:false,
+                        rate:0,
+                        description:' ',
+                    },
                     this.image =' '
                 }
         },

@@ -26,16 +26,16 @@
                         <div class="_1input_group">
                           <p class="_1label">Full Name</p>
 
-                          <input class="_1int" v-model="from.name" type="text" placeholder="type first name">
-                        <p v-if="from.name==''" class="Rectangle_coustom">Write Your Full Name</p>
+                          <input class="_1int" @keyup="assingData(1)" v-model="from.name" type="text" placeholder="type full name">
+                         <p v-if="error.name==''" class="Rectangle_coustom">Write Your Full Name</p>
                         </div>
                       </div>
                       <div class="col-12 col-md-6 col-lg-6">
                         <div class="_1input_group">
                           <p class="_1label">Designation</p>
 
-                          <input class="_1int" v-model="from.designation" type="text" placeholder="type designation">
-                        <p v-if="from.designation==''" class="Rectangle_coustom">Write designation</p>
+                          <input class="_1int" @keyup="assingData(2)" v-model="from.designation" type="text" placeholder="type designation">
+                        <p v-if="error.designation==''" class="Rectangle_coustom">Write designation</p>
                         </div>
                       </div>
 
@@ -43,8 +43,8 @@
                         <div class="_1input_group">
                           <p class="_1label">Email</p>
 
-                          <input class="_1int" v-model="from.email"  type="text" placeholder="type email address">
-                         <p v-if="from.email==''" class="Rectangle_coustom">Write email</p>
+                          <input class="_1int" @keyup="assingData(3)" v-model="from.email"  type="text" placeholder="type email address">
+                         <p v-if="error.email==''" class="Rectangle_coustom">Write email</p>
                         </div>
                         
                       </div>
@@ -55,8 +55,8 @@
                         <div class="_1input_group">
                           <p class="_1label">Description</p>
 
-                          <textarea class="_1textarea" v-model="from.description" placeholder="type message" rows="5"></textarea>
-                        <p v-if="from.description=='' || from.description==null" class="Rectangle_coustom">Write description</p>
+                          <textarea @keyup="assingData(4)" class="_1textarea" v-model="from.description" placeholder="type message" rows="5"></textarea>
+                        <p v-if="error.description=='' || error.description==null" class="Rectangle_coustom">Write description</p>
                         </div>
                       </div>
 
@@ -188,6 +188,13 @@ export default {
         return{
             uploadList:[],
             from:{
+                name:'',
+                email:'',
+                image:'',
+                designation:'',
+                description:'',
+            },
+            error:{
                 name:' ',
                 email:' ',
                 image:'',
@@ -195,7 +202,9 @@ export default {
                 description:' ',
             },
             isSuccess:false,
-            image:' '
+            image:' ',
+           reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+
         }
     },
     created(){
@@ -235,10 +244,18 @@ export default {
                     this.from.description ='' 
                     return
                 }
+                
                 if(this.from.image.trim()==''){
                     this.image ='' 
                     return
                 }
+                 if (this.reg.test(this.from.email)){
+                    this.error.email =this.from.email
+                  }
+                  else{
+                    this.error.email =''
+                    return
+                  }
                 if(!this.authInfo){
                  return this.e("You are not Authentic User!!")
                 }
@@ -247,10 +264,10 @@ export default {
               });
                 const res = await this.callApi('post', '/storeTeamData', this.from)
                 if(res.status===200){
-                  this.from = {
+                  this.error = {
                     name:' ',
                     email:' ',
-                    image:'',
+                    image:' ',
                     designation:' ',
                     description:' ',
                 },
@@ -262,6 +279,26 @@ export default {
                      this.$vs.loading.close();
                   this.e("please check your network")
                 }
+        },
+        assingData(l) {
+          if(l==1){
+            this.error.name = this.from.name.trim();
+          }
+         
+          if(l==2){
+            this.error.designation = this.from.designation.trim();
+          }
+           if(l==3){
+            if (this.reg.test(this.from.email)){
+              this.error.email =this.from.email
+            }
+            else{
+              this.error.email =''
+            }
+          }
+          if(l==4){
+            this.error.description = this.from.description.trim();
+          }
         },
           handleFormatError(file) {
                 this.$Notice.warning({

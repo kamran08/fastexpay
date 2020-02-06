@@ -146,22 +146,20 @@ class HomeController {
     async storeReviewData({ request, response, auth, session }) {
 
         const data = request.all()
-        let images = data.additionalImages
-        delete data.additionalImages
+        // let images = data.additionalImages
+        // delete data.additionalImages
         let review =  await Review.create(data)
 
-
-
-        if(images.length){
-            for(let i in images){
-                let ob={
-                    reviewId:review.id,
-                    image:images[i],
-                }
-                let img =  await Image.create(ob)
-            }
+        // if(images.length){
+        //     for(let i in images){
+        //         let ob={
+        //             reviewId:review.id,
+        //             image:images[i],
+        //         }
+        //         let img =  await Image.create(ob)
+        //     }
             
-        }
+        // }
         return review
         
   

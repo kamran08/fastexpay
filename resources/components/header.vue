@@ -132,8 +132,8 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">First Name</p>
 
-                            <input class="_1int" v-model="from.firstName" type="text" placeholder="type first name">
-                            <p v-if="from.firstName=='' || from.firstName==null" class="Rectangle_coustom">Write Your First Name</p>
+                            <input @keyup="assingData(1)" class="_1int" v-model="from.firstName" type="text" placeholder="type first name">
+                            <p v-if="from2.firstName=='' || from2.firstName==null" class="Rectangle_coustom">Write Your First Name</p>
                         </div>
                     </div>
 
@@ -141,8 +141,8 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Last Name</p>
 
-                            <input class="_1int" v-model="from.lastName" type="text" placeholder="type last name">
-                           <p v-if="from.lastName=='' || from.lastName== null" class="Rectangle_coustom">Write Your Last Name</p>
+                            <input @keyup="assingData(2)" class="_1int" v-model="from.lastName" type="text" placeholder="type last name">
+                           <p v-if="from2.lastName=='' || from2.lastName== null" class="Rectangle_coustom">Write Your Last Name</p>
                         </div>
                     </div>
 
@@ -151,7 +151,7 @@
                             <p class="_booking_form_label">Date of Birth</p>
                             
                             <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker>
-                         <p v-if="from.dob==''" class="Rectangle_coustom">Select Date of Birth</p>
+                         <p v-if="from2.dob==''" class="Rectangle_coustom">Select Date of Birth</p>
                         </div>
                     </div>
 
@@ -159,8 +159,8 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Phone</p>
 
-                            <input class="_1int" v-model="from.phone" type="text" placeholder="type phone number">
-                        <p v-if="from.phone=='' || from.phone==null" class="Rectangle_coustom">write an phone</p>
+                            <input class="_1int" @keyup="assingData(3)" v-model="from.phone" type="text" placeholder="type phone number">
+                        <p v-if="from2.phone==''" class="Rectangle_coustom">write an phone</p>
                         </div>
                     </div>
 
@@ -168,8 +168,8 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Email</p>
 
-                            <input class="_1int" type="email" v-model="from.email"  placeholder="type email">
-                           <p v-if="from.email=='' || from.email==null" class="Rectangle_coustom">Email Not Valid</p>
+                            <input class="_1int" @keyup="assingData(4)" type="email" v-model="from.email"  placeholder="type email"  @change="assingData">
+                           <p v-if="from2.email=='' || from2.email==null" class="Rectangle_coustom">Email Not Valid</p>
                         </div>
                     </div>
                 </div>
@@ -220,12 +220,12 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Services</p>
 
-                            <select class="_1select" v-model="from.desiredServices">
-                                <option selected="true" disabled="disabled">Choose Services</option>
+                            <select class="_1select" v-model="from.desiredServices" @change="assingData(5)">
+                                <option selected="true" value="" label="" disabled="disabled">Choose Services</option>
                                 <option value="Dental" label="Dental">Dental</option>
                                 <option  value="Doctor" label="Doctor" >Doctor</option>
                             </select>
-                            <p v-if="from.desiredServices=='' || from.desiredServices==null" class="Rectangle_coustom">Select Desired Services</p>
+                            <p v-if="from2.desiredServices=='' || from2.desiredServices==null" class="Rectangle_coustom">Select Desired Services</p>
                         </div>
                     </div>
 
@@ -233,7 +233,7 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Day</p>
                             
-                            <CheckboxGroup v-model="from.days">
+                            <CheckboxGroup v-model="from.days" @on-change="assingData(6)">
                                 <Checkbox class="_1check" label="Saturday">
                                     <span>Saturday</span>
                                 </Checkbox>
@@ -256,7 +256,7 @@
                                     <span>Friday</span>
                                 </Checkbox>
                             </CheckboxGroup>
-                            <p v-if="from.days.length==0" class="Rectangle_coustom">Select Desired Day</p>
+                            <p v-if="from2.days.length==0" class="Rectangle_coustom">Select Desired Day</p>
                         </div>
                     </div>
 
@@ -264,7 +264,7 @@
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Time</p>
                             
-                            <CheckboxGroup v-model="from.alltimes">
+                            <CheckboxGroup v-model="from.alltimes" @on-change="assingData(7)">
                                 <Checkbox class="_1check" label="8:00 AM to 10:00 AM">
                                     <span>8:00 AM to 10:00 AM</span>
                                 </Checkbox>
@@ -278,21 +278,21 @@
                                     <span>2:00PM to 4:00 PM</span>
                                 </Checkbox>
                             </CheckboxGroup>
-                            <p v-if="from.alltimes.length==0" class="Rectangle_coustom"> Select Desired Time</p>
+                            <p v-if="from2.alltimes.length==0" class="Rectangle_coustom"> Select Desired Time</p>
                         </div>
                     </div>
-
+2
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Please describe the nature of your appointment</p>
 
-                            <textarea v-model="from.description" class="_1textarea" placeholder="" rows="6"></textarea>
-                         <p v-if="from.description=='' || from.description==null" class="Rectangle_coustom"> Write Some Descriptions</p>
+                            <textarea @keyup="assingData(8)" v-model="from.description" class="_1textarea" placeholder="" rows="6"></textarea>
+                         <p v-if="from2.description=='' || from2.description==null" class="Rectangle_coustom"> Write Some Descriptions</p>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-12 col-lg-12 _text_right" @click="storealldata">
-                        <button class="_btn_gradient_default _mar_t10">Submit <Icon type="ios-arrow-round-forward" /></button>
+                    <div class="col-12 col-md-12 col-lg-12 _text_right" >
+                        <button class="_btn_gradient_default _mar_t10" @click="storealldata">Submit <Icon type="ios-arrow-round-forward" /></button>
                     </div>
                 </div>
             </div>
@@ -332,6 +332,18 @@ export default {
       days: ["Saturday"],
       alltimes: ["8:00 AM to 10:00 AM"],
       from:{
+        firstName:'',
+        lastName:'',
+        dob:'',
+        phone:'',
+        email:'',
+        isNew:'No',
+        desiredServices:'',
+        days:["Saturday"],
+        alltimes:["8:00 AM to 10:00 AM"],
+        description:''
+      },
+      from2:{
         firstName:' ',
         lastName:' ',
         dob:' ',
@@ -342,21 +354,21 @@ export default {
         days:["Saturday"],
         alltimes:["8:00 AM to 10:00 AM"],
         description:' '
-
-
       },
-      social:""
+      social:"",
+      reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+
     };
   },
   created() {
     // console.log(this.$route.name);
   },
 
-  computed: {
-     ...mapGetters({
-      getAppointmentModal: 'getAppointmentModal'
-     })
-  },
+  // computed: {
+  //    ...mapGetters({
+  //     getAppointmentModal: 'getAppointmentModal'
+  //    })
+  // },
   methods:{
     setAppointMentModal(d){
       // let d = !this.appointmentModal
@@ -364,6 +376,43 @@ export default {
     },
      editStartTime(date){
            this.from.dob=date
+           this.from2.dob = date
+      },
+     assingData(flag) {
+       if(flag==1){
+         this.from2.firstName = this.from.firstName.trim()
+         console.log(this.from.firstName)
+       }
+       if(flag==2){
+        this.from2.lastName =this.from.lastName.trim()
+       }
+       if(flag==3){
+         this.from2.phone =this.from.phone.trim()
+        //  console.log(this.from.phone)
+       }
+       if(flag==4){
+         if (this.reg.test(this.from.email)){
+          this.from2.email =this.from.email
+        }
+        else{
+          this.from2.email =''
+          return 
+        }
+        // this.from2.email = this.from.email.trim()
+       }
+       if(flag==5){
+        this.from2.desiredServices =this.from.desiredServices.trim()
+       }
+       if(flag==6){
+        this.from2.days = this.from.days
+       }
+       if(flag==7){
+         this.from2.alltimes = this.from.alltimes
+       }
+       if(flag==8){
+        this.from2.description =this.from.description.trim()
+       }
+       
       },
     async storealldata(){
       
@@ -376,46 +425,58 @@ export default {
       this.from.description =this.from.description.trim()
       // console.log(this.from)
       if(this.from.days.length==0){
+        this.from2.days =[]
         return
         
       }
       if(this.from.firstName==''){
         this.from.firstName = ''
+        this.from2.firstName = ''
         return
       }
       if(this.from.lastName==''){
-
+    
         this.from.lastName = ''
+        this.from2.lastName = ''
         return
       }
       if(this.from.dob=='' || this.from.dob==null){
         this.from.dob = ''
+        this.from2.dob = ''
         return
       }
       if(this.from.phone==''){
         // this.i("hello")
         this.from.phone=''
+        this.from2.phone=''
         return
       }
       if(this.from.desiredServices=='' || this.from.desiredServices==null){
         // this.i("hello")
         this.from.desiredServices = ''
+        this.from2.desiredServices = ''
         return
       }
     
-      if(this.from.email==''){
-        this.from.email = ''
-        return
-      }
+  
       if(this.from.description=='' || this.from.description==null){
         this.from.description = ''
+        this.from2.description = ''
         return
       }
     
       if(this.from.alltimes.length==0){
+        this.from2.alltimes =[]
         return
 
       }
+      if (this.reg.test(this.from.email)){
+        this.from2.email =this.from.email
+      }
+      else{
+        this.from2.email =''
+        return 
+     }
       // this.from.days = this.days
       // this.from.alltimes = this.alltimes
       console.log(this.from)

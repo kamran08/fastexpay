@@ -30,8 +30,8 @@
                         <div class="_1input_group">
                           <p class="_1label">Full Name</p>
 
-                          <input class="_1int" v-model="from.name" type="text" placeholder="type your name" />
-                          <p v-if="from.name==''" class="Rectangle_coustom">Type your name</p>
+                          <input class="_1int" @keyup="assingData(1)" v-model="from.name" type="text" placeholder="type your name" />
+                          <p v-if="error.name==''" class="Rectangle_coustom">Type your name</p>
                         </div>
                       </div>
 
@@ -39,8 +39,8 @@
                         <div class="_1input_group">
                           <p class="_1label">Email</p>
 
-                          <input class="_1int" v-model="from.email" type="text" placeholder="type email address" />
-                          <p v-if="from.email==''" class="Rectangle_coustom">Type your email address</p>
+                          <input @keyup="assingData(2)" class="_1int" v-model="from.email" type="email" placeholder="type email address" />
+                          <p v-if="error.email==''" class="Rectangle_coustom">Type your email address</p>
                         </div>
                       </div>
 
@@ -48,8 +48,8 @@
                         <div class="_1input_group">
                           <p class="_1label">Phone Number</p>
 
-                          <input class="_1int" v-model="from.phone" type="text" placeholder="type phone number" />
-                          <p v-if="from.phone==''" class="Rectangle_coustom">Type Your phone number</p>
+                          <input @keyup="assingData(3)" class="_1int" v-model="from.phone" type="text" placeholder="type phone number" />
+                          <p v-if="error.phone==''" class="Rectangle_coustom">Type Your phone number</p>
                         </div>
                       </div>
 
@@ -57,8 +57,8 @@
                         <div class="_1input_group">
                           <p class="_1label">Message</p>
 
-                          <textarea class="_1textarea" v-model="from.message" placeholder="type message" rows="5"></textarea>
-                          <p v-if="from.message==''" class="Rectangle_coustom">Write Your Message</p>
+                          <textarea @keyup="assingData(3)" class="_1textarea" v-model="from.message" placeholder="type message" rows="5"></textarea>
+                          <p v-if="error.message==''" class="Rectangle_coustom">Write Your Message</p>
                         </div>
                       </div>
 
@@ -203,15 +203,41 @@ export default {
     return {
       isSubmit: false,
       from: {
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      },
+      error: {
         name: " ",
         email: " ",
         phone: " ",
         message: " "
-      }
-    };
+      },
+      reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+      };
   },
   async created() {},
   methods: {
+    assingData(l) {
+      if(l==1){
+        this.error.name = this.from.name.trim();
+      }
+      if(l==2){
+        if (this.reg.test(this.from.email)){
+          this.error.email =this.from.email
+        }
+        else{
+          this.error.email =''
+        }
+      }
+      if(l==3){
+        this.error.phone = this.from.phone.trim();
+      }
+      if(l==4){
+        this.error.message = this.from.message.trim();
+      }
+    },
     setAppointMentModal(d) {
       // let d = !this.appointmentModal
       this.$store.dispatch("setAppointmentModal", d);
@@ -224,26 +250,35 @@ export default {
 
       if (this.from.name == "") {
         this.from.name = "";
+        this.error.name = "";
         return;
       }
       if (this.from.email == "") {
+        this.error.email = "";
         this.from.email = "";
         return;
       }
+      if(this.error.email==''){
+        return 
+      }
+      
       if (this.from.phone == "") {
+        this.error.phone = "";
         this.from.phone = "";
         return;
       }
+      
       if (this.from.message == "") {
         this.from.message = "";
+        this.error.message = "";
         return;
       }
-
       console.log(this.from);
       this.$vs.loading({
         color: "#6647ff"
       });
       const res = await this.callApi("post", "app/sendContactMail", this.from);
+       this.$vs.loading.close();
       if (res.status == 200 || res.status ==204) {
         this.isSubmit = true;
         (this.from = {
@@ -254,6 +289,7 @@ export default {
         }),
           this.$vs.loading.close();
       }
+     this.$vs.loading.close();
     }
   }
 };
