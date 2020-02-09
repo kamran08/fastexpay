@@ -56,7 +56,7 @@ class HomeController {
             // console.log(e.message)
             return response.status(401).json(
                 {
-                    'message': 'Invalid email or password. Please try again.'
+                    'message': 'email or password does not match. Please try again.'
                 }
             )
         }

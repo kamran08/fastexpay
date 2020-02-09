@@ -40,7 +40,7 @@
                           <p class="_1label">Email</p>
 
                           <input @keyup="assingData(2)" class="_1int" v-model="from.email" type="email" placeholder="type email address" />
-                          <p v-if="error.email==''" class="Rectangle_coustom">Type your email address</p>
+                          <p v-if="error.email==''" class="Rectangle_coustom">Invalid email</p>
                         </div>
                       </div>
 
@@ -253,14 +253,13 @@ export default {
         this.error.name = "";
         return;
       }
-      if (this.from.email == "") {
-        this.error.email = "";
-        this.from.email = "";
-        return;
-      }
-      if(this.error.email==''){
-        return 
-      }
+       if (this.reg.test(this.from.email)){
+          this.error.email =this.from.email
+        }
+        else{
+         this.error.email =''
+         return 
+        }
       
       if (this.from.phone == "") {
         this.error.phone = "";

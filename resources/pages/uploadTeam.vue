@@ -44,7 +44,7 @@
                           <p class="_1label">Email</p>
 
                           <input class="_1int" @keyup="assingData(3)" v-model="from.email"  type="text" placeholder="type email address">
-                         <p v-if="error.email==''" class="Rectangle_coustom">Write email</p>
+                         <p v-if="error.email==''" class="Rectangle_coustom">Invalid email</p>
                         </div>
                         
                       </div>
@@ -225,23 +225,27 @@ export default {
               this.from.designation = this.from.designation.trim()
               this.from.email = this.from.email.trim()
               this.from.description = this.from.description.trim()
-              this.image = this.from.image.trim()==''?'':' '
+              // this.image = this.from.image.trim()==''?'':' '
 
                 if(this.from.name.trim()==''){
                     this.from.name ='' 
+                    this.error.name ='' 
                     return
                 }
                 
                 if(this.from.designation.trim()==''){
                     this.from.designation ='' 
+                    this.error.designation ='' 
                     return
                 }
                 if(this.from.email.trim()==''){
                     this.from.email ='' 
+                    this.error.email ='' 
                     return
                 }
                 if(this.from.description.trim()==''){
                     this.from.description ='' 
+                    this.error.description ='' 
                     return
                 }
                 

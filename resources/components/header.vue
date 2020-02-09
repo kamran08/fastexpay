@@ -169,7 +169,7 @@
                             <p class="_booking_form_label">Email</p>
 
                             <input class="_1int" @keyup="assingData(4)" type="email" v-model="from.email"  placeholder="type email"  @change="assingData">
-                           <p v-if="from2.email=='' || from2.email==null" class="Rectangle_coustom">Email Not Valid</p>
+                           <p v-if="from2.email=='' || from2.email==null" class="Rectangle_coustom">Invalid email</p>
                         </div>
                     </div>
                 </div>
@@ -281,7 +281,6 @@
                             <p v-if="from2.alltimes.length==0" class="Rectangle_coustom"> Select Desired Time</p>
                         </div>
                     </div>
-2
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Please describe the nature of your appointment</p>
@@ -424,11 +423,7 @@ export default {
       this.from.email = this.from.email.trim()
       this.from.description =this.from.description.trim()
       // console.log(this.from)
-      if(this.from.days.length==0){
-        this.from2.days =[]
-        return
-        
-      }
+      
       if(this.from.firstName==''){
         this.from.firstName = ''
         this.from2.firstName = ''
@@ -451,25 +446,6 @@ export default {
         this.from2.phone=''
         return
       }
-      if(this.from.desiredServices=='' || this.from.desiredServices==null){
-        // this.i("hello")
-        this.from.desiredServices = ''
-        this.from2.desiredServices = ''
-        return
-      }
-    
-  
-      if(this.from.description=='' || this.from.description==null){
-        this.from.description = ''
-        this.from2.description = ''
-        return
-      }
-    
-      if(this.from.alltimes.length==0){
-        this.from2.alltimes =[]
-        return
-
-      }
       if (this.reg.test(this.from.email)){
         this.from2.email =this.from.email
       }
@@ -477,6 +453,32 @@ export default {
         this.from2.email =''
         return 
      }
+      if(this.from.desiredServices=='' || this.from.desiredServices==null){
+        // this.i("hello")
+        this.from.desiredServices = ''
+        this.from2.desiredServices = ''
+        return
+      }
+      
+    
+  
+      if(this.from.description=='' || this.from.description==null){
+        this.from.description = ''
+        this.from2.description = ''
+        return
+      }
+      if(this.from.days.length==0){
+        this.from2.days =[]
+        return
+        
+      }
+    
+      if(this.from.alltimes.length==0){
+        this.from2.alltimes =[]
+        return
+
+      }
+     
       // this.from.days = this.days
       // this.from.alltimes = this.alltimes
       console.log(this.from)
