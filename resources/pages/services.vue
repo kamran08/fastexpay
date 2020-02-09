@@ -199,6 +199,7 @@
 export default {
   data(){
     return{
+      img : "/uploads/servicess.png"
       
     }
   },
