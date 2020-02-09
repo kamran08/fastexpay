@@ -533,7 +533,7 @@
                         type="text"
                         placeholder="Email*"
                       />
-                      <p v-if="error.email==''" class="Rectangle_coustom">Type your email address</p>
+                      <p v-if="error.email==''" class="Rectangle_coustom">Invalid email address</p>
                     </div>
 
                     <div class="_cantact_sec_group _mar_b30">
@@ -711,6 +711,13 @@ export default {
         this.error.name = "";
         return;
       }
+      if (this.reg.test(this.from.email)){
+          this.error.email =this.from.email
+        }
+        else{
+          this.error.email =''
+          return 
+        }
      
       
       if (this.from.phone == "") {
@@ -724,13 +731,7 @@ export default {
         this.error.message = "";
         return;
       }
-      if (this.reg.test(this.from.email)){
-          this.error.email =this.from.email
-        }
-        else{
-          this.error.email =''
-          return 
-        }
+      
 
       this.$vs.loading({
         color: "#6647ff"
