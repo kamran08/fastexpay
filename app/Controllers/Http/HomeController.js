@@ -217,7 +217,7 @@ class HomeController {
             message
             // office@authenticdentalstudio.com
             // no-reply@authenticdentalstudio.com
-				.to("ferdousdilruba02@gmail.com")
+				.to("office@authenticdentalstudio.com")
 				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
 				.subject('Authentic Dental Studio')
 		})
@@ -230,7 +230,7 @@ class HomeController {
         //   no-reply@authenticdentalstudio.com
 		await Mail.send('emails.sendContractInfo', user, (message) => {
 			message
-				.to("ferdousdilruba02@gmail.com")
+				.to("office@authenticdentalstudio.com")
 				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
 				.subject('Authentic Dental Studio')
 		})
