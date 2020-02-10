@@ -503,11 +503,14 @@
 }
 ._1card_delete {
     position: absolute;
-    bottom: 9px;
-    right: 20px;
+    bottom: 0;
+    right: 0;
     opacity: 0;
     transform: scale(.4);
     transition: .3s all ease;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 ._1card_delete_btn {
     border: none;
@@ -1107,7 +1110,9 @@
     overflow: hidden;
 }
 .review_top {
+    display: -webkit-box;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 13px;
 }
@@ -1594,6 +1599,10 @@
 ._col_visible{
     display: block;
 }
+.prime_review {
+    flex: 0 0 100%;
+    padding: 17px 0 0 !important;
+}
 ._logo_img{
     margin: 0 auto;
     height: 19px;
@@ -1607,6 +1616,14 @@
 ._ser_section_cards a{
     display: block;
     height: 100%;
+}
+.mobile_prime.prime{
+    display: flex !important;
+    padding-left: 65px;
+
+}
+.mobile_prime.prime_text{
+    display: flex !important;
 }
 ._ser_card i {
     flex: 0 0 auto;
@@ -1931,6 +1948,10 @@
 ._mobile_menu{
     display: flex;
 }
+.prime_review {
+    flex: 0 0 100%;
+    padding: 17px 0 0 !important;
+}
 ._col_md_visible{
     display: block;
 }
@@ -2102,4 +2123,37 @@
 
 .ivu-modal-content {
     border-radius: 17px !important;
+}
+
+.prime{
+    margin-top: 10px;
+    display: flex;
+    /* justify-content: center; */
+    padding-left: 38px;
+
+
+}
+.mobile_prime.prime{
+    display: none;
+}
+.mobile_prime.prime_text{
+    display: none;
+}
+
+.prime_text{
+    padding-left: 9px;
+    font-size: larger;
+    font-weight: 600;
+    color: #000;
+}
+.prime_review{
+    font-size: 14px;
+    color: green;
+    padding:0 0 0 10px;
+    font-weight: 600;
+}
+.disable_class{
+    cursor: not-allowed;
+    opacity: .5;
+
 }

@@ -71,6 +71,10 @@
                       <button class="_1card_delete_btn" @click="deleteMemeber(item.id,index)">
                         <Icon type="md-trash" />
                       </button>
+                      <button class="_1card_delete_btn" style="color:green !important;" @click="editModalOpen(item,index)">
+                        <Icon type="md-open" />
+                      </button>
+                     
                     </div>
                   </div>
 
@@ -125,6 +129,139 @@
       </section>
       <!--======= Schedule section end ======-->
     </div>
+    
+    <Modal v-model="editModal" :footer-hide="true" width="850">
+    <section class="">
+         
+
+          <div class="">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                  <h2 class="_1title _text_center _mar_t40">Edit Your team member</h2>
+
+                  
+                  <div class=" _mar_t40">
+                    <div class="row">
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <div class="_1input_group">
+                          <p class="_1label">Full Name</p>
+
+                          <input class="_1int" @keyup="assingData(1)" v-model="from.name" type="text" placeholder="type full name">
+                         <p v-if="error.name==''" class="Rectangle_coustom">Write Your Full Name</p>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-6">
+                        <div class="_1input_group">
+                          <p class="_1label">Designation</p>
+
+                          <input class="_1int" @keyup="assingData(2)" v-model="from.designation" type="text" placeholder="type designation">
+                        <p v-if="error.designation==''" class="Rectangle_coustom">Write designation</p>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-12 col-lg-12">
+                        <div class="_1input_group">
+                          <p class="_1label">Email</p>
+
+                          <input class="_1int" @keyup="assingData(3)" v-model="from.email"  type="text" placeholder="type email address">
+                         <p v-if="error.email==''" class="Rectangle_coustom">Invalid email</p>
+                        </div>
+                        
+                      </div>
+
+                     
+
+                      <div class="col-12 col-md-12 col-lg-12">
+                        <div class="_1input_group">
+                          <p class="_1label">Description</p>
+
+                          <textarea @keyup="assingData(4)" class="_1textarea" v-model="from.description" placeholder="type message" rows="5"></textarea>
+                        <p v-if="error.description=='' || error.description==null" class="Rectangle_coustom">Write description</p>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg-6">
+                    <div class="_1input_group">
+                      <p class="_1label">Upload Image</p>
+                      <div class="_1upload">
+                       <div class="_image_upload_pic">
+                        <!-- Image -->
+                        <div class="_upload_image" v-if="from.image">
+                          <img class="_image_upload_img" :src="from.image" alt="" title="" >
+
+                           <p class="_1upload_edit" @click="from.image=false"><i class="fas fa-pen"></i></p>
+                        </div>
+                        <!-- Image -->
+
+                        <!-- Upload -->
+                        <div class="_1upload_upload" v-else>
+                          <Upload
+                          ref="upload"
+                          :show-upload-list="false"
+                          :on-success="handleSuccess"
+                          :format="['jpg','jpeg','png']"
+                          :max-size="2048"
+                          :on-format-error="handleFormatError"
+                          :on-exceeded-size="handleMaxSize"
+                          :before-upload="handleBeforeUpload"
+                          type="drag"
+                          action="/uploadImages"
+                          >
+                            <div>
+                              <div class="_1upload_main">
+                                <p class="_1upload_icon"><i class="fas fa-camera"></i></p>
+                              </div>
+                            </div>
+                          </Upload>
+                        </div>
+                        <!-- Upload -->
+
+                        <p class="_upload_text">Upload your Picture</p>
+                       </div>
+                        <p v-if="image=='' || image==null" class="Rectangle_coustom">Upload your Picture</p>
+                      </div>
+
+                    </div>
+                  </div>
+                      <div class="col-12 col-md-12 col-lg-12">
+                        <div class="row">
+                          <div class="col-12 col-md col-lg">
+                            
+                          </div>
+                            <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
+                                <button class="_btn_gradient_default _mar_t10 _btn_padd30">Submit</button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        </Modal>
+           <Modal v-model="isSuccess" :footer-hide="true" width="850">
+                <div class="_book_modal">
+                    <div class="_thank">
+                            <h2 class="_booking_title">Thank you</h2>
+
+                            <div class="_thank_check"><Icon type="md-checkmark" /></div>
+
+                            <p class="_booking_text">
+                                Your team member has been  updated
+                            </p>
+
+                            <div class="_booking_button _text_center"  @click="isSuccess=false">
+                                <button class="_btn_gradient_default _mar_t10">Done</button>
+                            </div>
+                        </div>
+                </div>
+                </Modal>
+  
+  
+  
   </div>
 </template>
 
@@ -133,8 +270,29 @@ export default {
   data() {
     return {
       allmembers: [],
+      isSuccess: false,
       singleMember: false,
-      isAll: false
+        from:{
+                name:'',
+                email:'',
+                image:'',
+                designation:'',
+                description:'',
+            },
+
+             error:{
+                name:' ',
+                email:' ',
+                image:'',
+                designation:' ',
+                description:' ',
+            },
+      editIndex:-1,
+      isAll: false,
+      image: false,
+      editModal:false,
+           reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
+
     };
   },
   async created() {
@@ -152,6 +310,145 @@ export default {
     this.$vs.loading.close();
   },
   methods: {
+       deleteImage(){
+      
+                this.from.image =''
+            },
+           handleFormatError(file) {
+                this.$Notice.warning({
+                    title: "The file format is incorrect",
+                    desc:
+                    "File format of " +
+                    file.name +
+                    " is incorrect, please select jpg or png."
+                });
+          },
+           handleMaxSize(file) {
+            this.$Notice.warning({
+                title: "Exceeding file size limit",
+                desc: "File  " + file.name + " is too large, no more than 2M."
+            });
+        },
+          handleBeforeUpload() {
+            // const check = this.uploadList.length < 1;
+            // if (!check) {
+            //     this.$Notice.warning({
+            //     title: "1 image can be uploaded."
+            //     });
+            // }
+            // return check;
+     },
+         handleSuccess(res, file) {
+      // console.log(res);
+      // console.log(file);
+      if (res) {
+        let img = {
+          name: file.name,
+          percentage: file.percentage,
+          status: file.status,
+          // uid:1234567,
+          url: res.image_path
+        };
+        this.from.image = img.url
+        this.image = ' '
+        this.uploadList.push(img);
+        // console.log(this.custom_product_image_create)
+      }
+      console.log(this.uploadList);
+    },
+          async storeAlldata(){
+
+              this.from.name = this.from.name.trim()
+              this.from.designation = this.from.designation.trim()
+              this.from.email = this.from.email.trim()
+              this.from.description = this.from.description.trim()
+              // this.image = this.from.image.trim()==''?'':' '
+
+                if(this.from.name.trim()==''){
+                    this.from.name ='' 
+                    this.error.name ='' 
+                    return
+                }
+                
+                if(this.from.designation.trim()==''){
+                    this.from.designation ='' 
+                    this.error.designation ='' 
+                    return
+                }
+                if(this.from.email.trim()==''){
+                    this.from.email ='' 
+                    this.error.email ='' 
+                    return
+                }
+                if(this.from.description.trim()==''){
+                    this.from.description ='' 
+                    this.error.description ='' 
+                    return
+                }
+                
+                if(this.from.image==''){
+                    this.image ='' 
+                    return
+                }
+                 if (this.reg.test(this.from.email)){
+                    this.error.email =this.from.email
+                  }
+                  else{
+                    this.error.email =''
+                    return
+                  }
+                if(!this.authInfo){
+                 return this.e("You are not Authentic User!!")
+                }
+              this.$vs.loading({
+                color: "#6647ff"
+              });
+                const res = await this.callApi('post', '/updatedTeam', this.from)
+                if(res.status===200){
+                  this.error = {
+                    name:' ',
+                    email:' ',
+                    image:' ',
+                    designation:' ',
+                    description:' ',
+                },
+                    this.image = ' '
+                    this.$vs.loading.close();
+                    this.editModal = false
+                    this.isSuccess = true
+                }
+                else{
+                     this.$vs.loading.close();
+                  this.e("please check your network")
+                }
+        },
+     assingData(l) {
+          if(l==1){
+            this.error.name = this.from.name.trim();
+          }
+         
+          if(l==2){
+            this.error.designation = this.from.designation.trim();
+          }
+           if(l==3){
+            if (this.reg.test(this.from.email)){
+              this.error.email =this.from.email
+            }
+            else{
+              this.error.email =''
+            }
+          }
+          if(l==4){
+            this.error.description = this.from.description.trim();
+          }
+        },
+    editModalOpen(item,index){
+      this.editIndex = index
+      this.from = JSON.parse(JSON.stringify(item)) 
+      this.image =this.from.image
+      this.editModal = true
+
+    },
     asignSingleMemebr(index) {
       this.singleMember = this.allmembers[index];
     },
@@ -159,19 +456,16 @@ export default {
       this.$store.dispatch("setAppointmentModal", d);
     },
     async deleteMemeber(id, index) {
+
+       if (!confirm("Are you sure to delete?")) {
+                return;
+         }
        this.$vs.loading({
       color: "#6647ff"
     });
       const res = await this.callApi("post", "deletesingleMember", { id: id });
       if (res.status == 200) {
-        // if(id == this.singleMember.id){
-        //     if(this.allmembers[index+1]){
-        //       this.singleMember = this.allmembers[index+1]
-        //     }
-        //     else if(this.allmembers[index-1]){
-        //       this.singleMember = this.allmembers[index-1]
-        //     }
-        // }
+     
         this.allmembers.splice(index, 1);
         if(this.allmembers.length==0){
           this.singleMember = false

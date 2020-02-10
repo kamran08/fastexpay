@@ -18,7 +18,7 @@
               <div class="row">
                 <div class="col-12 col-md-7 col-lg-7 _patientForms_header_left">
                   <h2 class="_1title">
-                    <span class="_1title_span">Invest in yourself. Your career is the engine of your wealth</span>
+                    <span class="_1title_span">Insurance & Payments</span>
                   </h2>
 
                   <p class="_1text _padd_t20">Our front office team will help you to make the financial aspect of your appointment as easy as possible. During the consultation appointment, you will meet with the treatment coordinator to discuss insurance and financial options. Payment plans are available to help spread the cost over the duration of treatment, making all your dental care surprisingly affordable!

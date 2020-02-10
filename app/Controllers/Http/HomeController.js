@@ -69,6 +69,24 @@ class HomeController {
         return members
 
     }
+    async updatedTeam({ request, response, auth, session }) {
+
+        const data = request.all()
+        // console.log('login')
+        // return data
+        try {
+            let user =  await Team.query().where('id', data.id).update(data)
+            return user
+        } catch (e) {
+            console.log(e.message)
+            return response.status(401).json(
+                {
+                    'message': "check your network"
+                }
+            )
+        }
+  
+    }
     async storeTeamData({ request, response, auth, session }) {
 
         const data = request.all()
@@ -111,15 +129,44 @@ class HomeController {
         if(reviews){
         reviews = reviews.toJSON();
             for(let i of reviews){
-            i.istrue = false
+                if(i.isPrime==1){
+                    i.isPrime = true
+                }
+                else{
+                    i.isPrime = false
+                }
+                 i.istrue = false
             }
         }
         return reviews
 
     }
+    async updatePrimeReview({ request, response, auth, session }) {
+        const data = request.all()
+        delete data.images
+        delete data.istrue
+        if(data.isPrime){
+            data.isPrime = 1
+            await Review.query().where('isPrime',1).update({'isPrime':0})
+        }
+        else{
+            data.isPrime = 0
+        }
+       
+        let reviews =  await Review.query().where('id',data.id).update(data)
+      
+        return reviews
+
+    }
+    async getPrimeReview({ request, response, auth, session }) {
+        // const data = request.all()
+        let reviews =  await Review.query().where('isPrime','1').with('images').first()
+        return reviews
+
+    }
     async getAllPublishReviews({ request, response, auth, session }) {
         // const data = request.all()
-        let reviews =  await Review.query().where('status','Published').orderBy('id','desc').with('images').fetch()
+        let reviews =  await Review.query().where('status','Published').where('isPrime',0).orderBy('id','desc').with('images').fetch()
         if(reviews){
         reviews = reviews.toJSON();
             for(let i of reviews){

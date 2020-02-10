@@ -304,7 +304,7 @@ export default {
             this.error.description = this.from.description.trim();
           }
         },
-          handleFormatError(file) {
+        handleFormatError(file) {
                 this.$Notice.warning({
                     title: "The file format is incorrect",
                     desc:
@@ -313,19 +313,19 @@ export default {
                     " is incorrect, please select jpg or png."
                 });
           },
-            handleMaxSize(file) {
+           handleMaxSize(file) {
             this.$Notice.warning({
                 title: "Exceeding file size limit",
                 desc: "File  " + file.name + " is too large, no more than 2M."
             });
         },
           handleBeforeUpload() {
-            const check = this.uploadList.length < 1;
-            if (!check) {
-                this.$Notice.warning({
-                title: "1 image can be uploaded."
-                });
-            }
+            // const check = this.uploadList.length < 1;
+            // if (!check) {
+            //     this.$Notice.warning({
+            //     title: "1 image can be uploaded."
+            //     });
+            // }
             return check;
      },
          handleSuccess(res, file) {

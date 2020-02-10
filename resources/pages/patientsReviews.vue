@@ -15,12 +15,12 @@
           </a>
         </div>
 
-        <div class="_pages_main">
+        <div class="_pages_main" >
           <div class="container">
             <h2 class="_1title _text_center _mar_b40">
-              <span class="_1title_span">What Our Customer Saying</span>
+              <span class="_1title_span">What our customers are saying</span>
             </h2>
-            <div class="row">
+            <div class="row" v-if="singleReview">
               <div class="col-12 col-md-5 col-lg-5">
                 <div class="_2patientForms_pic">
                   <img :src="singleReview.image" alt title />
@@ -172,6 +172,7 @@
       </section>
       <!--======= Schedule section end ======-->
     </div>
+    
   </div>
 </template>
 
@@ -185,20 +186,34 @@ export default {
     };
   },
   async created() {
+
+     this.$vs.loading({
+      color: "#6647ff"
+    });
+    const res1 = await this.callApi('get', "/getPrimeReview")
+    this.$vs.loading.close();
+    if(res1.status ==200){
+      this.singleReview = res1.data
+      this.$vs.loading.close();
+
+    }
     this.$vs.loading({
       color: "#6647ff"
     });
+    
     const res = await this.callApi("get", "/getAllPublishReviews");
     if (res.status == 200) {
       this.allReview = res.data;
       // this.allReview = {}
-      if (this.allReview.length) {
-        this.singleReview = this.allReview[0];
-        this.allReview.splice(0,1)
+      // if (this.allReview.length) {
+      //   this.singleReview = this.allReview[0];
+      //   this.allReview.splice(0,1)
       
-      }
+      // }
       this.$vs.loading.close();
     }
+    
+
     this.$vs.loading.close();
   },
   methods: {

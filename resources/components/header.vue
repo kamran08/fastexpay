@@ -48,7 +48,7 @@
                 <div class="_1menu_drop" v-if="dropOpen">
                   <div class="_1menu_drop_main">
                     <ul class="_1drop_list">
-                      <li v-if="authInfo" :class="($route.name == 'uploadTeam') ? `_menu_active `: ''">
+                      <li v-if="authInfo" :class="($route.name == 'uploadTeam') ? `_menu_active `: ''" @click="dropOpen=false">
                         <nuxt-link to="/uploadTeam" >Upload your Team member</nuxt-link>
                       </li>
 
@@ -56,7 +56,7 @@
                         <nuxt-link to="/patientsForms">Patient Forms</nuxt-link>
                       </li> -->
 
-                      <li v-if="authInfo" :class="($route.name == 'manageReview') ? `_menu_active `: ''">
+                      <li v-if="authInfo" :class="($route.name == 'manageReview') ? `_menu_active `: ''" @click="dropOpen=false">
                         <nuxt-link to="/manageReview">Manage Reviews</nuxt-link>
                       </li>
                     </ul>
@@ -222,8 +222,10 @@
 
                             <select class="_1select" v-model="from.desiredServices" @change="assingData(5)">
                                 <option selected="true" value="" label="" disabled="disabled">Choose Services</option>
-                                <option value="Dental" label="Dental">Dental</option>
-                                <option  value="Doctor" label="Doctor" >Doctor</option>
+                                <option value="Cleaning" label="Cleaning">Cleaning</option>
+                                <option value="Exams" label="Exams">Exams</option>
+                                <option value="Pains" label="Pains">Pains</option>
+                                <option  value="Other" label="Other" >Other</option>
                             </select>
                             <p v-if="from2.desiredServices=='' || from2.desiredServices==null" class="Rectangle_coustom">Select Desired Services</p>
                         </div>
@@ -234,12 +236,12 @@
                             <p class="_booking_form_label">Desired Day</p>
                             
                             <CheckboxGroup v-model="from.days" @on-change="assingData(6)">
-                                <Checkbox class="_1check" label="Saturday">
+                                <!-- <Checkbox class="_1check" label="Saturday">
                                     <span>Saturday</span>
                                 </Checkbox>
                                 <Checkbox class="_1check" label="Sunday">
                                     <span>Sunday</span>
-                                </Checkbox>
+                                </Checkbox> -->
                                 <Checkbox class="_1check" label="Monday">
                                     <span>Monday</span>
                                 </Checkbox>
@@ -252,9 +254,9 @@
                                 <Checkbox class="_1check" label="Thursday">
                                     <span>Thursday</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="Friday">
+                                <!-- <Checkbox class="_1check" label="Friday">
                                     <span>Friday</span>
-                                </Checkbox>
+                                </Checkbox> -->
                             </CheckboxGroup>
                             <p v-if="from2.days.length==0" class="Rectangle_coustom">Select Desired Day</p>
                         </div>
