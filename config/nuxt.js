@@ -31,6 +31,7 @@ module.exports = {
   plugins: [
     '~plugins/vuecommon',
     '~plugins/ivuew',
+    { src: '~/plugins/vue-masonry', ssr: false }
   ],
   head: {
     title: 'Authentic Dental Studio',

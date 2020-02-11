@@ -61,9 +61,54 @@
       <section class="_ser_listss">
         <div class="container">
           <div class="_ser_section_cards">
-            <div class="row">
               <template v-if="allReview.length>0">
-                <div
+                <div v-masonry="containerId" transition-duration="0.3s" item-selector=".item">
+                  <div class="row">
+                      <div v-masonry-tile class="col-12 col-md-6 col-lg-6 item"
+                        v-for="(item,index) in allReview"
+                        :key="index">
+                        <div class="_1rev_main _1box_shadow _mar_b30">
+                          <div class="_1rev_top">
+                            <div class="_1rev_pic">
+                              <img class="_1rev_img" :src="item.image" alt title />
+                            </div>
+
+                            <div class="_1rev_details">
+                              <p class="_1rev_name">{{item.name}}</p>
+                              <!-- <p class="_1rev_pre2">Digital Engineering</p> -->
+                            </div>
+
+                            <div class="_1rev_rating">
+                              <ul class="_1rating">
+                                <li :class="(item.rate>0)?'_1rating_active':''">
+                                  <i class="fas fa-star"></i>
+                                </li>
+                                <li :class="(item.rate>1)?'_1rating_active':''">
+                                  <i class="fas fa-star"></i>
+                                </li>
+                                <li :class="(item.rate>2)?'_1rating_active':''">
+                                  <i class="fas fa-star"></i>
+                                </li>
+                                <li :class="(item.rate>3)?'_1rating_active':''">
+                                  <i class="fas fa-star"></i>
+                                </li>
+                                <li :class="(item.rate>4)?'_1rating_active':''">
+                                  <i class="fas fa-star"></i>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div class="_1rev_status">
+                            <p class="_1rev_status_text">
+                              <i>{{item.description}}.</i>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <!-- <div
                   class="col-12 col-md-6 col-lg-6"
                   v-for="(item,index) in allReview"
                   :key="index"
@@ -76,7 +121,6 @@
 
                       <div class="_1rev_details">
                         <p class="_1rev_name">{{item.name}}</p>
-                        <!-- <p class="_1rev_pre2">Digital Engineering</p> -->
                       </div>
 
                       <div class="_1rev_rating">
@@ -106,7 +150,7 @@
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </template>
               <template v-else>
                 <div class="col-12">
@@ -147,7 +191,6 @@
                               </div>
                           </div>
               </div>-->
-            </div>
           </div>
         </div>
       </section>
