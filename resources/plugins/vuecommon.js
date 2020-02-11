@@ -15,6 +15,9 @@ import 'vuesax/dist/vuesax.css'
 Vue.use(Clipboard)
 Vue.use(Vuesax, {})
 import {mapGetters} from 'vuex'
+var VueScrollTo = require('vue-scrollto');
+ 
+Vue.use(VueScrollTo)
 
 Vue.mixin({
   methods: {

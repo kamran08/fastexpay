@@ -197,137 +197,170 @@
       <!--======= Service section ======-->
       <section class="_ser_section">
         <div class="container">
-          
           <h2 class="_1title _1title_center">
             <span class="_1title_span">Our Services</span>
           </h2>
 
           <div class="_ser_section_cards">
-             <div class="row">
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/hygiene">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic">
-                                  <img src="/images/tooth.png" alt="" title="" class="_ser_card_img">
-                                  <img src="/images/tooth.png" alt="" title="" class="_ser_card_img _ser_card_img2">
-                                </div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Hygiene</h4></div>
-                                <Icon type="ios-arrow-forward" />
-                            </div>
-                          </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/composite">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/tooth2.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Composite &amp; Amalgam Fillings</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                               </div>
-                               </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/fullPartial">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/tooth3.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Full &amp; Partial Dentures</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/porcelainCrowns">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/tooth4.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Porcelain Crowns &amp; Bridges</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/extractions">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/dentalCare.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Extractions</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/restoration">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/impant.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Restoration of Implants</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/digital">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/xRay.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Digital X-Rays</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/perodontal">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/tooth5.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Periodontal Disease &amp; Treatments</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/teeth">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/tooth6.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Teeth Whitening</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/porcelain">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/drill.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Porcelain Veneers</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/oralSurgery">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/smiling.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Oral Surgery</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
-                        <div class="col-6 col-md-4 col-lg-4">
-                          <nuxt-link to="/sealants">
-                            <div class="_ser_card _1box_shadow _mar_b30">
-                                <div class="_ser_card_pic"><img src="/images/mouthwash.png" alt="" title="" class="_ser_card_img"></div>
-                                <div class="_flex_space">
-                                    <h4 class="_ser_card_title">Sealants &amp; Fluoride</h4></div>
-                                     <Icon type="ios-arrow-forward" />
-                            </div>
-                            </nuxt-link>
-                        </div>
+            <div class="row">
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/hygiene">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/tooth.png" alt title class="_ser_card_img" />
+                      <img src="/images/tooth.png" alt title class="_ser_card_img _ser_card_img2" />
                     </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Hygiene</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/composite">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/tooth2.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Composite &amp; Amalgam Fillings</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/fullPartial">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/tooth3.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Full &amp; Partial Dentures</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/porcelainCrowns">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/tooth4.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Porcelain Crowns &amp; Bridges</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/extractions">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/dentalCare.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Extractions</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/restoration">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/impant.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Restoration of Implants</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/digital">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/xRay.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Digital X-Rays</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/perodontal">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/tooth5.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Periodontal Disease &amp; Treatments</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/teeth">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/tooth6.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Teeth Whitening</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/porcelain">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/drill.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Porcelain Veneers</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/oralSurgery">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/smiling.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Oral Surgery</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <nuxt-link to="/sealants">
+                  <div class="_ser_card _1box_shadow _mar_b30">
+                    <div class="_ser_card_pic">
+                      <img src="/images/mouthwash.png" alt title class="_ser_card_img" />
+                    </div>
+                    <div class="_flex_space">
+                      <h4 class="_ser_card_title">Sealants &amp; Fluoride</h4>
+                    </div>
+                    <Icon type="ios-arrow-forward" />
+                  </div>
+                </nuxt-link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -364,17 +397,16 @@
               </div>
 
               <div class="col-12 col-md-auto col-lg-auto">
-                <button
-                  class="_btn_gradient_default"
-                  type="button"
-                  @click="$router.push('/team')"
-                >View More Team <Icon type="ios-arrow-round-forward" /></button>
+                <button class="_btn_gradient_default" type="button" @click="$router.push('/team')">
+                  View More Team
+                  <Icon type="ios-arrow-round-forward" />
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="_team_main">
+        <div class="_team_main" id="div1" ref="div1">
           <div class="container">
             <div class="row align-items-center" v-if="singleMember">
               <div class="col-12 col-md-4 col-lg-4" v-if="singleMember.image">
@@ -388,22 +420,17 @@
                     <span class="_c_default">{{singleMember.name}}</span>
                   </h2>
 
-                       <p
+                  <p
                     class="_1text"
-                    v-if="!isAll && singleMember.description.length>400">
-                    {{singleMember.description.substring(0, 400)}}
-                  </p>
+                    v-if="!isAll && singleMember.description.length>400"
+                  >{{singleMember.description.substring(0, 400)}}</p>
                   <p class="_1text" v-else>{{singleMember.description}}</p>
 
                   <!-- <p class="_1text">
                         Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
                   </p>-->
 
-                 <button
-                    class="_btn_gradient_default"
-                    type="button"
-                    @click="isAll=!isAll"
-                  >
+                  <button class="_btn_gradient_default" type="button" @click="isAll=!isAll">
                     {{(!isAll)?"View More":"View Less"}}
                     <Icon type="ios-arrow-round-forward" />
                   </button>
@@ -418,8 +445,13 @@
             <div class="row">
               <!-- Card -->
               <div class="col-6 col-md-4 col-lg-4" v-for="(item,index) in allmembers" :key="index">
-                <div class="_1card _mar_b30">
-                  <div class="_1card_pic" @click="asignSingleMemebr(index)">
+                <div class="_1card _mar_b30" >
+                  <div
+                    class="_1card_pic"
+                    style="cursor:pointer;"
+                    @click="asignSingleMemebr(index)"
+                    v-scroll-to="'#div1'"
+                  >
                     <img class="_1card_img" :src="item.image" alt title />
                   </div>
 
@@ -433,7 +465,10 @@
 
               <!-- Button -->
               <div class="_text_center more_team col-12 col-md-12">
-                <button class="_btn_gradient_default" type="button">View More Team <Icon type="ios-arrow-round-forward" /></button>
+                <button class="_btn_gradient_default" type="button">
+                  View More Team
+                  <Icon type="ios-arrow-round-forward" />
+                </button>
               </div>
               <!-- Button -->
             </div>
@@ -546,7 +581,12 @@
                       <p v-if="error.phone==''" class="Rectangle_coustom">Type Your phone number</p>
                     </div>
                     <div class="_cantact_sec_group _mar_b30">
-                      <Input type="textarea" v-model="from.message" @on-change="assingData(4)"  placeholder="Message" />
+                      <Input
+                        type="textarea"
+                        v-model="from.message"
+                        @on-change="assingData(4)"
+                        placeholder="Message"
+                      />
                       <p v-if="error.message==''" class="Rectangle_coustom">Write Your Message</p>
                     </div>
 
@@ -655,7 +695,6 @@ export default {
       allmembers: {},
       singleMember: false,
       reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
-
     };
   },
   async created() {
@@ -674,24 +713,30 @@ export default {
   },
   methods: {
     asignSingleMemebr(index) {
+      // var offsets = this.$refs['div1'].getBoundingClientRect();
+      // var top = offsets.top;
+      // var left = offsets.left;
+      // console.log(top, left)
+
       this.singleMember = this.allmembers[index];
+      // this.$refs['div1'].scrollTo(0, 0);
+      // window.scrollTo(top,left);
     },
     assingData(l) {
-      if(l==1){
+      if (l == 1) {
         this.error.name = this.from.name.trim();
       }
-      if(l==2){
-        if (this.reg.test(this.from.email)){
-          this.error.email =this.from.email
-        }
-        else{
-          this.error.email =''
+      if (l == 2) {
+        if (this.reg.test(this.from.email)) {
+          this.error.email = this.from.email;
+        } else {
+          this.error.email = "";
         }
       }
-      if(l==3){
+      if (l == 3) {
         this.error.phone = this.from.phone.trim();
       }
-      if(l==4){
+      if (l == 4) {
         this.error.message = this.from.message.trim();
       }
     },
@@ -700,7 +745,6 @@ export default {
       this.$store.dispatch("setAppointmentModal", d);
     },
     async storealldata() {
-      
       this.from.name = this.from.name.trim();
       this.from.email = this.from.email.trim();
       this.from.phone = this.from.phone.trim();
@@ -711,27 +755,24 @@ export default {
         this.error.name = "";
         return;
       }
-      if (this.reg.test(this.from.email)){
-          this.error.email =this.from.email
-        }
-        else{
-          this.error.email =''
-          return 
-        }
-     
-      
+      if (this.reg.test(this.from.email)) {
+        this.error.email = this.from.email;
+      } else {
+        this.error.email = "";
+        return;
+      }
+
       if (this.from.phone == "") {
         this.error.phone = "";
         this.from.phone = "";
         return;
       }
-      
+
       if (this.from.message == "") {
         this.from.message = "";
         this.error.message = "";
         return;
       }
-      
 
       this.$vs.loading({
         color: "#6647ff"

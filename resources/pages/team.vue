@@ -15,7 +15,7 @@
           </a>
         </div>
 
-        <div class="_team_main">
+        <div class="_team_main" id="div1">
           <div class="container">
             <div class="row align-items-center" v-if="singleMember">
               <div class="col-12 col-md-4 col-lg-4">
@@ -65,7 +65,7 @@
               <!-- Card -->
               <div class="col-6 col-md-4 col-lg-4" v-for="(item,index) in allmembers" :key="index" >
                 <div class="_1card _mar_b30">
-                  <div class="_1card_pic" @click="asignSingleMemebr(index)">
+                  <div class="_1card_pic" style="cursor: pointer;" @click="asignSingleMemebr(index)"  v-scroll-to="'#div1'">
                     <img class="_1card_img" :src="item.image" alt title />
                     <div class="_1card_delete" v-if="authInfo">
                       <button class="_1card_delete_btn" @click="deleteMemeber(item.id,index)">
@@ -451,6 +451,7 @@ export default {
     },
     asignSingleMemebr(index) {
       this.singleMember = this.allmembers[index];
+      // window.scrollTo(0,0);
     },
     setAppointMentModal(d) {
       this.$store.dispatch("setAppointmentModal", d);

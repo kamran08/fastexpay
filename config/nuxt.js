@@ -11,9 +11,10 @@ module.exports = {
     '@nuxtjs/axios'
 
     // With options
+    // ['vue-scrollto/nuxt', { duration: 300 }],
 
   ],
-  
+
   axios: {
       baseURL: 'http://dental.kollol.me'                       
   },
@@ -60,13 +61,14 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,300i,400,400i,600,600i,700,700i,900&display=swap' },
       { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
       { rel: 'stylesheet', href: '/css/common.css' },
-      { rel: 'stylesheet', href: '/css/main.css' }
-
+      { rel: 'stylesheet', href: '/css/main.css' },
     ],
     script: [
+      { src: 'https://cdn.jsdelivr.net/npm/vue', body: true },
       { src: 'https://code.jquery.com/jquery-3.4.0.min.js', body: true },
       { src: '/js/owl.carousel.min.js', body: true },
       { src: '/js/script.js', body: true },
+      { src: 'https://cdn.jsdelivr.net/npm/vue-scrollto', body: true },
     ]
     
 

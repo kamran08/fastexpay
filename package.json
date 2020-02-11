@@ -52,6 +52,7 @@
     "vue-chartkick": "^0.5.3",
     "vue-google-charts": "^0.3.2",
     "vue-media-queries": "0.0.5",
+    "vue-scrollto": "^2.17.1",
     "vuesax": "^3.11.11",
     "youch": "^2.0.10"
   },
