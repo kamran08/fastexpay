@@ -275,6 +275,8 @@ export default {
                     designation:' ',
                     description:' ',
                 },
+                  this.from = {
+                },
                  this.image = ' '
                     this.$vs.loading.close();
                     this.isSuccess = true
@@ -326,7 +328,7 @@ export default {
             //     title: "1 image can be uploaded."
             //     });
             // }
-            return check;
+            // return check;
      },
          handleSuccess(res, file) {
       // console.log(res);
@@ -341,7 +343,7 @@ export default {
         };
         this.from.image = img.url
         this.image = ' '
-        this.uploadList.push(img);
+        // this.uploadList.push(img);
         // console.log(this.custom_product_image_create)
       }
       console.log(this.uploadList);

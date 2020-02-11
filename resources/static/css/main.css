@@ -672,7 +672,7 @@
     color: #656565;
 }
 ._cantact_sec_group input, ._cantact_sec_group textarea {
-    font-size: 18px;
+    font-size: 18px !important;
     border: none;
     border-bottom: 2px solid #c4c4c4;
     width: 100%;

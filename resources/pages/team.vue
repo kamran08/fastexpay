@@ -65,8 +65,8 @@
               <!-- Card -->
               <div class="col-6 col-md-4 col-lg-4" v-for="(item,index) in allmembers" :key="index" >
                 <div class="_1card _mar_b30">
-                  <div class="_1card_pic" style="cursor: pointer;" @click="asignSingleMemebr(index)"  v-scroll-to="'#div1'">
-                    <img class="_1card_img" :src="item.image" alt title />
+                  <div class="_1card_pic"  >
+                    <img class="_1card_img" style="cursor: pointer;" :src="item.image" alt title @click="asignSingleMemebr(index)"  v-scroll-to="'#div1'" />
                     <div class="_1card_delete" v-if="authInfo">
                       <button class="_1card_delete_btn" @click="deleteMemeber(item.id,index)">
                         <Icon type="md-trash" />
@@ -338,7 +338,7 @@ export default {
             // }
             // return check;
      },
-         handleSuccess(res, file) {
+     handleSuccess(res, file) {
       // console.log(res);
       // console.log(file);
       if (res) {
@@ -351,7 +351,7 @@ export default {
         };
         this.from.image = img.url
         this.image = ' '
-        this.uploadList.push(img);
+        // this.uploadList.push(img);
         // console.log(this.custom_product_image_create)
       }
       console.log(this.uploadList);
@@ -405,6 +405,11 @@ export default {
               });
                 const res = await this.callApi('post', '/updatedTeam', this.from)
                 if(res.status===200){
+
+                  this.allmembers[this.editIndex] = res.data
+                  if(this.allmembers[this.editIndex].id == this.singleMember.id){
+                    this.singleMember = res.data
+                  }
                   this.error = {
                     name:' ',
                     email:' ',
@@ -470,6 +475,11 @@ export default {
         this.allmembers.splice(index, 1);
         if(this.allmembers.length==0){
           this.singleMember = false
+        }
+        if(this.allmembers.length!=0){
+          if(this.singleMember.id==id){
+              this.singleMember = this.allmembers[0]
+          }
         }
         this.$vs.loading.close();
       } else {

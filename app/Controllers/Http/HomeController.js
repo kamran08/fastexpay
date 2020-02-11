@@ -76,7 +76,8 @@ class HomeController {
         // return data
         try {
             let user =  await Team.query().where('id', data.id).update(data)
-            return user
+            let da =  await Team.query().where('id', data.id).first()
+            return da
         } catch (e) {
             console.log(e.message)
             return response.status(401).json(
