@@ -153,8 +153,9 @@ class HomeController {
         else{
             data.isPrime = 0
         }
+        
        
-        let reviews =  await Review.query().where('id',data.id).update(data)
+        let reviews =  await Review.query().where('id',data.id).update({'isPrime':data.isPrime})
       
         return reviews
 

@@ -662,6 +662,10 @@
 ._cantact_sec_group input::-webkit-input-placeholder,  ._cantact_sec_group textarea::-webkit-input-placeholder{ 
     color: #656565;
 }
+#div1{
+    margin-top: -100px;
+    padding-top: 100px;
+}
 ._cantact_sec_group input::-moz-placeholder, ._cantact_sec_group textarea::-moz-placeholder{ 
     color: #656565;
 }
