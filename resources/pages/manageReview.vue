@@ -288,6 +288,11 @@ export default {
     },
     changeModalOpen(item, index) {
       this.allreviews[index].istrue = !this.allreviews[index].istrue;
+      for(let value of  this.allreviews){
+        if(this.allreviews[index].id!=value.id){
+          value.istrue = false
+        }
+      }
       this.isSuccess = false;
       this.isFail = false;
       this.editData.id = item.id;

@@ -31,8 +31,8 @@
 
                   <p
                     class="_1text"
-                    v-if="!isAll && singleMember.description.length>400">
-                    {{singleMember.description.substring(0, 400)}}
+                    v-if="!isAll && singleMember.description.length>1500">
+                    {{singleMember.description.substring(0, 1500)}}
                   </p>
                   <p class="_1text" v-else>{{singleMember.description}}</p>
 
