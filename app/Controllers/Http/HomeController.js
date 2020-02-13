@@ -270,16 +270,30 @@ class HomeController {
 				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
 				.subject('Authentic Dental Studio')
 		})
+		 Mail.send('emails.sendInformation', user, (message) => {
+            message
+            // office@authenticdentalstudio.com
+            // no-reply@authenticdentalstudio.com daodds@authentic.dental
+				.to("daodds@authentic.dental")
+				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
+				.subject('Authentic Dental Studio')
+		})
 
 
 	}
       async sendContractInfo({ request }) {
           let user = request.all();
         //   office@authenticdentalstudio.com
-        //   no-reply@authenticdentalstudio.com
+        //   no-reply@authenticdentalstudio.com daodds@authentic.dental
 		await Mail.send('emails.sendContractInfo', user, (message) => {
 			message
 				.to("office@authenticdentalstudio.com")
+				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
+				.subject('Authentic Dental Studio')
+		})
+		 Mail.send('emails.sendContractInfo', user, (message) => {
+			message
+				.to("daodds@authentic.dental")
 				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
 				.subject('Authentic Dental Studio')
 		})
