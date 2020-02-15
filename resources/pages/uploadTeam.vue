@@ -3,7 +3,7 @@
     <div class="_content">
         <!--======= Header ======-->
         <div class="_1header">
-          <h2 class="_1header_title">Upload Team</h2>
+          <h2 class="_1header_title">Upload Team Members</h2>
         </div>
         <!--======= Header end ======-->
 
@@ -17,10 +17,15 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-12 col-lg-12 _patientForms_header_left">
-                  <p class="_1text">Thank you for write review for Authentic Dental Studio. Your review will be show in Patient Review</p>
 
-                  
-                  <div class="_review_card _1box_shadow _mar_t40">
+                  <!-- upload dentist -->
+                  <template>
+                    
+                  </template>
+
+                  <!-- upload team members -->
+                  <template>
+                    <div class="_review_card _1box_shadow _mar_t40">
                     <div class="row">
                       <div class="col-12 col-md-6 col-lg-6">
                         <div class="_1input_group">
@@ -32,14 +37,14 @@
                       </div>
                       <div class="col-12 col-md-6 col-lg-6">
                         <div class="_1input_group">
-                          <p class="_1label">Designation</p>
+                          <p class="_1label">Title</p>
 
-                          <input class="_1int" @keyup="assingData(2)" v-model="from.designation" type="text" placeholder="type designation">
-                        <p v-if="error.designation==''" class="Rectangle_coustom">Write designation</p>
+                          <input class="_1int" @keyup="assingData(2)" v-model="from.designation" type="text" placeholder="type title">
+                        <p v-if="error.designation==''" class="Rectangle_coustom">Write title</p>
                         </div>
                       </div>
 
-                      <div class="col-12 col-md-12 col-lg-12">
+                      <!-- <div class="col-12 col-md-12 col-lg-12">
                         <div class="_1input_group">
                           <p class="_1label">Email</p>
 
@@ -47,18 +52,18 @@
                          <p v-if="error.email==''" class="Rectangle_coustom">Invalid email</p>
                         </div>
                         
-                      </div>
+                      </div> -->
 
                      
 
-                      <div class="col-12 col-md-12 col-lg-12">
+                      <!-- <div class="col-12 col-md-12 col-lg-12">
                         <div class="_1input_group">
                           <p class="_1label">Description</p>
 
                           <textarea @keyup="assingData(4)" class="_1textarea" v-model="from.description" placeholder="type message" rows="5"></textarea>
                         <p v-if="error.description=='' || error.description==null" class="Rectangle_coustom">Write description</p>
                         </div>
-                      </div>
+                      </div> -->
 
                       <div class="col-12 col-md-6 col-lg-6">
                     <div class="_1input_group">
@@ -96,58 +101,60 @@
                         </div>
                         <!-- Upload -->
 
-                        <p class="_upload_text">Upload your Picture</p>
+                        <p class="_upload_text">Upload Picture</p>
                        </div>
-                        <p v-if="image=='' || image==null" class="Rectangle_coustom">Upload your Picture</p>
+                        <p v-if="image=='' || image==null" class="Rectangle_coustom">Upload Picture</p>
                       </div>
 
                     </div>
-                  </div>
+                    </div>
 
-                      <!-- <div class="col-12 col-md-12 col-lg-12">
-                          
-                          <div style="hight:20px;" v-if="from.image">
-                              <img :src="from.image" alt="">
-                              <button @click="deleteImage">delete</button>
-                          </div>
-                          
-                        <div class="_1input_group" v-if="from.image=='' || from.image==null">
-                          <p class="_1label">Upload Image</p>
-
-                          <Upload
-                          ref="upload"
-                          :show-upload-list="false"
-                          :on-success="handleSuccess"
-                          :format="['jpg','jpeg','png','webp']"
-                          :max-size="2048"
-                          :on-format-error="handleFormatError"
-                          :on-exceeded-size="handleMaxSize"
-                          :before-upload="handleBeforeUpload"
-                          type="drag"
-                          action="/uploadImages"
-                          style="display: inline-block;width:58px;"
-                        >
-                          <div style="width: 58px;height:58px;line-height: 58px;">
-                            <Icon type="ios-camera" size="20"></Icon>
-                          </div>
-                        </Upload>
-                        </div>
-
-                        <p v-if="image=='' || image==null" class="Rectangle_coustom">upload image</p>
-                      </div> -->
-
-                      <div class="col-12 col-md-12 col-lg-12">
-                        <div class="row">
-                          <div class="col-12 col-md col-lg">
+                        <!-- <div class="col-12 col-md-12 col-lg-12">
                             
-                          </div>
-                            <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
-                                <button class="_btn_gradient_default _mar_t10 _btn_padd30">Submit</button>
+                            <div style="hight:20px;" v-if="from.image">
+                                <img :src="from.image" alt="">
+                                <button @click="deleteImage">delete</button>
                             </div>
+                            
+                          <div class="_1input_group" v-if="from.image=='' || from.image==null">
+                            <p class="_1label">Upload Image</p>
+
+                            <Upload
+                            ref="upload"
+                            :show-upload-list="false"
+                            :on-success="handleSuccess"
+                            :format="['jpg','jpeg','png','webp']"
+                            :max-size="2048"
+                            :on-format-error="handleFormatError"
+                            :on-exceeded-size="handleMaxSize"
+                            :before-upload="handleBeforeUpload"
+                            type="drag"
+                            action="/uploadImages"
+                            style="display: inline-block;width:58px;"
+                          >
+                            <div style="width: 58px;height:58px;line-height: 58px;">
+                              <Icon type="ios-camera" size="20"></Icon>
+                            </div>
+                          </Upload>
+                          </div>
+
+                          <p v-if="image=='' || image==null" class="Rectangle_coustom">upload image</p>
+                        </div> -->
+
+                        <div class="col-12 col-md-12 col-lg-12">
+                          <div class="row">
+                            <div class="col-12 col-md col-lg">
+                              
+                            </div>
+                              <div class="col-12 col-md-auto col-lg-auto" @click="storeAlldata">
+                                  <button class="_btn_gradient_default _mar_t10 _btn_padd30">Submit</button>
+                              </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </template>
+
                 </div>
               </div>
             </div>
@@ -157,7 +164,7 @@
 
      
       </div>
-            <Modal v-model="isSuccess" :footer-hide="true" width="850">
+        <Modal v-model="isSuccess" :footer-hide="true" width="850">
                 <div class="_book_modal">
                     <div class="_thank">
                             <h2 class="_booking_title">Thank you</h2>
@@ -189,17 +196,18 @@ export default {
             uploadList:[],
             from:{
                 name:'',
-                email:'',
+                // email:'',
                 image:'',
                 designation:'',
-                description:'',
+                // description:'',
+                isDentist: 'No'
             },
             error:{
                 name:' ',
-                email:' ',
+                // email:' ',
                 image:'',
                 designation:' ',
-                description:' ',
+                // description:' ',
             },
             isSuccess:false,
             image:' ',
@@ -349,6 +357,15 @@ export default {
       console.log(this.uploadList);
     },
   
+    },
+
+
+    async created(){
+      const res = await this.callApi('get','/app/getDentistDetails')
+
+      if(res.status == 200){
+        
+      }
     }
 }
 </script>

@@ -297,8 +297,6 @@ class HomeController {
 				.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
 				.subject('Authentic Dental Studio')
 		})
-
-
 	}
      
 }

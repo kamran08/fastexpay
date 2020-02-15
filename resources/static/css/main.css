@@ -662,6 +662,18 @@
 ._cantact_sec_group input::-webkit-input-placeholder,  ._cantact_sec_group textarea::-webkit-input-placeholder{ 
     color: #656565;
 }
+.dbngohodfg ._1card_delete {
+    justify-content: flex-end;
+    width: auto;
+}
+.dbngohodfg{
+    position: relative;
+}
+.dbngohodfg:hover ._1card_delete{
+    bottom: 0;
+    opacity: 1;
+    transform: scale(1);
+}
 #div1{
     margin-top: -100px;
     padding-top: 100px;
