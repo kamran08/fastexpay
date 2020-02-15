@@ -246,28 +246,28 @@ export default {
                     this.error.designation ='' 
                     return
                 }
-                if(this.from.email.trim()==''){
-                    this.from.email ='' 
-                    this.error.email ='' 
-                    return
-                }
-                if(this.from.description.trim()==''){
-                    this.from.description ='' 
-                    this.error.description ='' 
-                    return
-                }
+                // if(this.from.email.trim()==''){
+                //     this.from.email ='' 
+                //     this.error.email ='' 
+                //     return
+                // }
+                // if(this.from.description.trim()==''){
+                //     this.from.description ='' 
+                //     this.error.description ='' 
+                //     return
+                // }
                 
                 if(this.from.image.trim()==''){
                     this.image ='' 
                     return
                 }
-                 if (this.reg.test(this.from.email)){
-                    this.error.email =this.from.email
-                  }
-                  else{
-                    this.error.email =''
-                    return
-                  }
+                //  if (this.reg.test(this.from.email)){
+                //     this.error.email =this.from.email
+                //   }
+                //   else{
+                //     this.error.email =''
+                //     return
+                //   }
                 if(!this.authInfo){
                  return this.e("You are not Authentic User!!")
                 }
@@ -284,6 +284,7 @@ export default {
                     description:' ',
                 },
                   this.from = {
+                    isDentist: 'No'
                 },
                  this.image = ' '
                     this.$vs.loading.close();
