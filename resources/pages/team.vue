@@ -438,12 +438,12 @@ export default {
         this.image = "";
         return;
       }
-      if (this.reg.test(this.from.email)) {
-        this.error.email = this.from.email;
-      } else {
-        this.error.email = "";
-        return;
-      }
+      // if (this.reg.test(this.from.email)) {
+      //   this.error.email = this.from.email;
+      // } else {
+      //   this.error.email = "";
+      //   return;
+      // }
       if (!this.authInfo) {
         return this.e("You are not Authentic User!!");
       }
