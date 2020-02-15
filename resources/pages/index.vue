@@ -705,7 +705,14 @@ export default {
     if (res.status == 200) {
       this.allmembers = res.data;
       if (this.allmembers) {
-        this.singleMember = this.allmembers[0];
+        for(let i in this.allmembers){
+          if(this.allmembers.isDentist=='Yes'){
+
+            this.singleMember = this.allmembers[i];
+            break
+          }
+        }
+        
       }
     }
 

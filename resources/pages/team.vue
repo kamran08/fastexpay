@@ -351,6 +351,7 @@ export default {
         for(let i in this.allmembers){
           if(this.allmembers[i].isDentist=='Yes'){
               this.singleMember = this.allmembers[i];
+              break
           }
         }
         
