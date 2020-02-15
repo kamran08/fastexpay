@@ -83,9 +83,10 @@
                       :src="item.image"
                       alt
                       title
-                      @click="asignSingleMemebr(index)"
+                      
                       v-scroll-to="'#div1'"
                     />
+                    <!-- @click="asignSingleMemebr(index)" -->
                     <div class="_1card_delete" v-if="authInfo">
                       <button class="_1card_delete_btn" @click="deleteMemeber(item.id,index)">
                         <Icon type="md-trash" />

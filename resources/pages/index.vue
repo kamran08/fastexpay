@@ -449,9 +449,10 @@
                   <div
                     class="_1card_pic"
                     style="cursor:pointer;"
-                    @click="asignSingleMemebr(index)"
+                    
                     v-scroll-to="'#div1'"
                   >
+                  <!-- @click="asignSingleMemebr(index)" -->
                     <img class="_1card_img" :src="item.image" alt title />
                   </div>
 
