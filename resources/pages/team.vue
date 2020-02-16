@@ -422,11 +422,10 @@ export default {
     },
     async storeAlldata() {
       this.from.description = this.post_description
-      console.log(this.from.designation , 'check')
-      this.from.name = this.from.name.trim();
-      this.from.designation = this.from.designation.trim();
-      this.from.email = this.from.email.trim();
-      this.from.description = this.from.description.trim();
+      // console.log(this.from.designation , 'check')
+      // this.from.name = this.from.name.trim();
+      // this.from.designation = this.from.designation.trim();
+      // this.from.description = this.from.description.trim();
       // this.image = this.from.image.trim()==''?'':' '
 
       if (this.from.name.trim() == "") {
@@ -434,21 +433,26 @@ export default {
         this.error.name = "";
         return;
       }
-
+    if(this.from.isDentist == "No"){
       if (this.from.designation.trim() == "") {
         this.from.designation = "";
         this.error.designation = "";
         return;
       }
+    }
       // if (this.from.email.trim() == "") {
       //   this.from.email = "";
       //   this.error.email = "";
       //   return;
       // }
-      if (this.from.description.trim() == "" && this.from.isDentist == "Yes") {
-        this.from.description = "";
-        this.error.description = "";
-        return;
+      if(this.from.isDentist == "Yes"){
+
+      
+        if (this.from.description.trim() == "") {
+          this.from.description = "";
+          this.error.description = "";
+          return;
+        }
       }
 
       if (this.from.image == "") {
