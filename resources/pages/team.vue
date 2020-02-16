@@ -309,7 +309,7 @@
             <Icon type="md-checkmark" />
           </div>
 
-          <p class="_booking_text">Your team member has been updated</p>
+          <p class="_booking_text">{{sMessage}}</p>
 
           <div class="_booking_button _text_center" @click="isSuccess=false">
             <button class="_btn_gradient_default _mar_t10">Done</button>
@@ -348,6 +348,7 @@ export default {
       isAll: false,
       image: false,
       editModal: false,
+      sMessage: '',
       reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/
     };
   },
@@ -373,7 +374,13 @@ export default {
   },
   methods: {
     onEditorChange({ quill, html, text }) {
-      this.post_description = html;
+      this.from.description = html;
+      if(!this.from.description || this.from.description==''){
+        this.error.description =''
+      }
+      else{
+        this.error.description  = '  '
+      }
     },
     deleteImage() {
       this.from.image = "";
@@ -421,7 +428,7 @@ export default {
       console.log(this.uploadList);
     },
     async storeAlldata() {
-      this.from.description = this.post_description
+      // this.from.description = this.post_description
       // console.log(this.from.designation , 'check')
       // this.from.name = this.from.name.trim();
       // this.from.designation = this.from.designation.trim();
@@ -477,6 +484,13 @@ export default {
           this.singleMember = res.data;
         } else {
           this.allmembers[this.editIndex] = res.data;
+        }
+        if(this.from.isDentist == "Yes"){
+          this.sMessage = "Dentist has been updated"
+         
+        }
+        else{
+           this.sMessage = "Team member has been updated"
         }
         // if (this.allmembers[this.editIndex].id == this.singleMember.id) {
         //   this.singleMember = res.data;
@@ -548,6 +562,8 @@ export default {
           }
         }
         this.$vs.loading.close();
+        this.sMessage = "Team member deleted successfully"
+        this.isSuccess = true;
       } else {
         this.$vs.loading.close();
         this.e("please check your network");

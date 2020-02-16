@@ -124,24 +124,24 @@
                     </div>
                   </div>
                 </div>
-
+<!-- mobile -->
                 <div class="_review_buttons">
-                  <button class="_btn_pressed _btn_sm disable_class" type="button" v-if="item.status=='Declined'" disabled>Decilne</button>
-                 
-                  <button class="_btn_pressed _btn_sm" type="button" v-else>Decilne</button>
+                  <button class="_btn_pressed _btn_sm disable_class" type="button" v-if="item.status=='Declined'" disabled>  Decilne</button>
+                  <button class="_btn_pressed _btn_sm" type="button" v-else @click="updateStatusMobile('Declined',index,item)"> x Decilne</button>
 
                   <button class="_btn_gradient_default _btn_sm disable_class" type="button" v-if="item.status=='Published'" disabled>
-                    <img class="_mar_r5" src="/images/check.png" alt title />Publish
+                    <img class="_mar_r5" src="/images/check.png" alt title />  Publish
                   </button>
-                  <button class="_btn_gradient_default _btn_sm" type="button"  @click="updateStatus('Published')" v-else>
-                    <img class="_mar_r5" src="/images/check.png" alt title />Publish
+                  <button class="_btn_gradient_default _btn_sm" type="button"  @click="updateStatusMobile('Published',index,item)" v-else>
+                    <img class="_mar_r5" src="/images/check.png" alt title /> x Publish
                   </button>
                 </div>
                 <div class="mobile_prime prime">
-                        <Checkbox class="_1check" v-model="item.isPrime"  @on-change="primeRevieset(item,index)">
-                          <span class="prime_text">Prime</span>
+                        <Checkbox class="_1check" v-model="item.isPrime"  @on-change="primeReviesetMobile(item,index)">
+                          <span class="prime_text">  Prime</span>
                         </Checkbox>
                   </div>
+                  <!-- mobile -->
               </div>
               <!-- Items -->
 
@@ -283,6 +283,34 @@ export default {
        }
 
     },
+    async primeReviesetMobile(item,index){
+       this.$vs.loading({
+      color: "#6647ff"
+    });
+
+     if(item.isPrime==true){
+       this.messege = "This review has been assigned to Prime Review"
+         for(let i in this.allreviews){
+           if(this.allreviews[i].id!=item.id){
+             this.allreviews[i].isPrime = false
+           }
+         }
+       }
+       else{
+         this.messege = "This review has been move out from Prime Review"
+       }
+       const res = await this.callApi('post', '/updatePrimeReview',item)
+       this.$vs.loading.close();
+       if(res.status==200){
+         this.allreviews[index].istrue = false
+         
+         this.isSuccess = true;
+
+       }
+
+    },
+
+    
     asignSingleMemebr(index) {
       this.singleMember = this.allreviews[index];
     },
@@ -324,6 +352,29 @@ export default {
         // ].istrue;
         this.allreviews[this.editIndex].istrue = false
         this.editIndex = -1;
+        this.isSuccess = true;
+        this.isFail = false;
+      } else {
+        this.isFail = true;
+      }
+    },
+    async updateStatusMobile(status,index,item) {
+      
+      this.messege = "This review has been "+status
+      if (!this.authInfo) {
+        return this.e("You are not Authentic User!!");
+      }
+      const res = await this.callApi("post", "/updateReviews", {
+        status: status,
+        id: item.id
+      });
+      if (res.status == 200) {
+        item.status = status
+        this.allreviews[index].status = status;
+        // this.allreviews[this.editIndex].istrue = !this.allreviews[
+        //   this.editIndex
+        // ].istrue;
+        this.allreviews[index].istrue = false
         this.isSuccess = true;
         this.isFail = false;
       } else {

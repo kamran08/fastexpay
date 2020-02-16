@@ -259,17 +259,17 @@ export default {
             },
         async storeAlldata(){
           
-            this.from.name = this.from.name.trim()
-            if(this.from.date) this.from.date = this.from.date.trim()
+            this.from.name = (this.from.name)?this.from.name.trim():''
+             this.from.date = (this.from.date)?this.from.date.trim():''
             
-           if(this.from.description) this.from.description = this.from.description.trim()
-            this.image = this.from.image?' ':''
+            this.from.description = (this.from.description)?this.from.description.trim():''
+            // this.image = this.from.image?' ':''
                 if(!this.from.name || this.from.name.trim()==''){
                     this.error.name =''
                     return
                 }
                 
-                if( !this.from.date || this.from.date=='' || this.from.date==null){
+                if(!this.from.date || this.from.date=='' || this.from.date==null){
                     this.from.date = ''
                     this.error.date = ''
                     return

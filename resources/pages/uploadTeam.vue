@@ -172,8 +172,7 @@
                             <div class="_thank_check"><Icon type="md-checkmark" /></div>
 
                             <p class="_booking_text">
-                                Thank you for booking an appointment with Authentic Dental Studio. Your oral health is our priority. A Patient 
-                                Coordinator will contact you as soon as possible to confirm your appointment.
+                               Team member uploaded successfully
                             </p>
 
                             <div class="_booking_button _text_center"  @click="isSuccess=false">

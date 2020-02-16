@@ -57,7 +57,7 @@
                         <div class="_1input_group">
                           <p class="_1label">Message</p>
 
-                          <textarea @keyup="assingData(3)" class="_1textarea" v-model="from.message" placeholder="type message" rows="5"></textarea>
+                          <textarea @keyup="assingData(4)" class="_1textarea" v-model="from.message" placeholder="type message" rows="5"></textarea>
                           <p v-if="error.message==''" class="Rectangle_coustom">Write Your Message</p>
                         </div>
                       </div>
@@ -221,6 +221,7 @@ export default {
   methods: {
     assingData(l) {
       if(l==1){
+        if(!this.from.name)  return this.error.name =''
         this.error.name = this.from.name.trim();
       }
       if(l==2){
@@ -232,9 +233,11 @@ export default {
         }
       }
       if(l==3){
+         if(!this.from.phone)  return this.error.phone =''
         this.error.phone = this.from.phone.trim();
       }
       if(l==4){
+        if(!this.from.message)  return this.error.message =''
         this.error.message = this.from.message.trim();
       }
     },
