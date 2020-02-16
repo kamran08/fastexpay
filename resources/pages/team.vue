@@ -460,6 +460,11 @@ export default {
           this.error.description = "";
           return;
         }
+     if (!this.from.designation || this.from.designation.trim() == "") {
+        this.from.designation = "";
+        this.error.designation = "";
+        return;
+      }
       }
 
       if (!this.from.image || this.from.image == "") {
@@ -486,11 +491,11 @@ export default {
           this.allmembers[this.editIndex] = res.data;
         }
         if(this.from.isDentist == "Yes"){
-          this.sMessage = "Dentist has been updated"
+          this.sMessage = "Dentist's profile has been updated"
          
         }
         else{
-           this.sMessage = "Team member has been updated"
+           this.sMessage = "Team member's profile has been updated"
         }
         // if (this.allmembers[this.editIndex].id == this.singleMember.id) {
         //   this.singleMember = res.data;

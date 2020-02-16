@@ -95,13 +95,13 @@
                       <p class="_1label">How would you rate our service for your visit?</p>
 
                       <ul class="_1rating">
-                         <li :class="(from.rate>0)?'boitol':''" @click="from.rate=1"><i class="fas fa-star" @click="from.rate=1"></i></li>
-                        <li :class="(from.rate>1)?'boitol':''" @click="from.rate=2"><i class="fas fa-star"></i></li>
-                        <li :class="(from.rate>2)?'boitol':''" @click="from.rate=3"><i class="fas fa-star"></i></li>
-                        <li :class="(from.rate>3)?'boitol':''" @click="from.rate=4"><i class="fas fa-star"></i></li>
-                        <li :class="(from.rate>4)?'boitol':''" @click="from.rate=5"><i class="fas fa-star"></i></li>
+                         <li :class="(from.rate>0)?'boitol':''" @click="from.rate=1,error.rate=' '"><i class="fas fa-star" @click="from.rate=1"></i></li>
+                        <li :class="(from.rate>1)?'boitol':''" @click="from.rate=2,error.rate=' '"><i class="fas fa-star"></i></li>
+                        <li :class="(from.rate>2)?'boitol':''" @click="from.rate=3,error.rate=' '"><i class="fas fa-star"></i></li>
+                        <li :class="(from.rate>3)?'boitol':''" @click="from.rate=4,error.rate=' '"><i class="fas fa-star"></i></li>
+                        <li :class="(from.rate>4)?'boitol':''" @click="from.rate=5,error.rate=' '"><i class="fas fa-star"></i></li>
                       </ul>
-                    <p v-if="error.rate==''" class="Rectangle_coustom">Please leave your review</p>
+                    <p v-if="error.rate==''" class="Rectangle_coustom">Please leave your Rate</p>
                     </div>
                   </div>
 
@@ -303,7 +303,7 @@ export default {
                         name:' ',
                         date:' ',
                         image:false,
-                        rate:0,
+                        rate:' ',
                         description:' ',
                     },
                     this.image =' '
