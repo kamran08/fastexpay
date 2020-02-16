@@ -511,6 +511,8 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+    background: #0000003b;
+    padding: 16px 00 10px;
 }
 ._1card_delete_btn {
     border: none;
@@ -663,8 +665,8 @@
     color: #656565;
 }
 .dbngohodfg ._1card_delete {
-    justify-content: flex-end;
-    width: auto;
+    justify-content: center;
+    width: 100%;
 }
 .dbngohodfg{
     position: relative;
@@ -1739,7 +1741,9 @@
     padding: 26px 0 9px 0px;
 }
 ._team_main_details ._1title_span:before {
-    bottom: -54px;
+}
+._1card_delete_btn {
+    font-size: 20px;
 }
 ._team_main {
     background-position: top 50px left;
@@ -1901,10 +1905,11 @@
     padding: 30px 0 42px;
 }
 ._1card_delete {
-    bottom: 5px;
+    bottom: 0;
     right: 10px;
     opacity: 1;
     transform: scale(1);
+    padding: 8px 00 3px;
 }
 ._1banner_call {
     display: none;
