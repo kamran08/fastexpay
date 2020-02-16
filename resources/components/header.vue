@@ -188,30 +188,33 @@
                             <p class="_booking_form_label">Are you a new patient?</p>
 
                             <div class="_dis_flex">
-                              <RadioGroup v-model="from.isNew">
-                                <Radio label="Yes" >
-                                    <!-- <Icon type="logo-apple"></Icon> -->
+                              <!-- <RadioGroup  v-model="from.isNew">
+                                 <Radio label='Yes'>
                                     <span>Yes</span>
                                 </Radio>
-                                <Radio label="No">
-                                    <!-- <Icon type="logo-android"></Icon> -->
+                                 <Radio label='No' >
                                     <span>No</span>
                                 </Radio>
                                
-                            </RadioGroup>
-                                <!-- <div class="_mar_r10 _flex_auto">
+                            </RadioGroup > -->
+                                  <!-- <input type="radio" v-model="from.isNew" id="male" name="gender" value="Yes">
+                                  <label for="Yes">Yes</label><br>
+                                  <input type="radio" v-model="from.isNew" id="female" name="gender" value="No">
+                                  <label for="No">No</label><br> -->
+                              
+                                <div class="_mar_r10 _flex_auto">
                                     <label class="_radio_default">Yes
-                                        <input type="radio" checked="checked"  v-model="from.isNew" name="radio"> 
+                                        <input type="radio" checked="checked" value="Yes" v-model="from.isNew" name="radio"> 
                                         <span class="radio_check"></span>
                                     </label>
                                 </div>
-                                {{from.isNew}}
+                                
                                 <div class="_mar_r10 _flex_auto">
                                     <label class="_radio_default">No
-                                        <input type="radio" checked="checked" v-model="from.isNew" name="radio"> 
+                                        <input type="radio" checked="checked" value="No" v-model="from.isNew" name="radio"> 
                                         <span class="radio_check"></span>
                                     </label>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -326,6 +329,7 @@ import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
+      animal:"No",
       dropOpen:false,
       mobileOpen:false,
       isSubmit:false,
@@ -338,7 +342,7 @@ export default {
         dob:'',
         phone:'',
         email:'',
-        isNew:'No',
+        isNew:"No",
         desiredServices:'',
         days:["Saturday"],
         alltimes:["8:00 AM to 10:00 AM"],
