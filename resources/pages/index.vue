@@ -406,9 +406,10 @@
           </div>
         </div>
 
-        <div class="_team_main" id="div1" ref="div1">
+        <div class="_team_main" >
           <div class="container">
-            <div class="row align-items-center" v-if="singleMember">
+            <!-- align-items-center -->
+            <div class="row " v-if="singleMember">
               <div class="col-12 col-md-4 col-lg-4" v-if="singleMember.image">
                 <img class="_team_img" :src="singleMember.image" alt title />
               </div>
@@ -420,11 +421,20 @@
                     <span class="_c_default">{{singleMember.name}}</span>
                   </h2>
 
-                  <p
+                  <!-- <p
                     class="_1text"
                     v-if="!isAll && singleMember.description.length>400"
                   >{{singleMember.description.substring(0, 400)}}</p>
-                  <p class="_1text" v-else>{{singleMember.description}}</p>
+                  <p class="_1text" v-else>{{singleMember.description}}</p> -->
+
+
+                  <p
+                    class="_1text"
+                    v-if="!isAll && singleMember.description.length>2500"
+                  v-html="singleMember.description.substring(0, 2500)"></p>
+
+
+                  <p class="_1text" v-else v-html="singleMember.description"></p>
 
                   <!-- <p class="_1text">
                         Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
@@ -444,14 +454,15 @@
           <div class="container">
             <div class="row">
               <!-- Card -->
-              <div class="col-6 col-md-4 col-lg-4" v-for="(item,index) in allmembers" :key="index">
+              <div class="col-6 col-md-4 col-lg-4" v-for="(item,index) in allmembers" :key="index" v-if="item.isDentist == 'No'">
                 <div class="_1card _mar_b30" >
                   <div
                     class="_1card_pic"
                     style="cursor:pointer;"
                     
-                    v-scroll-to="'#div1'"
+                
                   >
+                      <!-- v-scroll-to="'#div1'" -->
                   <!-- @click="asignSingleMemebr(index)" -->
                     <img class="_1card_img" :src="item.image" alt title />
                   </div>
@@ -707,7 +718,7 @@ export default {
       this.allmembers = res.data;
       if (this.allmembers) {
         for(let i in this.allmembers){
-          if(this.allmembers.isDentist=='Yes'){
+          if(this.allmembers[i].isDentist=='Yes'){
 
             this.singleMember = this.allmembers[i];
             break

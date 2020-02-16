@@ -231,8 +231,7 @@ export default {
 
               this.from.name = this.from.name.trim()
               this.from.designation = this.from.designation.trim()
-              this.from.email = this.from.email.trim()
-              this.from.description = this.from.description.trim()
+              // this.from.description = this.from.description.trim()
               // this.image = this.from.image.trim()==''?'':' '
 
                 if(this.from.name.trim()==''){
@@ -278,7 +277,6 @@ export default {
                 if(res.status===200){
                   this.error = {
                     name:' ',
-                    email:' ',
                     image:' ',
                     designation:' ',
                     description:' ',

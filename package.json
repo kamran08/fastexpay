@@ -45,6 +45,7 @@
     "lodash": "^4.17.15",
     "mysql": "^2.17.1",
     "nuxt": "^2.10.2",
+    "quill": "^1.3.6",
     "standard": "^12.0.1",
     "v-clipboard": "^2.2.2",
     "vue": "^2.6.11",
@@ -53,6 +54,7 @@
     "vue-google-charts": "^0.3.2",
     "vue-masonry": "^0.11.8",
     "vue-media-queries": "0.0.5",
+    "vue-quill-editor": "^3.0.6",
     "vue-scrollto": "^2.17.1",
     "vuesax": "^3.11.11",
     "youch": "^2.0.10"

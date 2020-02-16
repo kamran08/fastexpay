@@ -2173,3 +2173,11 @@
     opacity: .5;
 
 }
+
+
+
+
+.ql-container.ql-snow{
+    height: 250px !important;
+    overflow-y: auto;
+}

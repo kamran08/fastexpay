@@ -12,6 +12,8 @@ Vue.use(IconsPlugin)
 import Clipboard from 'v-clipboard'
 import Vuesax from 'vuesax'
 import 'vuesax/dist/vuesax.css'
+
+
 Vue.use(Clipboard)
 Vue.use(Vuesax, {})
 import {mapGetters} from 'vuex'

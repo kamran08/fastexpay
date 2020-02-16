@@ -17,7 +17,8 @@
 
         <div class="_team_main" id="div1">
           <div class="container">
-            <div class="row align-items-center" v-if="singleMember">
+            <!-- align-items-center -->
+            <div class="row " v-if="singleMember">
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="dbngohodfg">
                   <img class="_team_img" :src="singleMember.image" alt title />
@@ -42,9 +43,11 @@
 
                   <p
                     class="_1text"
-                    v-if="!isAll && singleMember.description.length>1500"
-                  >{{singleMember.description.substring(0, 1500)}}</p>
-                  <p class="_1text" v-else>{{singleMember.description}}</p>
+                    v-if="!isAll && singleMember.description.length>2500"
+                  v-html="singleMember.description.substring(0, 2500)"></p>
+
+
+                  <p class="_1text" v-else v-html="singleMember.description"></p>
 
                   <!-- <b-collapse v-if="isAll" id="collapse-1" class="mt-2">
                     <p class="_1text" >{{singleMember.description}}</p>
@@ -84,8 +87,8 @@
                       alt
                       title
                       
-                      v-scroll-to="'#div1'"
                     />
+                    <!-- v-scroll-to="'#div1'" -->
                     <!-- @click="asignSingleMemebr(index)" -->
                     <div class="_1card_delete" v-if="authInfo">
                       <button class="_1card_delete_btn" @click="deleteMemeber(item.id,index)">
@@ -209,13 +212,21 @@
                       <div class="_1input_group">
                         <p class="_1label">Bio</p>
 
-                        <textarea
+                        <!-- <textarea
                           @keyup="assingData(4)"
                           class="_1textarea"
                           v-model="from.description"
                           placeholder="type bio"
                           rows="5"
-                        ></textarea>
+                        ></textarea>-->
+
+                        <quill-editor
+                          v-model="from.description"
+                          ref="myQuillEditor"
+                          :options="editorOption"
+                           @change="onEditorChange($event)"
+                        ></quill-editor>
+
                         <p
                           v-if="error.description=='' || error.description==null"
                           class="Rectangle_coustom"
@@ -313,8 +324,10 @@
 export default {
   data() {
     return {
+      editorOption: {},
       allmembers: [],
       isSuccess: false,
+      post_description: "",
       singleMember: false,
       from: {
         name: "",
@@ -346,22 +359,22 @@ export default {
     if (res.status == 200) {
       this.allmembers = res.data;
 
-
       if (this.allmembers) {
-
-        for(let i in this.allmembers){
-          if(this.allmembers[i].isDentist=='Yes'){
-              this.singleMember = this.allmembers[i];
-              break
+        for (let i in this.allmembers) {
+          if (this.allmembers[i].isDentist == "Yes") {
+            this.singleMember = this.allmembers[i];
+            break;
           }
         }
-        
       }
       this.$vs.loading.close();
     }
     this.$vs.loading.close();
   },
   methods: {
+    onEditorChange({ quill, html, text }) {
+      this.post_description = html;
+    },
     deleteImage() {
       this.from.image = "";
     },
@@ -408,6 +421,8 @@ export default {
       console.log(this.uploadList);
     },
     async storeAlldata() {
+      this.from.description = this.post_description
+      console.log(this.from.designation , 'check')
       this.from.name = this.from.name.trim();
       this.from.designation = this.from.designation.trim();
       this.from.email = this.from.email.trim();
@@ -454,25 +469,22 @@ export default {
       });
       const res = await this.callApi("post", "/updatedTeam", this.from);
       if (res.status === 200) {
-
-        if(this.editIndex==-1){
+        if (this.editIndex == -1) {
           this.singleMember = res.data;
-        }
-        else{
-
+        } else {
           this.allmembers[this.editIndex] = res.data;
         }
         // if (this.allmembers[this.editIndex].id == this.singleMember.id) {
         //   this.singleMember = res.data;
         // }
-        this.error = {
+        (this.error = {
           name: " ",
           email: " ",
           image: " ",
           designation: " ",
           description: " "
-        },
-          this.image = " "
+        }),
+          (this.image = " ");
         this.$vs.loading.close();
         this.editModal = false;
         this.isSuccess = true;
@@ -489,13 +501,13 @@ export default {
       if (l == 2) {
         this.error.designation = this.from.designation.trim();
       }
-      if (l == 3) {
-        if (this.reg.test(this.from.email)) {
-          this.error.email = this.from.email;
-        } else {
-          this.error.email = "";
-        }
-      }
+      // if (l == 3) {
+      //   if (this.reg.test(this.from.email)) {
+      //     this.error.email = this.from.email;
+      //   } else {
+      //     this.error.email = "";
+      //   }
+      // }
       if (l == 4) {
         this.error.description = this.from.description.trim();
       }
@@ -541,3 +553,6 @@ export default {
   }
 };
 </script>
+<style>
+
+</style>

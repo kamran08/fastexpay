@@ -16,7 +16,7 @@ module.exports = {
   ],
 
   axios: {
-      baseURL: 'http://dental.kollol.me' 
+      // baseURL: 'http://dental.kollol.me' 
                             
   },
   // build: { 
@@ -32,7 +32,8 @@ module.exports = {
   plugins: [
     '~plugins/vuecommon',
     '~plugins/ivuew',
-    { src: '~/plugins/vue-masonry', ssr: false }
+    { src: '~/plugins/vue-masonry', ssr: false },
+    { src: '~/plugins/quill', ssr: false }
   ],
   head: {
     title: 'Authentic Dental Studio',
