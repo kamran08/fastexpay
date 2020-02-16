@@ -406,7 +406,7 @@
           </div>
         </div>
 
-        <div class="_team_main" >
+        <div class="_team_main" id="div1">
           <div class="container">
             <!-- align-items-center -->
             <div class="row " v-if="singleMember">
@@ -440,7 +440,7 @@
                         Our aim is to provide top quality dental care in order to improve our patient's quality of life for a lifetime, to take time to do extra things that will make the patient's experience positive - before, during, and after treatment to provide patients with an environment of trust and respect through compassion, enthusiasm, and commitment for dental health. We always strive to deliver quality general dental care in a safe, gentle, and friendly environment at a fee which is fair to both the patient and to the office personnel.
                   </p>-->
 
-                  <button class="_btn_gradient_default" type="button" @click="isAll=!isAll">
+                  <button class="_btn_gradient_default" type="button" @click="isAll=!isAll" v-scroll-to="(!isAll)?'#div1':''">
                     {{(!isAll)?"View More":"View Less"}}
                     <Icon type="ios-arrow-round-forward" />
                   </button>
