@@ -743,6 +743,7 @@ export default {
     },
     assingData(l) {
       if (l == 1) {
+        if(!this.from.name) return this.error.name =''
         this.error.name = this.from.name.trim();
       }
       if (l == 2) {
@@ -753,9 +754,11 @@ export default {
         }
       }
       if (l == 3) {
+        if(!this.from.phone) return this.error.phone =''
         this.error.phone = this.from.phone.trim();
       }
       if (l == 4) {
+        if(!this.from.message) return this.error.message =''
         this.error.message = this.from.message.trim();
       }
     },
@@ -764,12 +767,12 @@ export default {
       this.$store.dispatch("setAppointmentModal", d);
     },
     async storealldata() {
-      this.from.name = this.from.name.trim();
-      this.from.email = this.from.email.trim();
-      this.from.phone = this.from.phone.trim();
-      this.from.message = this.from.message.trim();
+      // this.from.name = this.from.name.trim();
+      // this.from.email = this.from.email.trim();
+      // this.from.phone = this.from.phone.trim();
+      // this.from.message = this.from.message.trim();
 
-      if (this.from.name == "") {
+      if (!this.from.name || this.from.name.trim() == "") {
         this.from.name = "";
         this.error.name = "";
         return;
@@ -781,13 +784,13 @@ export default {
         return;
       }
 
-      if (this.from.phone == "") {
+      if (!this.from.phone || this.from.phone.trim() == "") {
         this.error.phone = "";
         this.from.phone = "";
         return;
       }
 
-      if (this.from.message == "") {
+      if (!this.from.message || this.from.message.trim() == "") {
         this.from.message = "";
         this.error.message = "";
         return;

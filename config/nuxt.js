@@ -32,6 +32,7 @@ module.exports = {
   plugins: [
     '~plugins/vuecommon',
     '~plugins/ivuew',
+    // { src: '~plugins/ivuew', ssr: false },
     { src: '~/plugins/vue-masonry', ssr: false },
     { src: '~/plugins/quill', ssr: false }
   ],
@@ -65,16 +66,18 @@ module.exports = {
       { rel: 'stylesheet', href: '/css/bootstrap.min.css' },
       { rel: 'stylesheet', href: '/css/common.css' },
       { rel: 'stylesheet', href: '/css/main.css' },
+      // { rel: 'stylesheet', href: '//unpkg.com/view-design/dist/styles/iview.css' },
     ],
     script: [
-      { src: 'https://cdn.jsdelivr.net/npm/vue', body: true },
+      // { src: 'https://cdn.jsdelivr.net/npm/vue', body: true },
       { src: 'https://code.jquery.com/jquery-3.4.0.min.js', body: true },
       { src: '/js/owl.carousel.min.js', body: true },
       { src: '/js/script.js', body: true },
       { src: 'https://cdn.jsdelivr.net/npm/vue-scrollto', body: true },
+      // { src: '//unpkg.com/view-design/dist/iview.min.js', body: true },
+      // { src: '//vuejs.org/js/vue.min.js', body: true },
     ]
     
-
   },
   /*
   ** Global CSS

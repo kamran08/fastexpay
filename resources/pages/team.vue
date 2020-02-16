@@ -428,13 +428,13 @@ export default {
       // this.from.description = this.from.description.trim();
       // this.image = this.from.image.trim()==''?'':' '
 
-      if (this.from.name.trim() == "") {
+      if (!this.from.name  || this.from.name.trim() == "") {
         this.from.name = "";
         this.error.name = "";
         return;
       }
     if(this.from.isDentist == "No"){
-      if (this.from.designation.trim() == "") {
+      if (!this.from.designation || this.from.designation.trim() == "") {
         this.from.designation = "";
         this.error.designation = "";
         return;
@@ -448,15 +448,15 @@ export default {
       if(this.from.isDentist == "Yes"){
 
       
-        if (this.from.description.trim() == "") {
+        if (!this.from.description || this.from.description.trim() == "") {
           this.from.description = "";
           this.error.description = "";
           return;
         }
       }
 
-      if (this.from.image == "") {
-        this.image = "";
+      if (!this.from.image || this.from.image == "") {
+          this.image = "";
         return;
       }
       // if (this.reg.test(this.from.email)) {

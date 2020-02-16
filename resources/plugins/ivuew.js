@@ -1,8 +1,11 @@
 import Vue from 'vue'
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
-import locale from 'iview/dist/locale/en-US';
-Vue.use(iView, { locale })
+import ViewUI from 'view-design';
+import locale from 'view-design/dist/locale/en-US';
+// import style
+import 'view-design/dist/styles/iview.css';
+// Vue.use(ViewUI);
+Vue.use(ViewUI, { locale });
+
 
     //import moment from 'moment'
     // Vue.filter('myDate', function(value) {

@@ -260,29 +260,30 @@ export default {
         async storeAlldata(){
           
             this.from.name = this.from.name.trim()
-            this.from.date = this.from.date.trim()
-            this.from.description = this.from.description.trim()
+            if(this.from.date) this.from.date = this.from.date.trim()
+            
+           if(this.from.description) this.from.description = this.from.description.trim()
             this.image = this.from.image?' ':''
-                if(this.from.name.trim()==''){
+                if(!this.from.name || this.from.name.trim()==''){
                     this.error.name =''
                     return
                 }
                 
-                if(this.from.date=='' || this.from.date==null){
+                if( !this.from.date || this.from.date=='' || this.from.date==null){
                     this.from.date = ''
                     this.error.date = ''
                     return
                   }
-                 if(this.from.rate==0 || this.from.rate==null){
+                 if(!this.from.rate || this.from.rate==0 || this.from.rate==null){
                     this.error.rate ='' 
                     return
                 }
              
-                if(this.from.description.trim()==''){
+                if(!this.from.rate || this.from.description.trim()==''){
                     this.error.description ='' 
                     return
                 }
-                if(this.from.image==false){
+                if(!this.from.image || this.from.image==false){
                     this.image ='' 
                     return
                 }
@@ -364,5 +365,4 @@ export default {
 .boitol{
    color: #ff8c36 !important;
 }
-
 </style>

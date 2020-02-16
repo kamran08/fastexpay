@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
     <nav class="_menu">
       <div class="container-fluid _menu_con">
         <div class="row align-items-center">
@@ -237,14 +237,9 @@
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Day</p>
-                            
+
                             <CheckboxGroup v-model="from.days" @on-change="assingData(6)">
-                                <!-- <Checkbox class="_1check" label="Saturday">
-                                    <span>Saturday</span>
-                                </Checkbox>
-                                <Checkbox class="_1check" label="Sunday">
-                                    <span>Sunday</span>
-                                </Checkbox> -->
+                            
                                 <Checkbox class="_1check" label="Monday">
                                     <span>Monday</span>
                                 </Checkbox>
@@ -257,10 +252,10 @@
                                 <Checkbox class="_1check" label="Thursday">
                                     <span>Thursday</span>
                                 </Checkbox>
-                                <!-- <Checkbox class="_1check" label="Friday">
-                                    <span>Friday</span>
-                                </Checkbox> -->
+                                
                             </CheckboxGroup>
+                            
+
                             <p v-if="from2.days.length==0" class="Rectangle_coustom">Select Desired Day</p>
                         </div>
                     </div>
@@ -268,18 +263,17 @@
                     <div class="col-12 col-md-12 col-lg-12">
                         <div class="_booking_form_input">
                             <p class="_booking_form_label">Desired Time</p>
-                            
                             <CheckboxGroup v-model="from.alltimes" @on-change="assingData(7)">
-                                <Checkbox class="_1check" label="8:00 AM to 10:00 AM">
+                                <Checkbox class="_1check" value="8:00 AM to 10:00 AM" label="8:00 AM to 10:00 AM">
                                     <span>8:00 AM to 10:00 AM</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="10:00AM to 12:00AM">
+                                <Checkbox class="_1check" value="10:00AM to 12:00AM" label="10:00AM to 12:00AM">
                                     <span>10:00AM to 12:00AM</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="1:00PM to 2:00PM">
+                                <Checkbox class="_1check" value="1:00PM to 2:00PM" label="1:00PM to 2:00PM">
                                     <span>1:00PM to 2:00PM</span>
                                 </Checkbox>
-                                <Checkbox class="_1check" label="2:00PM to 4:00 PM">
+                                <Checkbox class="_1check" value="2:00PM to 4:00 PM"  label="2:00PM to 4:00 PM">
                                     <span>2:00PM to 4:00 PM</span>
                                 </Checkbox>
                             </CheckboxGroup>
@@ -334,8 +328,9 @@ export default {
       mobileOpen:false,
       isSubmit:false,
       booking_modal: false,
-      days: ["Saturday"],
-      alltimes: ["8:00 AM to 10:00 AM"],
+      days: [],
+      fruit: ['one', 'two'],
+      alltimes: [],
       from:{
         firstName:'',
         lastName:'',
@@ -344,8 +339,8 @@ export default {
         email:'',
         isNew:"No",
         desiredServices:'',
-        days:["Saturday"],
-        alltimes:["8:00 AM to 10:00 AM"],
+        days:[],
+        alltimes:[],
         description:''
       },
       from2:{
@@ -356,7 +351,7 @@ export default {
         email:' ',
         isNew:'No',
         desiredServices:' ',
-        days:["Saturday"],
+        days:["Monday"],
         alltimes:["8:00 AM to 10:00 AM"],
         description:' '
       },
@@ -385,13 +380,16 @@ export default {
       },
      assingData(flag) {
        if(flag==1){
+         if(! this.from.firstName) return  this.from2.firstName =''
          this.from2.firstName = this.from.firstName.trim()
          console.log(this.from.firstName)
        }
        if(flag==2){
+         if(! this.from.lastName) return  this.from2.lastName =''
         this.from2.lastName =this.from.lastName.trim()
        }
        if(flag==3){
+         if(! this.from.phone) return  this.from2.phone =''
          this.from2.phone =this.from.phone.trim()
         //  console.log(this.from.phone)
        }
@@ -406,47 +404,51 @@ export default {
         // this.from2.email = this.from.email.trim()
        }
        if(flag==5){
+         if(! this.from.desiredServices) return  this.from2.desiredServices =''
         this.from2.desiredServices =this.from.desiredServices.trim()
        }
        if(flag==6){
+         
         this.from2.days = this.from.days
        }
        if(flag==7){
          this.from2.alltimes = this.from.alltimes
        }
        if(flag==8){
+         if(! this.from.description) return  this.from2.description =''
+
         this.from2.description =this.from.description.trim()
        }
        
       },
     async storealldata(){
+      console.log(this.from)
       
-      this.from.phone =this.from.phone.trim()
-      this.from.firstName =this.from.firstName.trim()
-      this.from.lastName =this.from.lastName.trim()
-      this.from.dob = (this.from.dob.trim()=='')?'':this.from.dob,
-      this.from.desiredServices =this.from.desiredServices.trim()
-      this.from.email = this.from.email.trim()
-      this.from.description =this.from.description.trim()
+      // this.from.phone =this.from.phone.trim()
+      // this.from.firstName =this.from.firstName.trim()
+      // this.from.lastName =this.from.lastName.trim()
+      this.from.dob = (this.from.dob && this.from.dob.trim()=='')?'':this.from.dob
+      // this.from.desiredServices =this.from.desiredServices.trim()
+      // this.from.email = this.from.email.trim()
+      // this.from.description =this.from.description.trim()
       // console.log(this.from)
       
-      if(this.from.firstName==''){
+      if(!this.from.firstName || this.from.firstName.trim()==''){
         this.from.firstName = ''
         this.from2.firstName = ''
         return
       }
-      if(this.from.lastName==''){
-    
+      if(!this.from.lastName || this.from.lastName.trim()==''){
         this.from.lastName = ''
         this.from2.lastName = ''
         return
       }
-      if(this.from.dob=='' || this.from.dob==null){
+      if(!this.from.dob || this.from.dob=='' || this.from.dob==null){
         this.from.dob = ''
         this.from2.dob = ''
         return
       }
-      if(this.from.phone==''){
+      if(!this.from.phone || this.from.phone.trim()==''){
         // this.i("hello")
         this.from.phone=''
         this.from2.phone=''
@@ -459,7 +461,7 @@ export default {
         this.from2.email =''
         return 
      }
-      if(this.from.desiredServices=='' || this.from.desiredServices==null){
+      if(!this.from.desiredServices || this.from.desiredServices=='' || this.from.desiredServices==null){
         // this.i("hello")
         this.from.desiredServices = ''
         this.from2.desiredServices = ''
@@ -468,11 +470,7 @@ export default {
       
     
   
-      if(this.from.description=='' || this.from.description==null){
-        this.from.description = ''
-        this.from2.description = ''
-        return
-      }
+     
       if(this.from.days.length==0){
         this.from2.days =[]
         return
@@ -483,6 +481,11 @@ export default {
         this.from2.alltimes =[]
         return
 
+      }
+       if(!this.from.description || this.from.description=='' || this.from.description==null){
+        this.from.description = ''
+        this.from2.description = ''
+        return
       }
      
       // this.from.days = this.days

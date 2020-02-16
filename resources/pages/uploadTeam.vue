@@ -234,13 +234,13 @@ export default {
               // this.from.description = this.from.description.trim()
               // this.image = this.from.image.trim()==''?'':' '
 
-                if(this.from.name.trim()==''){
+                if(!this.from.name || this.from.name.trim()==''){
                     this.from.name ='' 
                     this.error.name ='' 
                     return
                 }
                 
-                if(this.from.designation.trim()==''){
+                if(!this.from.designation || this.from.designation.trim()==''){
                     this.from.designation ='' 
                     this.error.designation ='' 
                     return
@@ -256,7 +256,7 @@ export default {
                 //     return
                 // }
                 
-                if(this.from.image.trim()==''){
+                if(!this.from.image || this.from.image.trim()==''){
                     this.image ='' 
                     return
                 }
@@ -295,10 +295,12 @@ export default {
         },
         assingData(l) {
           if(l==1){
+            if(!this.from.name) return  this.error.name='' 
             this.error.name = this.from.name.trim();
           }
          
           if(l==2){
+            if(!this.from.designation) return  this.error.designation='' 
             this.error.designation = this.from.designation.trim();
           }
            if(l==3){
