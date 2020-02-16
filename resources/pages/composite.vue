@@ -10,7 +10,7 @@
         <!--======= Details ======-->
         <section class="_1ser_details">
             <div class="_1banner_call">
-                <a class="_1banner_call_a" href=""><i class="fas fa-phone"></i> (530) 222-4900</a>
+                 <a class="_1banner_call_a" href="tel:530222-4900"><i class="fas fa-phone"></i> (530) 222-4900</a>
             </div>
 
             <div class="container">

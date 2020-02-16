@@ -10,7 +10,7 @@
         <!--======= Form section ======-->
         <section class="_pages _2patientForms_main_all">
           <div class="_1banner_call">
-            <a class="_1banner_call_a" href=""><i class="fas fa-phone"></i> (530) 222-4900</a>
+             <a class="_1banner_call_a" href="tel:530222-4900"><i class="fas fa-phone"></i> (530) 222-4900</a>
           </div>
 
           <div class="_pages_main _patientForms_top _2patientForms_main">

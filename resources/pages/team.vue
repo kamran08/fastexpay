@@ -10,9 +10,7 @@
       <!--======= Team section ======-->
       <section class="_team">
         <div class="_1banner_call">
-          <a class="_1banner_call_a" href>
-            <i class="fas fa-phone"></i> (530) 222-4900
-          </a>
+           <a class="_1banner_call_a" href="tel:530222-4900"><i class="fas fa-phone"></i> (530) 222-4900</a>
         </div>
 
         <div class="_team_main" id="div1">
@@ -160,7 +158,7 @@
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-12 col-lg-12">
-                <h2 class="_1title _text_center _mar_t40">Edit Your team member</h2>
+                <h2 class="_1title _text_center _mar_t40">{{this.sMessage}}</h2>
 
                 <div class="_mar_t40">
                   <div class="row">
@@ -536,6 +534,13 @@ export default {
       }
     },
     editModalOpen(item, index) {
+      if(item.isDentist=='Yes'){
+        this.sMessage = "Edit dentist's profile"
+
+      }
+      else{
+        this.sMessage = "Edit team member's profile"
+      }
       this.editIndex = index;
       this.from = JSON.parse(JSON.stringify(item));
       this.image = this.from.image;
