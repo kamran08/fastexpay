@@ -17,7 +17,7 @@
           <div class="container">
             <!-- align-items-center -->
             <div class="row " v-if="singleMember">
-              <div class="col-12 col-md-4 col-lg-4">
+              <div class="col-12 col-md-4 col-lg-auto">
                 <div class="dbngohodfg">
                   <img class="_team_img" :src="singleMember.image" alt title />
                   <div class="_1card_delete" v-if="authInfo">
@@ -32,7 +32,7 @@
                 </div>
               </div>
 
-              <div class="col-12 col-md-8 col-lg-8">
+              <div class="col-12 col-md-8 col-lg">
                 <div class="_team_main_details">
                   <h2 class="_1title">
                     <span class="_1title_span">About</span>
@@ -117,13 +117,11 @@
         <div class="_team_cards" v-else>
           <div class="container">
             <div class="row">
-              <div class="col-6 col-md-4 col-lg-4">
-                <div class="_1card _mar_b30">
-                  <div class="_1card_pic">
-                    <div class="_1card_details">
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class=" _mar_b30">
+                    <div class="_1card_details _text_center">
                       <p class="_1card_name">No Team Members Foound</p>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>

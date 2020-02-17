@@ -496,6 +496,8 @@
     height: 350px;
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
+    overflow: hidden;
 }
 ._1card:hover ._1card_delete {
     opacity: 1;
@@ -529,6 +531,16 @@
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+.dbngohodfg img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.dbngohodfg{
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
 }
 ._1card_details {
     padding: 20px 15px 15px;
@@ -2006,6 +2018,10 @@
 ._ser_listss {
     padding-bottom: 38px;
 }
+.dbngohodfg {
+    height: auto;
+    width: 100%;
+}
 }
 /*Small Device*/
 
@@ -2065,6 +2081,7 @@
 ._1card_pic {
     height: 150px;
     position: relative;
+    border-radius: 3px;
 }
 ._cantact_card {
     margin: 10px 0;

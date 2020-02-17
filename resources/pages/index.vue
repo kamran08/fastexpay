@@ -412,7 +412,9 @@
             <!-- align-items-center -->
             <div class="row " v-if="singleMember">
               <div class="col-12 col-md-4 col-lg-4" v-if="singleMember.image">
+                <div class="dbngohodfg">
                 <img class="_team_img" :src="singleMember.image" alt title />
+                </div>
               </div>
 
               <div class="col-12 col-md-8 col-lg-8">
