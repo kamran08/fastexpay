@@ -7,7 +7,7 @@
             <i class="fas fa-grip-vertical"></i>
           </div>
           <div class="col col-md col-lg">
-            <nuxt-link class="_logo_pic" to="/">
+            <nuxt-link class="_logo_pic" to="/" @click="mobileOpen = false">
               <img class="_logo_img" src="/images/logo.png" alt title />
             </nuxt-link>
           </div>
@@ -151,7 +151,7 @@
                             <p class="_booking_form_label">Date of Birth</p>
                             
                             <DatePicker @on-change="editStartTime"  v-model="social"  prefix="ios-calendar-outline" class="_1date" type="date" placeholder="Select date"></DatePicker>
-                         <p v-if="from2.dob==''" class="Rectangle_coustom">Select Date of Birth</p>
+                         <!-- <p v-if="from2.dob==''" class="Rectangle_coustom">Select Date of Birth</p> -->
                         </div>
                     </div>
 
@@ -376,7 +376,7 @@ export default {
     },
      editStartTime(date){
            this.from.dob=date
-           this.from2.dob = date
+          //  this.from2.dob = date
       },
      assingData(flag) {
        if(flag==1){
@@ -422,12 +422,12 @@ export default {
        
       },
     async storealldata(){
-      console.log(this.from)
+      // console.log(this.from)
       
       // this.from.phone =this.from.phone.trim()
       // this.from.firstName =this.from.firstName.trim()
       // this.from.lastName =this.from.lastName.trim()
-      this.from.dob = (this.from.dob && this.from.dob.trim()=='')?'':this.from.dob
+      // this.from.dob = (this.from.dob && this.from.dob.trim()=='')?'':this.from.dob
       // this.from.desiredServices =this.from.desiredServices.trim()
       // this.from.email = this.from.email.trim()
       // this.from.description =this.from.description.trim()
@@ -443,11 +443,11 @@ export default {
         this.from2.lastName = ''
         return
       }
-      if(!this.from.dob || this.from.dob=='' || this.from.dob==null){
-        this.from.dob = ''
-        this.from2.dob = ''
-        return
-      }
+      // if(!this.from.dob || this.from.dob=='' || this.from.dob==null){
+      //   this.from.dob = ''
+      //   this.from2.dob = ''
+      //   return
+      // }
       if(!this.from.phone || this.from.phone.trim()==''){
         // this.i("hello")
         this.from.phone=''
