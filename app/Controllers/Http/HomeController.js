@@ -63,156 +63,12 @@ class HomeController {
   
     }
  
-    async getTeamMember({ request, response, auth, session }) {
-        const data = request.all()
-        let members =  await Team.all()
-        return members
+   
 
-    }
-    async updatedTeam({ request, response, auth, session }) {
-
-        const data = request.all()
-        // console.log('login')
-        // return data
-        try {
-            let user =  await Team.query().where('id', data.id).update(data)
-            let da =  await Team.query().where('id', data.id).first()
-            return da
-        } catch (e) {
-            console.log(e.message)
-            return response.status(401).json(
-                {
-                    'message': "check your network"
-                }
-            )
-        }
-  
-    }
-    async storeTeamData({ request, response, auth, session }) {
-
-        const data = request.all()
-        // console.log('login')
-        // return data
-        try {
-            let user =  await Team.create(data)
-            return user
-        } catch (e) {
-            console.log(e.message)
-            return response.status(401).json(
-                {
-                    'message': "check your network"
-                }
-            )
-        }
-  
-    }
-    async deletesingleMember({ request, response, auth, session }) {
-
-        const data = request.all()
-        // console.log('login')
-        // return data
-        try {
-            let user =  await Team.query().where('id', data.id).delete();
-            return user
-        } catch (e) {
-            console.log(e.message)
-            return response.status(401).json(
-                {
-                    'message': "check your network"
-                }
-            )
-        }
-  
-    }
-    async getAllReviews({ request, response, auth, session }) {
-        // const data = request.all()
-        let reviews =  await Review.query().with('images').fetch()
-        if(reviews){
-        reviews = reviews.toJSON();
-            for(let i of reviews){
-                if(i.isPrime==1){
-                    i.isPrime = true
-                }
-                else{
-                    i.isPrime = false
-                }
-                 i.istrue = false
-            }
-        }
-        return reviews
-
-    }
-    async updatePrimeReview({ request, response, auth, session }) {
-        const data = request.all()
-        delete data.images
-        delete data.istrue
-        if(data.isPrime){
-            data.isPrime = 1
-            await Review.query().where('isPrime',1).update({'isPrime':0})
-        }
-        else{
-            data.isPrime = 0
-        }
-        
-       
-        let reviews =  await Review.query().where('id',data.id).update({'isPrime':data.isPrime})
-      
-        return reviews
-
-    }
-    async getPrimeReview({ request, response, auth, session }) {
-        // const data = request.all()
-        let reviews =  await Review.query().where('isPrime','1').with('images').first()
-        return reviews
-
-    }
-    async getAllPublishReviews({ request, response, auth, session }) {
-        // const data = request.all()
-        let reviews =  await Review.query().where('status','Published').where('isPrime',0).orderBy('id','desc').with('images').fetch()
-        if(reviews){
-        reviews = reviews.toJSON();
-            for(let i of reviews){
-            i.istrue = false
-            }
-        }
-        return reviews
-
-    }
-    async updateReviews({ request, response, auth, session }) {
-        const data = request.all()
-        let reviews =  await Review.query().where('id',data.id).update(data)
-        return reviews
-
-    }
-    async getSingleDoctor({params, request, response, auth, session }) {
-        // const data = request.all()
-        let team =  await Team.query().where('id',params.docId).fetch()
-        return team
+   
+   
 
 
-    }
-
-    async storeReviewData({ request, response, auth, session }) {
-
-        const data = request.all()
-        // let images = data.additionalImages
-        // delete data.additionalImages
-        let review =  await Review.create(data)
-
-        // if(images.length){
-        //     for(let i in images){
-        //         let ob={
-        //             reviewId:review.id,
-        //             image:images[i],
-        //         }
-        //         let img =  await Image.create(ob)
-        //     }
-            
-        // }
-        return review
-        
-  
-    }
 
     async logout ({auth, session, response}) {
         console.log('logout')
@@ -259,40 +115,9 @@ class HomeController {
             image_path: `/uploads/${name}`
         })
       }
-      async sendApointmentInfo({ request }) {
-          let user = request.all();
-        //   office@authenticdentalstudio.com
-		// await Mail.send('emails.sendInformation', user, (message) => {
-        //     message
-        //     // office@authenticdentalstudio.com
-        //     // no-reply@authenticdentalstudio.com
-		// 		.to("office@authenticdentalstudio.com")
-		// 		.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
-		// 		.subject('Authentic Dental Studio')
-		// })
-		 Mail.send('emails.sendInformation', user, (message) => {
-            message
-            // office@authenticdentalstudio.com
-            // no-reply@authenticdentalstudio.com daodds@authentic.dental
-				.to("daodds@authentic.dental")
-				.from('office@authenticdentalstudio.com', 'office @ Authentic Dental Studio')
-				.subject('Authentic Dental Studio')
-		})
 
-
-	}
       async sendContractInfo({ request }) {
           let user = request.all();
-        //   office@authenticdentalstudio.com
-        //   no-reply@authenticdentalstudio.com daodds@authentic.dental
-		// await Mail.send('emails.sendContractInfo', user, (message) => {
-		// 	message
-		// 		.to("office@authenticdentalstudio.com")
-		// 		.from('no-reply@authenticdentalstudio.com', 'no reply @ Authentic Dental Studio')
-		// 		.subject('Authentic Dental Studio')
-        // })
-        // office@authenticdentalstudio.com
-        // daodds@authentic.dental
 		 Mail.send('emails.sendContractInfo', user, (message) => {
 			message
 				.to("daodds@authentic.dental")
