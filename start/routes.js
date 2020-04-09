@@ -14,7 +14,7 @@
 */
 
 const Route = use('Route')
-Route.post('/login', 'HomeController.userLogin')
+Route.post('/app/login', 'HomeController.userLogin')
 
 // Route.get('/getSingleDoctor/:docId', 'HomeController.getSingleDoctor')
 
