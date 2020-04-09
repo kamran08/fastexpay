@@ -16,11 +16,13 @@
 const Route = use('Route')
 Route.post('/login', 'HomeController.userLogin')
 
-Route.get('/getSingleDoctor/:docId', 'HomeController.getSingleDoctor')
+// Route.get('/getSingleDoctor/:docId', 'HomeController.getSingleDoctor')
 
 Route.get('app/initdata', 'HomeController.initdata')
+Route.get('app/getUser', 'HomeController.getUser')
 Route.get('/logout', 'HomeController.logout')
-Route.post('/register', 'HomeController.userRegister')
+Route.post('/userRegister', 'AuthController.userRegister')
+
 Route.post('/uploadImages', 'HomeController.uploadImages')
 Route.post('app/sendMail', 'HomeController.sendApointmentInfo')
 Route.post('app/sendContactMail', 'HomeController.sendContractInfo')
