@@ -25,7 +25,7 @@ class AuthController {
       "token": accessToken.token
     })
   }
-    async loginUser({ request, auth, response }) {
+    async userLogin({ request, auth, response }) {
     const email = request.input("email")
     const password = request.input("password");
     const app_token = request.input('app_Token')
