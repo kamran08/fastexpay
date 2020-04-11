@@ -13,6 +13,8 @@
 |
 */
 
+require('./Routes/chat')
+
 const Route = use('Route')
 Route.post('/app/login', 'AuthController.userLogin')
 
@@ -26,6 +28,5 @@ Route.post('/app/userRegister', 'AuthController.userRegister')
 Route.post('/uploadImages', 'HomeController.uploadImages')
 Route.post('app/sendMail', 'HomeController.sendApointmentInfo')
 Route.post('app/sendContactMail', 'HomeController.sendContractInfo')
-Route.any('*', 'NuxtController.render')
 
 
