@@ -215,7 +215,7 @@ class ChatController {
     }
 
     msgNotiCount(uid) {
-        return Chat.query().where('receiver', uid).where('seen', 0).getCount()
+        return Chat.query().where('message_receiver', uid).where('seen', 0).getCount()
     }
 
 
