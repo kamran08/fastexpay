@@ -14,6 +14,7 @@ class User extends Model {
      * check the hashPassword method
      */
     this.addHook('beforeSave', 'User.hashPassword')
+    
   }
 
   /**
