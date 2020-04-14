@@ -6,14 +6,14 @@ const Hash = use('Hash')
 const Database = use('Database')
 
 class AuthController {
-    async userRegister({ request, auth, response }) {
+  async userRegister({ request, auth, response }) {
     const data = request.all()
     // return data
 
     // console.log('sob or lagi same', data)
 
     if (data.image == null) {
-    //   data.img = `/uploads/1570001800812.png`
+      //   data.img = `/uploads/1570001800812.png`
     }
 
     let user = await User.create(data)
@@ -25,7 +25,7 @@ class AuthController {
       "token": accessToken.token
     })
   }
-    async userLogin({ request, auth, response }) {
+  async userLogin({ request, auth, response }) {
     const email = request.input("email")
     const password = request.input("password");
     const app_token = request.input('app_Token')
@@ -40,17 +40,16 @@ class AuthController {
         //     'messeage': 'You are not a driver!'
         //   })
         // }
-
-
         await User.query().where('id', user.id).update({
           "app_Token": app_token,
           "token": accessToken.token,
+          "app_Token": request.body.app_Token ? request.body.app_Token : ''
         })
         return response.status(200).json({
           'success': true,
           'message': 'Login Complete Successfully ! ',
           "user": user,
-        //   'cannadrive': cannadrive,
+          //   'cannadrive': cannadrive,
           "token": accessToken.token
         })
       }

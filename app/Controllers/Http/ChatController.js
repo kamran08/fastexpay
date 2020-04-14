@@ -165,13 +165,13 @@ class ChatController {
                 seen: 0
             })
 
-            // if (receiver.deviceToken) {
-            //     let obj = {
-            //         user: user,
-            //         conversation: conversation
-            //     }
-            //     this.sendPushNotification(obj, receiver.deviceToken, data.msg)
-            // }
+            if (receiver.app_Token) {
+                let obj = {
+                    user: user,
+                    conversation: conversation
+                }
+                this.sendPushNotification(obj, receiver.app_Token, data.msg)
+            }
             return chat
         } else {
             // create a new conversation...
@@ -189,13 +189,13 @@ class ChatController {
                     message: data.message,
                     seen: 0
                 })
-                // if (receiver.deviceToken) {
-                //     let obj = {
-                //         user: user,
-                //         conversation: conversation
-                //     }
-                //     this.sendPushNotification(obj, receiver.deviceToken, data.msg)
-                // }
+                if (receiver.app_Token) {
+                    let obj = {
+                        user: user,
+                        conversation: conversation
+                    }
+                    this.sendPushNotification(obj, receiver.app_Token, data.msg)
+                }
                 // LET THE OTHER USERS KNOW 
                 return chat
             }
