@@ -5,6 +5,8 @@ const Conversation = use('App/Models/Conversation')
 const Chat = use('App/Models/Chat')
 const User = use('App/Models/User')
 const DB = use('Database')
+
+const firebase = require('../../../start/firebase')
 class ChatController {
 
     async getConversationList({ request, response, auth }) {
@@ -170,7 +172,7 @@ class ChatController {
                     user: user,
                     conversation: conversation
                 }
-                this.sendPushNotification(obj, receiver.app_Token, data.msg)
+                this.sendPushNotification(obj, receiver.app_Token, data.message)
             }
             return chat
         } else {
@@ -194,7 +196,7 @@ class ChatController {
                         user: user,
                         conversation: conversation
                     }
-                    this.sendPushNotification(obj, receiver.app_Token, data.msg)
+                    this.sendPushNotification(obj, receiver.app_Token, data.message)
                 }
                 // LET THE OTHER USERS KNOW 
                 return chat
@@ -221,7 +223,7 @@ class ChatController {
 
     sendPushNotification(data, dtoken, text) {
         let notific = {
-            title: 'Tradister',
+            title: 'FastexPay',
             body: `${data.user.firstName} ${data.user.lastName}\n\n${text}.`,
             // click_action: data.click_action
         }
@@ -230,7 +232,7 @@ class ChatController {
                 click_action: "FLUTTER_NOTIFICATION_CLICK",
                 sender: `${data.user.firstName} ${data.user.lastName}`,
                 msg: `${text}`,
-                con_id: `${data.con.id}`
+                conversation: `${data.conversation.id}`
             },
             notification: {
                 title: notific.title,
