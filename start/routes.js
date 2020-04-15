@@ -14,6 +14,7 @@
 */
 
 require('./Routes/chat')
+require('./Routes/service')
 
 const Route = use('Route')
 Route.post('/app/login', 'AuthController.userLogin')
@@ -25,7 +26,7 @@ Route.get('app/getUser', 'HomeController.getUser')
 Route.get('/logout', 'HomeController.logout')
 Route.post('/app/userRegister', 'AuthController.userRegister')
 
-Route.post('/uploadImages', 'HomeController.uploadImages')
+Route.post('app/uploadImages', 'HomeController.uploadImages')
 Route.post('app/sendMail', 'HomeController.sendApointmentInfo')
 Route.post('app/sendContactMail', 'HomeController.sendContractInfo')
 
