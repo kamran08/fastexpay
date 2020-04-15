@@ -172,7 +172,7 @@ class ChatController {
                     user: user,
                     conversation: conversation
                 }
-                this.sendPushNotification(obj, receiver.app_Token, data.msg)
+                this.sendPushNotification(obj, receiver.app_Token, data.message)
             }
             return chat
         } else {
@@ -196,7 +196,7 @@ class ChatController {
                         user: user,
                         conversation: conversation
                     }
-                    this.sendPushNotification(obj, receiver.app_Token, data.msg)
+                    this.sendPushNotification(obj, receiver.app_Token, data.message)
                 }
                 // LET THE OTHER USERS KNOW 
                 return chat
