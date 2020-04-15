@@ -5,6 +5,8 @@ const Conversation = use('App/Models/Conversation')
 const Chat = use('App/Models/Chat')
 const User = use('App/Models/User')
 const DB = use('Database')
+
+const firebase = require('../../../start/firebase')
 class ChatController {
 
     async getConversationList({ request, response, auth }) {
