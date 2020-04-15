@@ -230,7 +230,7 @@ class ChatController {
                 click_action: "FLUTTER_NOTIFICATION_CLICK",
                 sender: `${data.user.firstName} ${data.user.lastName}`,
                 msg: `${text}`,
-                con_id: `${data.con.id}`
+                conversation: `${data.conversation.id}`
             },
             notification: {
                 title: notific.title,
