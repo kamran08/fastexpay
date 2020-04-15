@@ -223,7 +223,7 @@ class ChatController {
 
     sendPushNotification(data, dtoken, text) {
         let notific = {
-            title: 'Tradister',
+            title: 'FastexPay',
             body: `${data.user.firstName} ${data.user.lastName}\n\n${text}.`,
             // click_action: data.click_action
         }
