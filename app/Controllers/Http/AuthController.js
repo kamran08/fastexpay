@@ -7,6 +7,7 @@ const Database = use('Database')
 
 class AuthController {
   async userRegister({ request, auth, response }) {
+    // return "hello"
     const data = request.all()
     // return data
 
@@ -27,11 +28,14 @@ class AuthController {
   }
   async userLogin({ request, auth, response }) {
     const email = request.input("email")
+    // const email = request.input("phone")
     const password = request.input("password");
     const app_token = request.input('app_Token')
     try {
       if (await auth.attempt(email, password)) {
         let user = await User.findBy('email', email)
+      // if (await auth.attempt(phone, password)) {
+      //   let user = await User.findBy('phone', phone)
         let accessToken = await auth.generate(user)
         // let cannadrive = await Cannadrive.query().where('userId', user.id).first()
         // if (user.userType != 2) {
@@ -40,6 +44,7 @@ class AuthController {
         //     'messeage': 'You are not a driver!'
         //   })
         // }
+        // return accessToken
         await User.query().where('id', user.id).update({
           "app_Token": app_token,
           "token": accessToken.token,
