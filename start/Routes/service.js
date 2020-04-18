@@ -20,6 +20,15 @@ const Route = use('Route')
 Route.post('/app/addNewService', 'ServiceController.addNewService')
 Route.post('/app/subscribeService', 'ServiceController.subscribeService')
 
+// services 
+ Route.get('/app/getAll', 'ServiceController.getAll')
+ Route.get('/app/getAllServices', 'ServiceController.getAllServices')
+ Route.get('/app/getAllServicesById/:id', 'ServiceController.getAllServicesById')
+
+
+//  product
+ Route.get('/app/getAllProduct', 'ServiceController.getAllProduct')
+ Route.get('/app/getAllProductById/:id', 'ServiceController.getAllProductById')
 
 
 

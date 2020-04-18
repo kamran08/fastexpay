@@ -30,4 +30,11 @@ Route.post('app/uploadImages', 'HomeController.uploadImages')
 Route.post('app/sendMail', 'HomeController.sendApointmentInfo')
 Route.post('app/sendContactMail', 'HomeController.sendContractInfo')
 
+// other data
+Route.get('/app/country', 'OtherController.getCountry')
+
+Route.get('/app/getDivisions/:id', 'OtherController.getDivisions')
+Route.get('/app/getSubDivisions/:id', 'OtherController.getSubDivisions')
+Route.get('/app/getState/:id', 'OtherController.getState')
+
 

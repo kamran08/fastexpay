@@ -6,6 +6,7 @@
 const Pricingplan = use('App/Models/Pricingplan');
 const Service = use('App/Models/Service');
 const Income = use('App/Models/Income');
+
 const ServiceImage = use('App/Models/ServiceImage');
 const moment = require('moment');
 Service
@@ -13,6 +14,7 @@ Service
  * Resourceful controller for interacting with services
  */
 class ServiceController {
+ 
  async subscribeService ({ params, request, response }) {
   let user = {}
    try {
@@ -110,6 +112,57 @@ class ServiceController {
 
 
  }
+
+
+
+
+
+// services
+
+  async getAll ({ params, request, response }) {
+    let alldata = Service.query().with('country').with('division').with('subDivision').with('state').fetch()
+    return response.status(200).json({
+      'success': true,
+      'alldata': alldata
+    })
+
+  }
+  async getAllServices ({ params, request, response }) {
+    let service = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'service').fetch()
+
+    return response.status(200).json({
+      'success': true,
+      'service': service
+    })
+
+  }
+  async getAllServicesById ({ params, request, response }) {
+    let service = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'service').where('id', params.id).first()
+    return response.status(200).json({
+      'success': true,
+      'service': service
+    })
+
+  }
+
+  // product
+
+    async getAllProduct ({ params, request, response }) {
+    let product = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'product').fetch()
+    return response.status(200).json({
+      'success': true,
+      'product': product
+    })
+
+  }
+  async getAllProductById ({ params, request, response }) {
+    let service = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'product').where('id', params.id).first()
+    return response.status(200).json({
+      'success': true,
+      'product': product
+    })
+
+  }
 
   async destroy ({ params, request, response }) {
   }
