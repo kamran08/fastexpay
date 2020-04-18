@@ -10,28 +10,28 @@ class OtherController {
     async getCountry ({ params, request, response }) {
 
         let countries =  await Country.all()
-        return response.status(401).json({
+        return response.status(200).json({
             countries: countries,
             success: true,
         })
     }
     async getDivisions ({ params, request, response }) {
         let divisions = await Division.query().where('country_id', params.id).fetch()
-        return response.status(401).json({
+        return response.status(200).json({
             divisions: divisions,
             success: true,
         })
     }
     async getSubDivisions ({ params, request, response }) {
         let subDiv = await SubDivision.query().where('division_id', params.id).fetch()
-        return response.status(401).json({
+        return response.status(200).json({
             sub_divisions: subDiv,
             success: true,
         })
     }
     async getState ({ params, request, response }) {
         let states = await State.query().where('sub_division_id', params.id).fetch()
-        return response.status(401).json({
+        return response.status(200).json({
             states: states,
             success: true,
         })
