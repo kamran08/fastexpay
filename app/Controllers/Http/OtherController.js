@@ -15,8 +15,15 @@ class OtherController {
             success: true,
         })
     }
+    async getState ({ params, request, response }) {
+        let states = await State.query().where('countriy_id', params.id).fetch()
+        return response.status(200).json({
+            states: states,
+            success: true,
+        })
+    }
     async getDivisions ({ params, request, response }) {
-        let divisions = await Division.query().where('country_id', params.id).fetch()
+        let divisions = await Division.query().where('state_id', params.id).fetch()
         return response.status(200).json({
             divisions: divisions,
             success: true,
@@ -26,13 +33,6 @@ class OtherController {
         let subDiv = await SubDivision.query().where('division_id', params.id).fetch()
         return response.status(200).json({
             sub_divisions: subDiv,
-            success: true,
-        })
-    }
-    async getState ({ params, request, response }) {
-        let states = await State.query().where('sub_division_id', params.id).fetch()
-        return response.status(200).json({
-            states: states,
             success: true,
         })
     }
