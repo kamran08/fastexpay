@@ -94,28 +94,54 @@ class HomeController {
 
       }
 
-      async uploadImages({ request, response }) {
-        const uploadImage = request.file('file', {
-            types: ['png', 'jpg', 'jpeg'],
-            size: '5mb'
-        })
+    //   async uploadImages({ request, response }) {
+    //     const uploadImage = request.file('file', {
+    //         types: ['png', 'jpg', 'jpeg'],
+    //         size: '5mb'
+    //     })
     
-        // console.log(uploadImage)
-        const name = `${new Date().getTime()}` + '.' + uploadImage.subtype
-        // const name = 'temp_custom_product.' + uploadImage.subtype
+    //     // console.log(uploadImage)
+    //     const name = `${new Date().getTime()}` + '.' + uploadImage.subtype
+    //     // const name = 'temp_custom_product.' + uploadImage.subtype
     
-        await uploadImage.move(Helpers.publicPath('uploads'), {
-            name: name
-        })
-        if (!uploadImage.moved()) {
-            return uploadImage.error()
-        }
+    //     await uploadImage.move(Helpers.publicPath('uploads'), {
+    //         name: name
+    //     })
+    //     if (!uploadImage.moved()) {
+    //         return uploadImage.error()
+    //     }
     
+    //     return response.status(200).json({
+    //         message: 'Image has been uploaded successfully!',
+    //         image_path: `/uploads/${name}`
+    //     })
+    //   }
+
+
+        async uploadImages({ request, response }) {
+
+        let data = request.all()
+        console.log('data', data)
+
+        let base64Image = data.image.split(';base64,').pop();
+
+        const name = `${new Date().getTime()}` + ".png"
+        const path = `./public/uploads/${name}`
+        await fs.writeFile(path, base64Image, {encoding: 'base64'}, function(err) {
+            console.log('File created');
+
+        
+        });
+        
+
+      
+        console.log('Base64 image data converted to file: ' + name);
         return response.status(200).json({
-            message: 'Image has been uploaded successfully!',
+            success: true,
+            message: "Image has been uploaded successfully!",
             image_path: `/uploads/${name}`
-        })
-      }
+        });
+    }
 
     //   async sendContractInfo({ request }) {
     //       let user = request.all();
