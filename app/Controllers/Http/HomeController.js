@@ -1,4 +1,5 @@
 'use strict'
+const fs = require('fs');
 const Helpers = use('Helpers')
 const User = use('App/Models/User')
 const Mail = use('Mail')
@@ -129,7 +130,6 @@ class HomeController {
         const path = `./public/uploads/${name}`
         await fs.writeFile(path, base64Image, {encoding: 'base64'}, function(err) {
             console.log('File created');
-
         
         });
         
@@ -141,6 +141,37 @@ class HomeController {
             message: "Image has been uploaded successfully!",
             image_path: `/uploads/${name}`
         });
+    }
+
+        async uploadAlbumImages({ request, response, auth }) {
+        // let user
+        // try {
+        //     user = await auth.getUser()
+        // } catch (error) {
+        //     return response.status(401).json({
+        //         message: 'You are not authorized!'
+        //     })
+        // }
+
+
+        let data = request.all()
+        let base64Image = data.image.split(';base64,').pop();
+        const name = `${new Date().getTime()}` + ".png"
+        const path = `./public/uploads/${name}`
+        await fs.writeFile(path, base64Image, { encoding: 'base64' }, function (err) {
+            // console.log('File created');
+            if (err) {
+                return response.status(413).json({
+                    success: false,
+                    message: 'Image size is too large os something went wrong! Please try again.'
+                })
+            }
+        });
+
+        return response.status(200).json({
+            message: 'File has been uploaded successfully!',
+            url: `${Env.get('SITE_URL')}/uploads/${name}`
+        })
     }
 
     //   async sendContractInfo({ request }) {
