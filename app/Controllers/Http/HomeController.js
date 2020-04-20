@@ -123,6 +123,7 @@ class HomeController {
 
         let data = request.all()
         console.log('data', data)
+        return data
 
         let base64Image = data.image.split(';base64,').pop();
 
