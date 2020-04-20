@@ -31,6 +31,7 @@ Route.post('app/sendMail', 'HomeController.sendApointmentInfo')
 Route.post('app/sendContactMail', 'HomeController.sendContractInfo')
 
 // other data
+Route.get('/app/getPricing', 'OtherController.getPricing')
 Route.get('/app/country', 'OtherController.getCountry')
 
 Route.get('/app/getState/:id', 'OtherController.getState')

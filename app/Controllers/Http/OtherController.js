@@ -1,4 +1,5 @@
 'use strict'
+const Pricingplan = use('App/Models/Pricingplan');
 const Country = use('App/Models/Country');
 const Division = use('App/Models/Division');
 const SubDivision = use('App/Models/SubDivision');
@@ -7,6 +8,14 @@ class OtherController {
 
 
     // 
+    async getPricing ({ params, request, response }) {
+
+        let Pricingplan =  await Country.all()
+        return response.status(200).json({
+            plans: Pricingplan,
+            success: true,
+        })
+    }
     async getCountry ({ params, request, response }) {
 
         let countries =  await Country.all()

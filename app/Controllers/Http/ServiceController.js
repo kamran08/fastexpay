@@ -28,7 +28,7 @@ class ServiceController {
 
     let data = request.all()
 // {
-//   planId, id as service id
+//   planId, id 
 //   paymentType
 
 // }
