@@ -15,7 +15,7 @@ Service
  */
 class ServiceController {
  
- async subscribeService ({ params, request, response }) {
+ async subscribeService ({ request, response, auth, params }) {
   let user = {}
    try {
       user = await auth.getUser()
@@ -67,7 +67,7 @@ class ServiceController {
        "service": updata,
      })
  }
- async addNewService ({ params, request, response }) {
+ async addNewService ({ request, response, auth, params }) {
    let user = {}
 
     try {
