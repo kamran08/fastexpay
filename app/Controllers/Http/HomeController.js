@@ -123,12 +123,13 @@ class HomeController {
 
         let data = request.all()
         console.log('data', data)
-        return data
+        // return data
 
         let base64Image = data.image.split(';base64,').pop();
 
         const name = `${new Date().getTime()}` + ".png"
         const path = `./public/uploads/${name}`
+        // return path
         await fs.writeFile(path, base64Image, {encoding: 'base64'}, function(err) {
             console.log('File created');
         
