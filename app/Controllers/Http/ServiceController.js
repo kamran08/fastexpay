@@ -84,6 +84,7 @@ class ServiceController {
       let imgs = data.images
 
       delete data.images
+      delete data.token
 
       let service = await Service.create(data)
 
