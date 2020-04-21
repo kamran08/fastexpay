@@ -10,9 +10,9 @@ class OtherController {
     // 
     async getPricing ({ params, request, response }) {
 
-        let Pricingplan =  await Country.all()
+        let pricingplans = await Pricingplan.all()
         return response.status(200).json({
-            plans: Pricingplan,
+            plans: pricingplans,
             success: true,
         })
     }
