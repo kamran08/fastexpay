@@ -121,7 +121,7 @@ class ServiceController {
 // services
 
   async getAll ({ params, request, response }) {
-    let alldata = Service.query().with('country').with('division').with('subDivision').with('state').fetch()
+    let alldata = await Service.query().with('country').with('division').with('subDivision').with('state').fetch()
     return response.status(200).json({
       'success': true,
       'alldata': alldata
@@ -129,16 +129,16 @@ class ServiceController {
 
   }
   async getAllServices ({ params, request, response }) {
-    let service = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'service').fetch()
+    let services = await Service.query().with('country').with('division').with('subDivision').with('state').where(`service_type`, "service").fetch()
 
     return response.status(200).json({
       'success': true,
-      'service': service
+      'service': services
     })
 
   }
   async getAllServicesById ({ params, request, response }) {
-    let service = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'service').where('id', params.id).first()
+    let service = await Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'service').where('id', params.id).first()
     return response.status(200).json({
       'success': true,
       'service': service
@@ -149,7 +149,7 @@ class ServiceController {
   // product
 
     async getAllProduct ({ params, request, response }) {
-    let product = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'product').fetch()
+    let product = await Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'product').fetch()
     return response.status(200).json({
       'success': true,
       'product': product
@@ -157,7 +157,7 @@ class ServiceController {
 
   }
   async getAllProductById ({ params, request, response }) {
-    let service = Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'product').where('id', params.id).first()
+    let service = await Service.query().with('country').with('division').with('subDivision').with('state').where('service_type', 'product').where('id', params.id).first()
     return response.status(200).json({
       'success': true,
       'product': product
