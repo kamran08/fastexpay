@@ -18,6 +18,9 @@ class Service extends Model {
     state(){
         return this.belongsTo('App/Models/State', 'state_id')
     }
+    users() {
+        return this.belongsTo('App/Models/User', 'seller_id')
+    }
 
 }
 
