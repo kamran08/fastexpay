@@ -21,6 +21,9 @@ class Service extends Model {
     users() {
         return this.belongsTo('App/Models/User', 'seller_id')
     }
+    images() {
+        return this.hasMany('App/Models/ServiceImage', 'id','service_id')
+    }
 
 }
 
