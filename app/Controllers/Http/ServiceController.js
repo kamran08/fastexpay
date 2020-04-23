@@ -32,6 +32,9 @@ class ServiceController {
 //   paymentType
 
 // }
+// let user ={
+//     id:1
+// }
 
     // id  paymentType subscribe startTime endTime payment, planId
     let plan = await Pricingplan.query().where('id', data.planId).first()
@@ -40,6 +43,7 @@ class ServiceController {
     var date2 = new Date(); // Now
     let d = parseInt(plan.planDuration)
     date2.setDate(date2.getDate() + d);
+   
     let updateServiceData = {
       id: data.id,
       paymentType: data.paymentType,
@@ -49,17 +53,21 @@ class ServiceController {
       payment: plan.price,
     }
     let incomess = {
-      seller_id: service.user_id,
+      seller_id: service.seller_id,
       service_id: data.id,
       buyer_id: user.id,
       paymentType: data.paymentType,
-      subscribe: 1,
       startTime: date1,
       endTime: date2,
+      plan_id: plan.id,
       payment: plan.price,
+      planName: plan.planName,
+      planDuration: plan.planDuration,
     }
+  
 
-    let updata = await Service.query().where(id, data.id).update(updateServiceData)
+    let updata = await Service.query().where('id', data.id).update(updateServiceData)
+      
       await Income.create(incomess)
      return response.status(200).json({
        'success': true,
