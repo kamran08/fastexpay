@@ -30,5 +30,11 @@ Route.post('/app/subscribeService', 'ServiceController.subscribeService')
  Route.get('/app/getAllProduct', 'ServiceController.getAllProduct')
  Route.get('/app/getAllProductById/:id', 'ServiceController.getAllProductById')
 
+//  new view
+Route.post('/app/addNewViewToService', 'ServiceController.addNewViewToService')
+Route.get('/app/getMostViewedService', 'ServiceController.getMostViewedService')
+Route.get('/app/getMostViewedProduct', 'ServiceController.getMostViewedProduct')
+
+
 
 

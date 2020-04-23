@@ -172,6 +172,37 @@ class ServiceController {
     })
 
   }
+  async addNewViewToService ({ params, request, response }) {
+    let data = request.all()
+    let service = await Service.query().where('id', data.id).first()
+    let v = service.view
+    v = parseInt(v)+1
+    service = await Service.query().where('id', data.id).update({view:v})
+
+    return response.status(200).json({
+      'success': true,
+      'views': v
+    })
+
+  }
+  async getMostViewedService ({ params, request, response }) {
+     let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'service').orderBy('view', 'desc').limit(20).fetch()
+
+    return response.status(200).json({
+      'success': true,
+      'services': service
+    })
+
+  }
+  async getMostViewedProduct({ params, request, response }) {
+  let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').orderBy('view', 'desc').limit(20).fetch()
+
+    return response.status(200).json({
+      'success': true,
+      'services': service
+    })
+
+  }
 
   async destroy ({ params, request, response }) {
   }
