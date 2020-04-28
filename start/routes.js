@@ -15,6 +15,7 @@
 
 require('./Routes/chat')
 require('./Routes/service')
+require('./Routes/reservation')
 
 const Route = use('Route')
 Route.post('/app/login', 'AuthController.userLogin')

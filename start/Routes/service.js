@@ -36,5 +36,9 @@ Route.get('/app/getMostViewedService', 'ServiceController.getMostViewedService')
 Route.get('/app/getMostViewedProduct', 'ServiceController.getMostViewedProduct')
 
 
+// http: //fastexpay.appifylab.com/
+
+// reviews 
+Route.post('/app/giveReview', 'ServiceController.giveReview')
 
 

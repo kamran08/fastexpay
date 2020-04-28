@@ -6,10 +6,11 @@
 const Pricingplan = use('App/Models/Pricingplan');
 const Service = use('App/Models/Service');
 const Income = use('App/Models/Income');
+const Review = use('App/Models/Review');
 
 const ServiceImage = use('App/Models/ServiceImage');
 const moment = require('moment');
-Service
+// Service
 /**
  * Resourceful controller for interacting with services
  */
@@ -129,10 +130,18 @@ class ServiceController {
 // services
 
   async getAll ({ params, request, response }) {
-    let alldata = await Service.query().with('country').with('division').with('subDivision').with('state').with('users').with('images').fetch()
+
+    let str = request.input('str') ? request.input('str') : ''
+    
+    let alldata = Service.query().with('country').with('division').with('subDivision').with('state').with('users').with('images')
+
+    if (str) {
+        alldata.where('name', 'LIKE', '%' + str + '%')
+    }
+    let d = await alldata.fetch()
     return response.status(200).json({
       'success': true,
-      'alldata': alldata
+      'alldata': d
     })
 
   }
@@ -196,6 +205,34 @@ class ServiceController {
   }
   async getMostViewedProduct({ params, request, response }) {
   let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').orderBy('view', 'desc').limit(20).fetch()
+
+    return response.status(200).json({
+      'success': true,
+      'services': service
+    })
+
+  }
+  async giveReview({ params, request, response }) {
+       let user = {}
+
+       try {
+         user = await auth.getUser()
+       } catch (error) {
+         return response.status(401).json({
+           message: 'You are not authorized!',
+           success: false,
+         })
+       }
+       let data = request.all()
+
+      
+    let service = await Service.query().with('id',data.id).first()
+     let ob = {
+       review_id: user.id,
+       review_for: user.id,
+     }
+
+
 
     return response.status(200).json({
       'success': true,
