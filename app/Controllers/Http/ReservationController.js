@@ -99,7 +99,7 @@ class ReservationController {
             success: false,
           })
         }
-    let data = await Reservation.query().where('isPaid', 1).fetch()
+    let data = await Reservation.query().where('isPaid', 1).with('seller').with('buyer').with('service').fetch()
     
     return response.status(200).json({
       reservation: data,
