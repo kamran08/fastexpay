@@ -46,6 +46,27 @@ class HomeController {
     async getUser({ request, response, auth, session }) {
         return await User.all()
     }
+    async updateUser({ request, response, auth, session }) {
+
+          let user = {}
+          try {
+            user = await auth.getUser()
+          } catch (error) {
+            return response.status(401).json({
+              message: 'You are not authorized!',
+              success: true,
+            })
+          }
+
+          let data = request.all()
+          delete data.id
+
+          let u = await User.query().where('id', user.id).update(data)
+            return response.status(200).json({
+                message: 'Update succefully!',
+                success: true,
+            })
+    }
     // async userLogin({ request, response, auth, session }) {
 
     //     const data = request.all()

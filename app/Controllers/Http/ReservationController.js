@@ -4,7 +4,7 @@ const ReservationPaymest = use('App/Models/ReservationPaymest');
 const moment = require('moment');
 class ReservationController {
 
-  async storeReservation ({ params, request, response }) {
+  async storeReservation({ params, request, response, auth}) {
        let user = {}
 
        try {
@@ -46,7 +46,7 @@ class ReservationController {
 
   }
   
-  async subscribeReservation ({ params, request, response }) {
+  async subscribeReservation({ params, request, response, auth }) {
        let user = {}
 
        try {
@@ -88,7 +88,7 @@ class ReservationController {
        })
   }
 
-  async getReservation ({ params, request, response }) {
+  async getReservation({ params, request, response, auth }) {
         let user = {}
 
         try {
