@@ -7,6 +7,7 @@ const Pricingplan = use('App/Models/Pricingplan');
 const Service = use('App/Models/Service');
 const Income = use('App/Models/Income');
 const Review = use('App/Models/Review');
+const Conversation = use('App/Models/Conversation');
 
 const ServiceImage = use('App/Models/ServiceImage');
 const moment = require('moment');
@@ -209,6 +210,41 @@ class ServiceController {
     return response.status(200).json({
       'success': true,
       'services': service
+    })
+
+  }
+  async getCoversationWithSeller({ params, request, response }) {
+
+    let user = {}
+     try {
+       user = await auth.getUser()
+     } catch (error) {
+       return response.status(401).json({
+         message: 'You are not authorized!',
+         success: false,
+       })
+     }
+
+  let id = user.id
+  let service = await Service.query().where('id', params.id).first()
+  let sellerId = service.seller_id
+  // return service
+ 
+    let conv = await Conversation.query().where((builder) => {
+      builder
+        .where('sender', id)
+        .where('receiver', sellerId)
+    })
+    .orWhere((builder) => {
+      builder
+        .where('sender', sellerId)
+        .where('receiver', id)
+    })
+    .first()
+
+    return response.status(200).json({
+      'success': true,
+      'conv': conv
     })
 
   }

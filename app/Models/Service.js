@@ -24,6 +24,9 @@ class Service extends Model {
     images() {
         return this.hasMany('App/Models/ServiceImage', 'id','service_id')
     }
+    coversation() {
+        return this.hasMany('App/Models/ServiceImage', 'id','service_id')
+    }
 
 }
 

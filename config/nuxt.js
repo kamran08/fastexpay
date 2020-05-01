@@ -20,7 +20,7 @@ module.exports = {
                             
   },
   // build: { 
-    // mdsadek1 Juan_goFlank@360
+    // mdsadek1 2}Wf7L7J3@S)Q=c7
   //   plugins: [
   //     new webpack.ProvidePlugin({\
 

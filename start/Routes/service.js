@@ -34,6 +34,7 @@ Route.post('/app/subscribeService', 'ServiceController.subscribeService')
 Route.post('/app/addNewViewToService', 'ServiceController.addNewViewToService')
 Route.get('/app/getMostViewedService', 'ServiceController.getMostViewedService')
 Route.get('/app/getMostViewedProduct', 'ServiceController.getMostViewedProduct')
+Route.get('/app/getCoversationWithSeller/:id', 'ServiceController.getCoversationWithSeller')
 
 
 // http: //fastexpay.appifylab.com/
