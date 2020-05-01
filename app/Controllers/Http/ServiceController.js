@@ -8,6 +8,8 @@ const Service = use('App/Models/Service');
 const Income = use('App/Models/Income');
 const Review = use('App/Models/Review');
 const Conversation = use('App/Models/Conversation');
+// const Review = use('App/Models/Review');
+const Database = use('Database')
 
 const ServiceImage = use('App/Models/ServiceImage');
 const moment = require('moment');
@@ -134,7 +136,7 @@ class ServiceController {
 
     let str = request.input('str') ? request.input('str') : ''
     
-    let alldata = Service.query().with('country').with('division').with('subDivision').with('state').with('users').with('images')
+    let alldata = Service.query().with('country').with('division').with('avgRating').with('subDivision').with('state').with('users').with('images')
 
     if (str) {
         alldata.where('name', 'LIKE', '%' + str + '%')
@@ -147,7 +149,7 @@ class ServiceController {
 
   }
   async getAllServices ({ params, request, response }) {
-    let services = await Service.query().with('country').with('division').with('subDivision').with('state').with('users').with('images').where(`service_type`, "service").fetch()
+    let services = await Service.query().with('country').with('avgRating').with('division').with('subDivision').with('state').with('users').with('images').where(`service_type`, "service").fetch()
 
     return response.status(200).json({
       'success': true,
@@ -156,7 +158,7 @@ class ServiceController {
 
   }
   async getAllServicesById ({ params, request, response }) {
-    let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('state').with('users').where('service_type', 'service').where('id', params.id).first()
+    let service = await Service.query().with('country').with('avgRating').with('division').with('images').with('subDivision').with('state').with('users').where('service_type', 'service').where('id', params.id).first()
     return response.status(200).json({
       'success': true,
       'service': service
@@ -167,7 +169,7 @@ class ServiceController {
   // product
 
     async getAllProduct ({ params, request, response }) {
-    let product = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').fetch()
+    let product = await Service.query().with('country').with('avgRating').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').fetch()
     return response.status(200).json({
       'success': true,
       'product': product
@@ -175,7 +177,7 @@ class ServiceController {
 
   }
   async getAllProductById ({ params, request, response }) {
-    let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').where('id', params.id).first()
+    let service = await Service.query().with('country').with('division').with('avgRating').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').where('id', params.id).first()
     return response.status(200).json({
       'success': true,
       'product': product
@@ -196,7 +198,7 @@ class ServiceController {
 
   }
   async getMostViewedService ({ params, request, response }) {
-     let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'service').orderBy('view', 'desc').limit(20).fetch()
+     let service = await Service.query().with('country').with('division').with('avgRating').with('images').with('subDivision').with('users').with('state').where('service_type', 'service').orderBy('view', 'desc').limit(20).fetch()
 
     return response.status(200).json({
       'success': true,
@@ -205,12 +207,12 @@ class ServiceController {
 
   }
   async getMostViewedProduct({ params, request, response }) {
-  let service = await Service.query().with('country').with('division').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').orderBy('view', 'desc').limit(20).fetch()
+      let service = await Service.query().with('country').with('division').with('avgRating').with('images').with('subDivision').with('users').with('state').where('service_type', 'product').orderBy('view', 'desc').limit(20).fetch()
 
-    return response.status(200).json({
-      'success': true,
-      'services': service
-    })
+      return response.status(200).json({
+        'success': true,
+        'services': service
+      })
 
   }
   async getCoversationWithSeller({ params, request, response }) {
@@ -262,17 +264,20 @@ class ServiceController {
        let data = request.all()
 
       
-    let service = await Service.query().with('id',data.id).first()
+    let service = await Service.query().with('id', data.serviceId).first()
      let ob = {
-       review_id: user.id,
-       review_for: user.id,
+       reviewer_id: user.id,
+       review_for: service.seller_id,
+       service_id: data.serviceId,
+       review: data.review,
+       rate: data.rate,
      }
 
-
+     let review = await Review.create(ob)
 
     return response.status(200).json({
       'success': true,
-      'services': service
+      'review': review
     })
 
   }
