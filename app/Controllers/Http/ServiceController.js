@@ -264,7 +264,7 @@ class ServiceController {
        let data = request.all()
 
       
-    let service = await Service.query().with('id', data.serviceId).first()
+    let service = await Service.query().where('id', data.serviceId).first()
      let ob = {
        reviewer_id: user.id,
        review_for: service.seller_id,
