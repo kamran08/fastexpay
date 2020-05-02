@@ -16,7 +16,7 @@ module.exports = {
   ],
 
   axios: {
-      baseURL: 'http://fastexpay.appifylab.com'
+      // baseURL: 'http://fastexpay.appifylab.com'
                             
   },
   // build: { 

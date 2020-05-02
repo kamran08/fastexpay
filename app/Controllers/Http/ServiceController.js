@@ -184,7 +184,7 @@ class ServiceController {
     })
 
   }
-  async addNewViewToService ({ params, request, response }) {
+  async addNewViewToService({ params, request, response, auth }) {
     let data = request.all()
     let service = await Service.query().where('id', data.id).first()
     let v = service.view
@@ -215,7 +215,7 @@ class ServiceController {
       })
 
   }
-  async getCoversationWithSeller({ params, request, response }) {
+  async getCoversationWithSeller({ params, request, response, auth }) {
 
     let user = {}
      try {
@@ -250,7 +250,7 @@ class ServiceController {
     })
 
   }
-  async giveReview({ params, request, response }) {
+  async giveReview({ params, request, response, auth }) {
        let user = {}
 
        try {
