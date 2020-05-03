@@ -45,6 +45,13 @@ class OtherController {
             success: true,
         })
     }
+    async newapi ({ params, request, response }) {
+        let subDiv = await SubDivision.query().where('division_id', params.id).fetch()
+        return response.status(200).json({
+            sub_divisions: subDiv,
+            success: true,
+        })
+    }
 }
 
 module.exports = OtherController
