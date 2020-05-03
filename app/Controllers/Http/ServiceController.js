@@ -250,6 +250,7 @@ class ServiceController {
     })
 
   }
+
   async giveReview({ params, request, response, auth }) {
        let user = {}
 
@@ -281,6 +282,66 @@ class ServiceController {
     })
 
   }
+
+    async getDashboardData({ params, request, response, auth }) {
+      //  let user = {}
+
+      //  try {
+      //    user = await auth.getUser()
+      //  } catch (error) {
+      //    return response.status(401).json({
+      //      message: 'You are not authorized!',
+      //      success: false,
+      //    })
+      //  }
+      let id = 2
+
+      let avg = await Review.query().where('review_for', 4).select('review_for', Database.raw('(cast(AVG(rate) as decimal(10,2))) AS averageRating'),Database.raw('count(id) as total')).first()
+      let totalVIew = await Service.query().where('seller_id', 1).select(Database.raw('(cast(sum(view) as decimal(10,2))) AS totalView')).first()
+      let lists = await Database.raw(`
+  			SELECT co1.id,
+				   co1.sender,
+			       co1.receiver,
+			       us.id "uid",
+			       us.firstName,
+			       us.lastName,
+                   us.image,
+                   ch1.id "chat_id",
+        	       ch1.conversation_id,
+        	       ch1.message,
+        	       ch1.seen,
+                   ch1.created_at,
+        		   ch1.message_sender
+			       FROM conversations co1
+			            INNER JOIN users us
+			                    ON CASE
+			                            WHEN co1.sender <> ${id}
+			                              THEN co1.sender
+			                            WHEN co1.receiver <> ${id}
+			                              THEN co1.receiver
+                                        END = us.id
+                        INNER JOIN chats ch1
+                                ON ch1.conversation_id = co1.id
+
+                        INNER JOIN (SELECT max(ch2.id) id,
+                                ch2.conversation_id
+                                FROM chats ch2
+                                GROUP BY ch2.conversation_id order by id desc) ch3
+        	                        ON ch3.conversation_id = ch1.conversation_id
+        	                        AND ch3.id = ch1.id
+        	       WHERE ${id} IN (co1.sender,
+        	                   co1.receiver)
+			      `)
+     
+
+        return response.status(200).json({
+          'success': true,
+          'totalConversations': lists.length,
+          'review': avg,
+          'totalVIew': totalVIew,
+        })
+       return lists.length
+      }
 
   async destroy ({ params, request, response }) {
   }

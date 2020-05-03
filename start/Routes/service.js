@@ -41,5 +41,6 @@ Route.get('/app/getCoversationWithSeller/:id', 'ServiceController.getCoversation
 
 // reviews 
 Route.post('/app/giveReview', 'ServiceController.giveReview')
+Route.get('/app/dashboardData', 'ServiceController.getDashboardData')
 
 

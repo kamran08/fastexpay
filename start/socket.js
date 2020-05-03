@@ -1,28 +1,36 @@
 const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
-let drivers = []
 
 io.on('connection', function (socket) {
   console.log('socket id', socket.id)
 
-//   console.log('query', socket.request._query.orderId)
-//   // console.log('query', socket._query.orderId)
-//   socket.on(`driver_location_${socket.request._query.orderId}`, (data) => {
-//     console.log(`driver ${socket.request._query.orderId} location lat`, data.lat, 'lng', data.lng)
-//     let ob = {
-//       lat: data.lat,
-//       lng: data.lng,
-//     }
-//     drivers[socket.request._query.orderId] = ob
+  console.log('query', socket.request._query.conversation_id)
+  // console.log('query', socket._query.orderId)
+  // sender
+  socket.on(`conversation_id_${socket.request._query.conversation_id}`, (data) => { 
 
-//     io.emit(`driver_location_from_server_${socket.request._query.orderId}`, drivers[socket.request._query.orderId])
-//     io.emit('news', { hello: 'world' });
-//   })
+  // reciver
+    io.emit(`conversation_id_from_server_${socket.request._query.conversation_id}`, data)
 
-//   socket.on('disconnect', function(){ 
-//     console.log(`${socket.request._query.orderId} no driver has been disconnected!`)
 
-//     io.emit(`driver_${socket.request._query.orderId}_disconnected`, `${socket.request._query.orderId} no driver has been disconnected!`)
-//   });
+    // io.emit('news', { hello: 'world' });
+  })
+
+  socket.on(`chat_typing_${socket.request._query.conversation_id}`, (data) => { 
+
+  // reciver
+    io.emit(`chat_typing_from_server_${socket.request._query.conversation_id}`, data)
+
+
+    // io.emit('news', { hello: 'world' });
+  })
+
+  socket.on('disconnect', function(){ 
+    console.log(`${socket.request._query.conversation_id} no driver has been disconnected!`)
+
+    io.emit(`driver_${socket.request._query.conversation_id}_disconnected`, `${socket.request._query.conversation_id} no driver has been disconnected!`)
+  });
+
+
 })
