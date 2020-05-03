@@ -217,6 +217,7 @@ class ChatController {
             // sender
             socket.on(`conversation_id_${socket.request._query.conversation_id}`, (data) => {
 
+                console.log('after send', data)
                 // reciver
                 io.emit(`conversation_id_from_server_${socket.request._query.conversation_id}`, data)
             })
