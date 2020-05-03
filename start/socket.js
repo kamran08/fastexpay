@@ -1,10 +1,10 @@
 const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
-const ChatController = use('App/Controllers/Http/ChatController')
-io.on('connection', function (socket) {
-  ChatController.goMessage(socket, io)
-})
+// const ChatController = use('App/Controllers/Http/ChatController')
+// io.on('connection', function (socket) {
+//   ChatController.goMessage(socket, io)
+// })
 
 
 
