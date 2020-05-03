@@ -206,10 +206,10 @@ class ChatController {
 
 
 
-    goMessage(socket, io) {
+    static goMessage(socket, io) {
         io.on('connection', function (socket) {
             console.log('a user connected');
-            
+
             // disconnect
             socket.on('disconnect', function () {
                 console.log('user disconnected');
