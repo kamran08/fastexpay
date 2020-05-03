@@ -1,6 +1,12 @@
 const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
+const ChatController = use('App/Controllers/Http/ChatController')
+io.on('connection', function (socket) {
+  ChatController.goMessage(socket, io)
+})
+
+
 
 io.on('connection', function (socket) {
   console.log('socket id', socket.id)
@@ -12,18 +18,12 @@ io.on('connection', function (socket) {
 
   // reciver
     io.emit(`conversation_id_from_server_${socket.request._query.conversation_id}`, data)
-
-
-    // io.emit('news', { hello: 'world' });
   })
 
   socket.on(`chat_typing_${socket.request._query.conversation_id}`, (data) => { 
 
   // reciver
     io.emit(`chat_typing_from_server_${socket.request._query.conversation_id}`, data)
-
-
-    // io.emit('news', { hello: 'world' });
   })
 
   socket.on('disconnect', function(){ 
