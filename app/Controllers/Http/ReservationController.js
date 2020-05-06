@@ -181,6 +181,55 @@ class ReservationController {
             console.log('Error sending message:', error);
           });
       }
+  async updateReservationStatus({ params, request, response, auth }) {
+
+       let user = {}
+
+       try {
+         user = await auth.getUser()
+       } catch (error) {
+         return response.status(401).json({
+           message: 'You are not authorized!',
+           success: false,
+         })
+       }
+      let data = request.all()
+
+
+      //  user.id = 1
+
+       let reserv =await Reservation.query().where('id', data.id).first()
+       let ob={
+         status: data.status
+       }
+
+       if (user.userType == 'general') {
+         if (user.id == reserv.seller_id) {
+             ob.hand = "seller"
+         }
+         else{
+             ob.hand = "buyer"
+         }
+
+       }
+       else{
+          ob.hand = "admin"
+       }
+
+       await Reservation.query().where('id',data.id).update(ob)
+
+       let rrr = await Reservation.query().where('id', data.id).first()
+
+       return response.status(200).json({
+         reservation: rrr,
+         'success': true,
+       })
+
+      //  pending , withdraw, complete , completed, cancel it comes from buyer canceled 
+
+
+  }
+
   
 
 }
