@@ -349,17 +349,17 @@ class ServiceController {
   }
 
     async getDashboardData({ params, request, response, auth }) {
-      //  let user = {}
+       let user = {}
 
-      //  try {
-      //    user = await auth.getUser()
-      //  } catch (error) {
-      //    return response.status(401).json({
-      //      message: 'You are not authorized!',
-      //      success: false,
-      //    })
-      //  }
-      let id = 2
+       try {
+         user = await auth.getUser()
+       } catch (error) {
+         return response.status(401).json({
+           message: 'You are not authorized!',
+           success: false,
+         })
+       }
+      let id = user.id
 
       let avg = await Review.query().where('review_for', 4).select('review_for', Database.raw('(cast(AVG(rate) as decimal(10,2))) AS averageRating'),Database.raw('count(id) as total')).first()
       let totalVIew = await Service.query().where('seller_id', 1).select(Database.raw('(cast(sum(view) as decimal(10,2))) AS totalView')).first()
