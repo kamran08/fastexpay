@@ -24,6 +24,7 @@ Route.post('/app/subscribeService', 'ServiceController.subscribeService')
  Route.get('/app/getAll', 'ServiceController.getAll')
  Route.get('/app/getAllServices', 'ServiceController.getAllServices')
  Route.get('/app/getAllServicesById/:id', 'ServiceController.getAllServicesById')
+ Route.get('/app/getAllServicesBySeller', 'ServiceController.getAllServicesBySeller')
 
 
 //  product
@@ -44,3 +45,4 @@ Route.post('/app/giveReview', 'ServiceController.giveReview')
 Route.get('/app/dashboardData', 'ServiceController.getDashboardData')
 
 
+// fastexpay.appifylab.com / app / getAllServicesBySeller

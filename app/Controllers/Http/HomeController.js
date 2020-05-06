@@ -62,8 +62,10 @@ class HomeController {
           delete data.id
 
           let u = await User.query().where('id', user.id).update(data)
+          
             return response.status(200).json({
                 message: 'Update succefully!',
+                user: user,
                 success: true,
             })
     }
