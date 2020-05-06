@@ -199,6 +199,7 @@ class ReservationController {
       //  user.id = 1
 
        let reserv =await Reservation.query().where('id', data.id).first()
+       let u=''
        let ob={
          status: data.status
        }
@@ -206,9 +207,11 @@ class ReservationController {
        if (user.userType == 'general') {
          if (user.id == reserv.seller_id) {
              ob.hand = "seller"
+             u = User.query().where('id', reserv.buyer_id)
          }
          else{
              ob.hand = "buyer"
+             u = User.query().where('id', reserv.seller_id)
          }
 
        }
@@ -219,6 +222,50 @@ class ReservationController {
        await Reservation.query().where('id',data.id).update(ob)
 
        let rrr = await Reservation.query().where('id', data.id).first()
+       let admin = await Reservation.query().where('userType', 'admin').first()
+
+
+
+       if (u.app_Token) {
+         let obj1 = {
+           user: u,
+         }
+         this.sendPushNotification(obj1, u.app_Token, "reservation has been updated to " + ob+" by "+ob.hand)
+       }
+       if (admin.app_Token) {
+         let obj2 = {
+           user: admin,
+         }
+         this.sendPushNotification(obj2, admin.app_Token, "reservation has been updated to " + ob + " by " + ob.hand)
+
+         
+       }
+
+       if(admin){
+         let notiObject1 = {
+           notiFrom: user.id,
+           notiFor: admin.id,
+           type: "reservation",
+           titile: "Your reservation status has been updated",
+           descriptions: "reservation has been updated to " + ob + " by " + ob.hand,
+           trac: reserv.id,
+         }
+         await Notification.create(notiObject1)
+       }
+
+       if(u){
+            let notiObject = {
+              notiFrom: user.id,
+              notiFor: u.id,
+              type: "reservation",
+              titile: "Your reservation status has been updated",
+              descriptions: "reservation has been updated to " + ob + " by " + ob.hand,
+              trac: reserv.id,
+            }
+            await Notification.create(notiObject)
+
+       }
+    
 
        return response.status(200).json({
          reservation: rrr,
