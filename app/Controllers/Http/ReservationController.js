@@ -1,6 +1,8 @@
 'use strict'
 const Reservation = use('App/Models/Reservation');
+const Notification = use('App/Models/Notification');
 const ReservationPaymest = use('App/Models/ReservationPaymest');
+const firebase = require('../../../start/firebase')
 const moment = require('moment');
 class ReservationController {
 
@@ -39,6 +41,26 @@ class ReservationController {
 
         let reserv = await Reservation.create(ob)
 
+
+
+         if (user.app_Token) {
+           let obj1 = {
+             user: user,
+           }
+           this.sendPushNotification(obj1, user.app_Token, "Your reservation Has been created, waiting for subscribe!!")
+         }
+
+
+         let notiObject = {
+           notiFrom: null,
+           notiFor: user.id,
+           type: "reservation",
+           titile: "FastexPay",
+           descriptions: "Your reservation Has been created ,waiting for subscribe!!",
+           trac: service.id,
+         }
+         await Notification.create(notiObject)
+
         return response.status(200).json({
         'success': true,
         'reservation': reserv
@@ -66,6 +88,28 @@ class ReservationController {
           status: "recived",
       }
       await Reservation.query().where('id', data.reservationId).update(ob)
+      // notification
+      if (user.app_Token) {
+        let obj1 = {
+          user: user,
+        }
+        this.sendPushNotification(obj1, user.app_Token, "Your reservation Amount has been reviced!!")
+      }
+
+
+      let notiObject = {
+        notiFrom: null,
+        notiFor: user.id,
+        type: "reservation",
+        titile: "FastexPay",
+        descriptions: "Your reservation Amount has been reviced!!",
+        trac: service.id,
+      }
+      await Notification.create(notiObject)
+      // notification
+
+
+
       let reserve = await Reservation.query().where('id', data.reservationId).first()
       var date1 = new Date();
       let ob2={
@@ -107,6 +151,36 @@ class ReservationController {
     })
 
   }
+
+      sendPushNotification(data, dtoken, text) {
+        let notific = {
+          title: 'FastexPay',
+          body: `${data.user.firstName} ${data.user.lastName}\n\n${text}.`,
+          // click_action: data.click_action
+        }
+        var message = {
+          data: {
+            click_action: "FLUTTER_NOTIFICATION_CLICK",
+            sender: `${data.user.firstName} ${data.user.lastName}`,
+            msg: `${text}`,
+            // conversation: `${data.conversation.id}`
+          },
+          notification: {
+            title: notific.title,
+            body: notific.body
+          },
+          token: dtoken
+        };
+
+        firebase.admin.messaging().send(message)
+          .then((response) => {
+            // Response is a message ID string.
+            console.log('Successfully sent message:', response);
+          })
+          .catch((error) => {
+            console.log('Error sending message:', error);
+          });
+      }
   
 
 }

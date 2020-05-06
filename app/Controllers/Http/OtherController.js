@@ -65,6 +65,7 @@ class OtherController {
              success: false,
            })
          }
+        
 
         let notification = await Notification.query().where('notiFor', user.id).orderBy('id', 'desc').limit(10).fetch()
          return response.status(200).json({
@@ -84,7 +85,6 @@ class OtherController {
              success: false,
            })
          }
-        // user.id = 1
 
         let notification = await Notification.query().where('notiFor', user.id).orderBy('id', 'desc').fetch()
          return response.status(200).json({

@@ -50,6 +50,7 @@ class ServiceController {
       startTime: date1,
       endTime: date2,
       payment: plan.price,
+      planName: plan.planName,
     }
     let incomess = {
       seller_id: service.seller_id,
@@ -71,7 +72,7 @@ class ServiceController {
              let obj1 = {
                user: user,
              }
-             this.sendPushNotification(obj1, user.app_Token, "Your " + service.service_type + " Subscription Has been completed!!")
+             this.sendPushNotification(obj1, user.app_Token, "Your " + service.service_type + " Subscription Has been completed,!!")
            }
 
 
@@ -120,7 +121,7 @@ class ServiceController {
          let obj1 = {
            user: user,
          }
-         this.sendPushNotification(obj1, user.app_Token, "Your " + service.service_type + " Has been Created!!")
+         this.sendPushNotification(obj1, user.app_Token, "Your " + service.service_type + " Has been Created, waiting for subscribe!!")
        }
 
 
@@ -129,7 +130,7 @@ class ServiceController {
          notiFor: user.id,
          type: "service",
          titile: "FastexPay",
-         descriptions: "Your " + service.service_type + "Has been Created!!",
+         descriptions: "Your " + service.service_type + "Has been Created, waiting for subscribe!!",
          trac: service.id,
        }
       await Notification.create(notiObject)

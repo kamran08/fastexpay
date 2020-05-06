@@ -57,4 +57,8 @@ Route.post('/app/updateNotificationById', 'OtherController.updateNotificationByI
 Route.post('/app/seenAllNotification', 'OtherController.seenAllNotification')
 
 
+http://fastexpay.appifylab.com/app/seenAllNotification
+
+
+
 
