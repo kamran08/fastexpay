@@ -298,6 +298,7 @@ class ServiceController {
 
       let avg = await Review.query().where('review_for', 4).select('review_for', Database.raw('(cast(AVG(rate) as decimal(10,2))) AS averageRating'),Database.raw('count(id) as total')).first()
       let totalVIew = await Service.query().where('seller_id', 1).select(Database.raw('(cast(sum(view) as decimal(10,2))) AS totalView')).first()
+      let subscribtions = await Service.query().where('seller_id', 1).orderBy('endTime', 'asc').fetch()
       let lists = await Database.raw(`
   			SELECT co1.id,
 				   co1.sender,
@@ -339,6 +340,7 @@ class ServiceController {
           'totalConversations': lists.length,
           'review': avg,
           'totalVIew': totalVIew,
+          'subscribtions': subscribtions,
         })
        return lists.length
       }
