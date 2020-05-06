@@ -66,7 +66,7 @@ class OtherController {
            })
          }
 
-        let notification = await Notification.where('notiFor', user.id).orderBy('id', 'desc').limit(10).fetch()
+        let notification = await Notification.query().where('notiFor', user.id).orderBy('id', 'desc').limit(10).fetch()
          return response.status(200).json({
            notification: notification,
            success: true,
@@ -84,8 +84,9 @@ class OtherController {
              success: false,
            })
          }
+        // user.id = 1
 
-        let notification = await Notification.where('notiFor', user.id).orderBy('id', 'desc').fetch()
+        let notification = await Notification.query().where('notiFor', user.id).orderBy('id', 'desc').fetch()
          return response.status(200).json({
            notification: notification,
            success: true,
@@ -105,7 +106,7 @@ class OtherController {
          }
          let data = request.all()
 
-        let notification = await Notification.where('notiFor', user.id).where('id',data.id).update(data)
+        let notification = await Notification.query().where('notiFor', user.id).where('id', data.id).update(data)
          return response.status(200).json({
            notification: notification,
            success: true,
@@ -125,7 +126,7 @@ class OtherController {
          }
          let data = request.all()
 
-        let notification = await Notification.where('notiFor', user.id).update({isseen:1})
+        let notification = await Notification.query().where('notiFor', user.id).update({isseen:1})
          return response.status(200).json({
            notification: notification,
            success: true,

@@ -50,8 +50,8 @@ Route.get('/app/getSubDivisions/:id', 'OtherController.getSubDivisions')
 
 // notification 
 
-Route.get('/app/getUserNotificationlimit', 'OtherController.getUserNotificationlimit')
 Route.get('/app/getUserNotification', 'OtherController.getUserNotification')
+Route.get('/app/getUserNotificationlimit', 'OtherController.getUserNotificationlimit')
 
 Route.post('/app/updateNotificationById', 'OtherController.updateNotificationById')
 Route.post('/app/seenAllNotification', 'OtherController.seenAllNotification')

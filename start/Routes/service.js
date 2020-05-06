@@ -45,4 +45,4 @@ Route.post('/app/giveReview', 'ServiceController.giveReview')
 Route.get('/app/dashboardData', 'ServiceController.getDashboardData')
 
 
-// fastexpay.appifylab.com / app / getAllServicesBySeller
+// fastexpay.appifylab.com/app/dashboardData
