@@ -241,7 +241,7 @@ class ServiceController {
           success: false,
         })
       }
-    let service = await Service.query().with('country').with('division').with('avgRating').with('images').with('subDivision').with('users').with('state').where('seller_id', user.id).first()
+    let service = await Service.query().with('country').with('division').with('avgRating').with('images').with('subDivision').with('users').with('state').where('seller_id', user.id).fetch()
     return response.status(200).json({
       'success': true,
       'servoce': service
