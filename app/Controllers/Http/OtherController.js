@@ -87,8 +87,10 @@ class OtherController {
          }
 
         let notification = await Notification.query().where('notiFor', user.id).orderBy('id', 'desc').fetch()
+        let cnt = await Notification.query().where('notiFor', user.id).where('isseen',0).count()
          return response.status(200).json({
            notification: notification,
+           totalUnseen: cnt,
            success: true,
          })
 
