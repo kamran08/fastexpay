@@ -105,8 +105,11 @@ class OtherController {
            })
          }
          let data = request.all()
+         let ob={
+           isseen: data.isseen
+         }
 
-        let notification = await Notification.query().where('notiFor', user.id).where('id', data.id).update(data)
+        let notification = await Notification.query().where('notiFor', user.id).where('id', data.id).update(ob)
          return response.status(200).json({
            notification: notification,
            success: true,
